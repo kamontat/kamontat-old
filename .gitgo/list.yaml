@@ -1,0 +1,32 @@
+version: 4
+commit:
+  keys:
+    - type: feat
+      value: Introducing new features.
+    - type: impr
+      value: Improving user experience / usability / reliablity.
+    - type: perf
+      value: A code change that improves performance.
+    - type: fix
+      value: Fixing a bug.
+    - type: chore
+      value: Other changes that don't modify src or test files.
+  scopes:
+    - type: core
+      value: Core program of website
+    - type: ui
+      value: User interface
+    - type: test
+      value: Relevant to unit test
+    - type: lint
+      value: Relevant to eslint
+    - type: dataset
+      value: Relevant to graphql/data
+    - type: script
+      value: helper script
+    - type: ci
+      value: CI/CD setup
+    - type: deps
+      value: Dependencies
+    - type: release
+      value: For release new packages

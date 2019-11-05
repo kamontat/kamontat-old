@@ -3,7 +3,7 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-// import Image from "../components/image";
+import Image from "../components/image";
 
 import styled from "styled-components";
 
@@ -29,6 +29,9 @@ const IndexPage = () => {
         </div>
         <div className={layout.column}>
           <Button>hello, world</Button>
+        </div>
+        <div className={layout.column}>
+          <Image />
         </div>
       </div>
     </Layout>

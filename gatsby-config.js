@@ -4,25 +4,29 @@ module.exports = {
     description: `This is my personal website`,
     author: `@kamontatc`,
   },
-  plugins: [
-    `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-material-ui`,
+  plugins: [{
+      resolve: `gatsby-plugin-sass`,
       options: {
-        pathToStylesProvider: "src/styles-provider-props"
+        cssLoaderOptions: {
+          localIdentName: '[sha512:hash:base64:2][sha256:hash:base32:2][md5:hash:hex:2]'
+        },
       },
-    },
-    `gatsby-plugin-react-helmet`,
-    {
+    }, {
+      resolve: `gatsby-plugin-react-helmet`,
+      options: {},
+    }, {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
+    }, {
+      resolve: `gatsby-transformer-sharp`,
+      options: {},
+    }, {
+      resolve: `gatsby-plugin-sharp`,
+      options: {},
+    }, {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `kamontat-portfolio`,
@@ -32,6 +36,13 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`,
+      },
+    }, {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+        "displayName": false,
+        "pure": true
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

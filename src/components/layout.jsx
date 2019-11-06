@@ -10,14 +10,7 @@ const Layout = ({ children }) => {
       <Helmet>
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
       </Helmet>
-      <div className={layout.container}>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.example.com">Heart</a>
-        </footer>
-      </div>
+      <div className={layout.container}>{children}</div>
     </React.Fragment>
   );
 };

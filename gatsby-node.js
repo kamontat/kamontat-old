@@ -3,5 +3,40 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+const path = require(`path`)
 
-// You can delete this file if you're not using it
+exports.createPages = async ({
+  graphql,
+  actions
+}) => {
+  const {
+    createPage
+  } = actions
+
+  const {
+    data
+  } = await graphql(`
+    query {
+      social: allContentfulSocial(filter: {node_locale: {eq: "en-US"}}) {
+        accounts: nodes {
+          name
+          url
+        }
+      }
+    }
+  `)
+
+  data.social.accounts.forEach(({
+    url,
+    name
+  }) => {
+    createPage({
+      matchPath: `/social/${name.toLowerCase()}`,
+      path: '/social',
+      component: path.resolve('./src/templates/social.jsx'),
+      context: {
+        social: url,
+      },
+    })
+  })
+}

@@ -1,39 +1,40 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 // import { Link } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Image from "../components/image";
 
 import styled from "styled-components";
 
-import layout from "../scss/bulma.module.scss";
-
-const Button = styled.button`
-  background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)";
-  border: 0;
-  borderradius: 3;
-  boxshadow: "0 3px 5px 2px rgba(255, 105, 135, .3)";
-  color: "white";
-  height: 48;
-  padding: "0 30px";
+const Center = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 `;
 
 const IndexPage = () => {
+  const { info } = useStaticQuery(
+    graphql`
+      query {
+        info: contentfulInformation {
+          name
+          definition
+        }
+      }
+    `,
+  );
+
   return (
     <Layout>
       <SEO />
-      <div className={layout.columns}>
-        <div className={layout.column}>
-          <Button>hello, world</Button>
-        </div>
-        <div className={layout.column}>
-          <Button>hello, world</Button>
-        </div>
-        <div className={layout.column}>
-          <Image />
-        </div>
-      </div>
+      <Center>
+        <h1>{info.name}</h1>
+        <h3>{info.definition}</h3>
+      </Center>
     </Layout>
   );
 };

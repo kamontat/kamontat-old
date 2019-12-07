@@ -1,9 +1,11 @@
+/* eslint-disable */
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-const path = require(`path`)
+const path = require(`path`);
 
 exports.createPages = async ({
   graphql,
@@ -11,20 +13,20 @@ exports.createPages = async ({
 }) => {
   const {
     createPage
-  } = actions
+  } = actions;
 
   const {
     data
   } = await graphql(`
     query {
-      social: allContentfulSocial(filter: {node_locale: {eq: "en-US"}}) {
+      social: allContentfulSocial(filter: { node_locale: { eq: "en-US" } }) {
         accounts: nodes {
           name
           url
         }
       }
     }
-  `)
+  `);
 
   data.social.accounts.forEach(({
     url,
@@ -32,11 +34,13 @@ exports.createPages = async ({
   }) => {
     createPage({
       matchPath: `/social/${name.toLowerCase()}`,
-      path: '/social',
-      component: path.resolve('./src/templates/social.jsx'),
+      path: "/social",
+      component: path.resolve("./src/templates/social.tsx"),
       context: {
         social: url,
       },
-    })
-  })
-}
+    });
+  });
+};
+
+/* eslint-enable */

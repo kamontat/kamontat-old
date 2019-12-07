@@ -16,7 +16,7 @@ const Center = styled.div`
   justify-content: center;
 `;
 
-const IndexPage = () => {
+const IndexPage = (): JSX.Element => {
   const { info } = useStaticQuery(
     graphql`
       query {
@@ -28,12 +28,19 @@ const IndexPage = () => {
     `,
   );
 
+  const test = (): void => {
+    console.log(window.Sentry);
+
+    window.Sentry.showReportDialog();
+  };
+
   return (
     <Layout>
       <SEO />
       <Center>
         <h1>{info.name}</h1>
         <h3>{info.definition}</h3>
+        <button onClick={test}>Break the world</button>
       </Center>
     </Layout>
   );

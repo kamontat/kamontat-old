@@ -1,0 +1,34 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Update cache
+        uses: actions/cache@v1.0.3
+        with:
+          # A directory to store and save the cache
+          path: node_modules/
+          # An explicit key for restoring and saving the cache
+          key: node-modules
+      - name: Setup Node 12
+        uses: actions/setup-node@v1.1.0
+        with:
+         node-version: 12.x
+      - name: Lint and test
+        run: |
+          yarn lint
+          yarn format
+          yarn build
+        env:
+          CI: true
+      - name: Download artifact
+        uses: actions/download-artifact@v1.0.0
+        with:
+          # Artifact name
+          name: public
+          path: public
+          source: public

@@ -16,7 +16,7 @@ const isDev = env.includes("dev");
 const isProd = env.includes("prod");
 const isStaging = env.includes("stag");
 
-const getenv = (name: string, defaultValue: string) => {
+const getenv = (name, defaultValue) => {
   const env = process.env[name]
   if (
     env === undefined || env === "" || env === null ||

@@ -9,7 +9,7 @@
     "build": "gatsby build",
     "dev": "gatsby develop",
     "start": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js",
     "serve": "gatsby serve",
     "test": "jest"

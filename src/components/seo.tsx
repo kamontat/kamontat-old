@@ -57,8 +57,16 @@ function SEO(props: SeoProps) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
-          name: `version`,
+          name: `app:name`,
+          content: site.siteMetadata.app.name,
+        } as MetaType,
+        {
+          name: `app:version`,
           content: site.siteMetadata.app.version,
+        } as MetaType,
+        {
+          name: `app:datetime`,
+          content: site.siteMetadata.buildTime,
         } as MetaType,
         {
           name: `description`,

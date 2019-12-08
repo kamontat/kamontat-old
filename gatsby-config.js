@@ -1,10 +1,20 @@
 /* eslint-disable */
 
 const pjson = require("./package.json");
+const datetime = +new Date()
 
 require("dotenv").config({
   path: `.env`,
 });
+
+// support prod, product, production
+//         stag, stage, staging
+//         dev, develop, developer, development
+const env = process.env.NODE_ENV
+
+const isDev = env.includes("dev")
+const isProd = env.includes("prod")
+const isStaging = env.includes("stag")
 
 module.exports = {
   siteMetadata: {
@@ -12,6 +22,8 @@ module.exports = {
     title: `Kamontat Chantrachirathumrong`,
     description: `This is my personal website`,
     app: pjson,
+    buildTime: datetime,
+    env
   },
   plugins: [{
       resolve: `gatsby-plugin-typescript`,
@@ -29,10 +41,12 @@ module.exports = {
       options: {
         dsn: process.env.SENTRY_DSN,
         // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
-        // New settings, https://docs.sentry.io/error-reporting/configuration/?platform=node
-        environment: process.env.NODE_ENV,
-        release: pjson.version,
-        enabled: (() => ["production", "stage", "staging"].indexOf(process.env.NODE_ENV) !== -1)(),
+        // New settings, https://docs.sentry.io/error-reporting/configuration/?platform=javascript
+        environment: env,
+        release: `v${pjson.version}-${datetime}`,
+        enabled: !isDev,
+        maxBreadcrumbs: 50,
+        debug: isDev,
       },
     },
     {

@@ -29,9 +29,8 @@ const IndexPage = (): JSX.Element => {
   );
 
   const test = (): void => {
-    console.log(window.Sentry);
-
-    window.Sentry.showReportDialog();
+    console.log(window.Sentry.getCurrentHub());
+    throw new Error("hello, world");
   };
 
   return (
@@ -41,6 +40,7 @@ const IndexPage = (): JSX.Element => {
         <h1>{info.name}</h1>
         <h3>{info.definition}</h3>
         <button onClick={test}>Break the world</button>
+        {/* <button onClick={test2}>Break the world 2</button> */}
       </Center>
     </Layout>
   );

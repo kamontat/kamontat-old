@@ -30,8 +30,10 @@ function SEO(props: SeoProps) {
             title
             description
             app {
+              name
               version
             }
+            buildTime
           }
         }
         twitter: contentfulSocial(name: { eq: "Twitter" }) {
@@ -59,6 +61,10 @@ function SEO(props: SeoProps) {
         {
           name: `app:name`,
           content: site.siteMetadata.app.name,
+        } as MetaType,
+        {
+          name: `app:description`,
+          content: metaDescription,
         } as MetaType,
         {
           name: `app:version`,

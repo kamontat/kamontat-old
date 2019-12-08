@@ -16,6 +16,15 @@ const isDev = env.includes("dev");
 const isProd = env.includes("prod");
 const isStaging = env.includes("stag");
 
+const getenv = (name: string, defaultValue: string) => {
+  const env = process.env[name]
+  if (
+    env === undefined || env === "" || env === null ||
+    env === "undefined" | env === "null"
+  ) return defaultValue
+  else return env
+}
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://net.kcnt.info`,
@@ -25,8 +34,7 @@ module.exports = {
     buildTime: datetime,
     env,
   },
-  plugins: [
-    {
+  plugins: [{
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true, // defaults to false
@@ -40,7 +48,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sentry",
       options: {
-        dsn: process.env.SENTRY_DSN,
+        dsn: getenv("SENTRY_DSN", "mock"),
         // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
         // New settings, https://docs.sentry.io/error-reporting/configuration/?platform=javascript
         environment: env,
@@ -74,7 +82,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GA_TRACKING_ID,
+        trackingId: getenv("GA_TRACKING_ID", "mock"),
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional

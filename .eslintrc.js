@@ -5,7 +5,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint"
+    "prettier/@typescript-eslint",
   ],
   plugins: ["react", "@typescript-eslint", "prettier"],
   parserOptions: {
@@ -23,11 +23,11 @@ module.exports = {
     node: true,
   },
   rules: {
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "@typescript-eslint/explicit-function-return-type": "off",
   },
   settings: {
     react: {
-      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+      version: "detect", // Tells eslint-plugin-react to automatically detect the version of React to use
     },
-  }
-}
+  },
+};

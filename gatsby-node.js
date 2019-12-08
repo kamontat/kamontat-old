@@ -7,17 +7,10 @@
  */
 const path = require(`path`);
 
-exports.createPages = async ({
-  graphql,
-  actions
-}) => {
-  const {
-    createPage
-  } = actions;
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
 
-  const {
-    data
-  } = await graphql(`
+  const { data } = await graphql(`
     query {
       social: allContentfulSocial(filter: { node_locale: { eq: "en-US" } }) {
         accounts: nodes {
@@ -28,10 +21,7 @@ exports.createPages = async ({
     }
   `);
 
-  data.social.accounts.forEach(({
-    url,
-    name
-  }) => {
+  data.social.accounts.forEach(({ url, name }) => {
     createPage({
       matchPath: `/social/${name.toLowerCase()}`,
       path: "/social",

@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 const pjson = require("./package.json");
-const datetime = +new Date()
+const datetime = +new Date();
 
 require("dotenv").config({
   path: `.env`,
@@ -10,11 +10,11 @@ require("dotenv").config({
 // support prod, product, production
 //         stag, stage, staging
 //         dev, develop, developer, development
-const env = process.env.NODE_ENV
+const env = process.env.NODE_ENV;
 
-const isDev = env.includes("dev")
-const isProd = env.includes("prod")
-const isStaging = env.includes("stag")
+const isDev = env.includes("dev");
+const isProd = env.includes("prod");
+const isStaging = env.includes("stag");
 
 module.exports = {
   siteMetadata: {
@@ -23,9 +23,10 @@ module.exports = {
     description: `This is my personal website`,
     app: pjson,
     buildTime: datetime,
-    env
+    env,
   },
-  plugins: [{
+  plugins: [
+    {
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true, // defaults to false

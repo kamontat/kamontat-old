@@ -8,4 +8,13 @@
 
 // You can delete this file if you're not using it
 
+// Adds a class name to the body element
+exports.onRenderBody = ({
+  setBodyAttributes
+}, pluginOptions) => {
+  setBodyAttributes({
+    className: "light-dark-mode",
+  })
+}
+
 /* eslint-enable */

@@ -7,15 +7,6 @@ require("dotenv").config({
   path: `.env`,
 });
 
-// support prod, product, production
-//         stag, stage, staging
-//         dev, develop, developer, development
-const env = process.env.NODE_ENV;
-
-const isDev = env.includes("dev");
-const isProd = env.includes("prod");
-const isStaging = env.includes("stag");
-
 const getenv = (name, defaultValue) => {
   const env = process.env[name]
   if (
@@ -24,6 +15,15 @@ const getenv = (name, defaultValue) => {
   ) return defaultValue
   else return env
 }
+
+// support prod, product, production
+//         stag, stage, staging
+//         dev, develop, developer, development
+const env = getenv("NODE_ENV", "development");
+
+const isDev = env.includes("dev");
+const isProd = env.includes("prod");
+const isStaging = env.includes("stag");
 
 module.exports = {
   siteMetadata: {

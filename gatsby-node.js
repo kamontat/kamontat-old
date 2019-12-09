@@ -52,8 +52,8 @@ exports.createPages = async ({
   })
 
   createPage({
-    matchPath: ``,
-    page: `/links/external/cloudinary`,
+    matchPath: `/links/external/cloudinary`,
+    path: `/links/external/cloudinary`,
     component: path.resolve("./src/templates/external.tsx"),
     context: {
       link: "https://cloudinary.com/console/media_library/folders"

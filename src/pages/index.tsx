@@ -21,6 +21,7 @@ const IndexPage = (): JSX.Element => {
     graphql`
       query {
         info: contentfulInformation {
+          locale: node_locale
           name
           definition
         }
@@ -35,7 +36,7 @@ const IndexPage = (): JSX.Element => {
 
   return (
     <Layout>
-      <SEO />
+      <SEO lang={info.locale} />
       <Center>
         <h1>{info.name}</h1>
         <h3>{info.definition}</h3>

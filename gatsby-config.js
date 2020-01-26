@@ -35,13 +35,6 @@ module.exports = {
     env,
   },
   plugins: [{
-      resolve: `gatsby-plugin-typescript`,
-      options: {
-        isTSX: true, // defaults to false
-        allExtensions: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-netlify`,
       options: {},
     },
@@ -147,7 +140,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {},
-    },
+    }, {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        allExtensions: true,
+      },
+    }
   ],
 };
 

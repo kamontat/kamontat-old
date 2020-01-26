@@ -75,6 +75,10 @@ function SEO(props: SeoProps) {
           content: site.siteMetadata.buildTime,
         } as MetaType,
         {
+          name: `app:datetime-formatted`,
+          content: new Date(site.siteMetadata.buildTime).toUTCString(),
+        } as MetaType,
+        {
           name: `description`,
           content: metaDescription,
         } as MetaType,

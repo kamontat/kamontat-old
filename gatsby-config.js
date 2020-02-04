@@ -59,7 +59,7 @@ module.exports = {
       resolve: `gatsby-plugin-sass`,
       options: {
         cssLoaderOptions: {
-          localIdentName: "[sha512:hash:base64:2][sha256:hash:base32:2][md5:hash:hex:2]",
+          localIdentName: isDev ? "[path][name]__[local]" : "[sha512:hash:base64:8]",
         },
       },
     },
@@ -133,7 +133,7 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
-        displayName: false,
+        displayName: isDev,
         pure: true,
       },
     },

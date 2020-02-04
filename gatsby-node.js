@@ -33,8 +33,8 @@ exports.createPages = async ({
     name
   }) => {
     createPage({
-      matchPath: `/links/social/${name.toLowerCase()}`,
-      path: "/links/social",
+      matchPath: `/go/${name.toLowerCase()}`,
+      path: "/go",
       component: path.resolve("./src/templates/external.tsx"),
       context: {
         link: url,
@@ -43,8 +43,8 @@ exports.createPages = async ({
   });
 
   createPage({
-    matchPath: `/links/external/contentful`,
-    path: "/links/external/contentful",
+    matchPath: `/go/cms`,
+    path: "/go",
     component: path.resolve("./src/templates/external.tsx"),
     context: {
       link: `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/home`
@@ -52,8 +52,8 @@ exports.createPages = async ({
   })
 
   createPage({
-    matchPath: `/links/external/cloudinary`,
-    path: `/links/external/cloudinary`,
+    matchPath: `/go/gallary`,
+    path: `/go`,
     component: path.resolve("./src/templates/external.tsx"),
     context: {
       link: "https://cloudinary.com/console/media_library/folders"

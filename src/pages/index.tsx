@@ -24,15 +24,21 @@ const IndexPage = (): JSX.Element => {
           locale: node_locale
           name
           definition
+          image {
+            public_id
+          }
         }
       }
     `,
   );
 
-  const test = (): void => {
-    console.log(window.Sentry.getCurrentHub());
-    throw new Error("hello, world");
-  };
+  // const image = cloudinary.url(info.image.public_id, {
+  //   width: 90,
+  //   height: 130,
+  //   type: "facebook",
+  //   crop: "fill",
+  //   gravity: "north_west",
+  // });
 
   return (
     <Layout>
@@ -40,8 +46,6 @@ const IndexPage = (): JSX.Element => {
       <Center>
         <h1>{info.name}</h1>
         <h3>{info.definition}</h3>
-        <button onClick={test}>Break the world</button>
-        {/* <button onClick={test2}>Break the world 2</button> */}
       </Center>
     </Layout>
   );

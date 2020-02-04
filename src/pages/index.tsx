@@ -1,11 +1,14 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-// import { Link } from "gatsby";
+import Img from "gatsby-image";
+
+import classNames from "classnames";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 import styled from "styled-components";
+import bulma from "../scss/bulma.module.scss";
 
 const Center = styled.div`
   display: flex;
@@ -16,6 +19,11 @@ const Center = styled.div`
   justify-content: center;
 `;
 
+const Image = styled(Img)`
+  height: 600px;
+  width: 400px;
+`;
+
 const IndexPage = (): JSX.Element => {
   const { info } = useStaticQuery(
     graphql`
@@ -24,28 +32,28 @@ const IndexPage = (): JSX.Element => {
           locale: node_locale
           name
           definition
-          image {
-            public_id
+          images {
+            contentful_id
+            title
+            description
+            fluid(maxHeight: 600) {
+              ...GatsbyContentfulFluid
+            }
           }
         }
       }
     `,
   );
 
-  // const image = cloudinary.url(info.image.public_id, {
-  //   width: 90,
-  //   height: 130,
-  //   type: "facebook",
-  //   crop: "fill",
-  //   gravity: "north_west",
-  // });
+  const firstImage = info.images[0];
 
   return (
     <Layout>
       <SEO lang={info.locale} />
       <Center>
-        <h1>{info.name}</h1>
-        <h3>{info.definition}</h3>
+        <Image title={firstImage?.title} alt={firstImage?.description} fluid={firstImage?.fluid} />
+        <h1 className={classNames(bulma.isSize3, bulma.isUppercase, bulma.hasTextWeightBold)}>{info.name}</h1>
+        <h3 className={classNames(bulma.isSize5, bulma.isUppercase)}>{info.definition}</h3>
       </Center>
     </Layout>
   );

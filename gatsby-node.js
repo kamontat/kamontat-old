@@ -34,7 +34,7 @@ exports.createPages = async ({
   }) => {
     createPage({
       matchPath: `/go/${name.toLowerCase()}`,
-      path: "/go",
+      path: "/go/s",
       component: path.resolve("./src/templates/external.tsx"),
       context: {
         link: url,
@@ -44,7 +44,7 @@ exports.createPages = async ({
 
   createPage({
     matchPath: `/go/cms`,
-    path: "/go",
+    path: "/go/cms",
     component: path.resolve("./src/templates/external.tsx"),
     context: {
       link: `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/home`
@@ -53,7 +53,7 @@ exports.createPages = async ({
 
   createPage({
     matchPath: `/go/gallary`,
-    path: `/go`,
+    path: `/go/gallary`,
     component: path.resolve("./src/templates/external.tsx"),
     context: {
       link: "https://cloudinary.com/console/media_library/folders"

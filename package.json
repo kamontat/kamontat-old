@@ -33,6 +33,7 @@
     "gatsby-plugin-styled-components": "3.1.19",
     "gatsby-source-contentful": "2.1.85",
     "gatsby-source-filesystem": "2.1.48",
+    "gatsby-transformer-cloudinary": "0.3.1",
     "gatsby-transformer-sharp": "2.3.14",
     "node-sass": "4.13.1",
     "prop-types": "15.7.2",
@@ -42,6 +43,7 @@
     "styled-components": "4.4.1"
   },
   "devDependencies": {
+    "@types/classnames": "2.2.9",
     "@types/jest": "24.0.23",
     "@types/node": "12.12.26",
     "@types/react": "16.9.19",
@@ -53,6 +55,7 @@
     "@typescript-eslint/parser": "2.18.0",
     "babel-jest": "24.9.0",
     "babel-preset-gatsby": "0.2.28",
+    "classnames": "2.2.6",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
     "eslint-config-react-app": "5.2.0",

@@ -19,13 +19,13 @@ commit:
     - type: test
       value: Relevant to unit test
     - type: lint
-      value: Relevant to eslint
-    - type: dataset
+      value: Relevant to code style and linter
+    - type: data
       value: Relevant to graphql/data
     - type: script
-      value: helper script
-    - type: ci
-      value: CI/CD setup
+      value: Helper script for development
+    - type: config
+      value: Configuration update
     - type: deps
       value: Dependencies
     - type: release

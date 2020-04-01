@@ -40,6 +40,8 @@ jobs:
       - run:
           name: Execute eslint
           command: yarn lint:ci
+      - store_test_results:
+          path: reports
 
 workflows:
   testing-and-checking-code-style:

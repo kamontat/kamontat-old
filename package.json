@@ -4,7 +4,7 @@
   "description": "this is my personal website",
   "version": "0.1.0",
   "author": "Kamontat Chantrachirathumrong <developer@kamontat.net>",
-  "license": "MIT",
+  "license": "BSD 3-Clause",
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",

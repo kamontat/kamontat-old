@@ -21,7 +21,12 @@ jobs:
           with-cache: true
       - run:
           name: Testing
-          command: yarn test
+          command: yarn test:ci
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: "reports/junit"
+      - store_test_results:
+          path: reports
+
   linting:
     docker:
       - image: cimg/node:<< pipeline.parameters.node-version >>
@@ -34,7 +39,7 @@ jobs:
           with-cache: true
       - run:
           name: Execute eslint
-          command: yarn lint
+          command: yarn lint:ci
 
 workflows:
   testing-and-checking-code-style:

@@ -12,7 +12,9 @@
     "serve": "gatsby serve",
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
+    "lint:ci": "eslint . --ignore-path .gitignore --ext .ts,.tsx --format junit --output-file reports/eslint/ts-lint-result.xml",
     "test": "jest",
+    "test:ci": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
     "clean": "rimraf .cache public",
     "clean:all": "rimraf .cache public node_modules yarn.lock"
   },
@@ -66,6 +68,7 @@
     "gatsby-plugin-typescript": "2.3.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "25.2.4",
+    "jest-junit": "10.0.0",
     "prettier": "2.0.2",
     "react-test-renderer": "16.13.1",
     "ts-jest": "25.3.0",

@@ -14,7 +14,7 @@ exports.onRenderBody = ({
 }, pluginOptions) => {
   setBodyAttributes({
     className: "light-dark-mode",
-  })
-}
+  });
+};
 
 /* eslint-enable */

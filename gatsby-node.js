@@ -47,18 +47,18 @@ exports.createPages = async ({
     path: "/go/cms",
     component: path.resolve("./src/templates/external.tsx"),
     context: {
-      link: `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/home`
-    }
-  })
+      link: `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/home`,
+    },
+  });
 
   createPage({
     matchPath: `/go/gallary`,
     path: `/go/gallary`,
     component: path.resolve("./src/templates/external.tsx"),
     context: {
-      link: "https://cloudinary.com/console/media_library/folders"
-    }
-  })
+      link: "https://cloudinary.com/console/media_library/folders",
+    },
+  });
 };
 
 /* eslint-enable */

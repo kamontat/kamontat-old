@@ -1,30 +1,30 @@
 /* eslint-disable */
 
-const pjson = require("./package.json")
-const datetime = +new Date()
+const pjson = require("./package.json");
+const datetime = +new Date();
 const {
   getenv,
   constants,
   appendPlugin,
   normalizeArray
-} = require("./gatsby-config-utils")
+} = require("./gatsby-config-utils");
 
 const result = require("dotenv").config({
   debug: true,
   path: getenv(constants.ENV_PATH),
-  encoding: getenv(constants.ENCODING)
-})
+  encoding: getenv(constants.ENCODING),
+});
 
-if (result.error) throw result.error
+if (result.error) throw result.error;
 
 // support prod, product, production
 //         stag, stage, staging
 //         dev, develop, developer, development
-const env = getenv(constants.NODE_ENV)
+const env = getenv(constants.NODE_ENV);
 
-const isDev = env.includes("dev")
-const isProd = env.includes("prod")
-const isStaging = env.includes("stag")
+const isDev = env.includes("dev");
+const isProd = env.includes("prod");
+const isStaging = env.includes("stag");
 
 const siteData = {
   siteUrl: getenv(constants.SITE_URL),
@@ -33,15 +33,15 @@ const siteData = {
   app: pjson,
   buildTime: datetime,
   env,
-}
+};
 
 const config = {
   siteMetadata: siteData,
-  plugins: []
-}
+  plugins: [],
+};
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-netlify
-appendPlugin(config, `gatsby-plugin-netlify`, {})
+appendPlugin(config, `gatsby-plugin-netlify`, {});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-sentry
 appendPlugin(config, `gatsby-plugin-sentry`, {
@@ -53,17 +53,17 @@ appendPlugin(config, `gatsby-plugin-sentry`, {
   enabled: !isDev,
   maxBreadcrumbs: 50,
   debug: isDev,
-})
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap
-appendPlugin(config, `gatsby-plugin-sitemap`, {})
+appendPlugin(config, `gatsby-plugin-sitemap`, {});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-sass
 appendPlugin(config, `gatsby-plugin-sass`, {
   cssLoaderOptions: {
     localIdentName: isDev ? "[path][name]__[local]" : "[sha512:hash:base64:8]",
-  }
-})
+  },
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-source-contentful
 appendPlugin(config, `gatsby-source-contentful`, {
@@ -71,7 +71,7 @@ appendPlugin(config, `gatsby-source-contentful`, {
   spaceId: getenv(constants.CONTENTFUL_SPACE_ID),
   accessToken: getenv(constants.CONTENTFUL_DELIVERY_ACCESS_TOKEN),
   downloadLocal: true,
-})
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-google-gtag/
 appendPlugin(config, `gatsby-plugin-google-gtag`, {
@@ -96,8 +96,8 @@ appendPlugin(config, `gatsby-plugin-google-gtag`, {
     respectDNT: true,
     // Avoids sending pageview hits from custom paths
     // exclude: ["/preview/**"],
-  }
-})
+  },
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-google-tagmanager/
 appendPlugin(config, `gatsby-plugin-google-tagmanager`, {
@@ -111,23 +111,23 @@ appendPlugin(config, `gatsby-plugin-google-tagmanager`, {
   // should be an object or a function that is executed in the browser
   // Defaults to null
   defaultDataLayer: {
-    platform: "gatsby"
+    platform: "gatsby",
   },
 
   // Specify optional GTM environment details.
   gtmAuth: getenv(constants.GTM_AUTH),
   gtmPreview: getenv(constants.GTM_PREVIEW),
   dataLayerName: getenv(constants.GTM_DATA_LAYER),
-})
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-react-helmet/
-appendPlugin(config, `gatsby-plugin-react-helmet`, {})
+appendPlugin(config, `gatsby-plugin-react-helmet`, {});
 
 // https://www.gatsbyjs.org/packages/gatsby-source-filesystem/
 appendPlugin(config, `gatsby-source-filesystem`, {
   name: `images`,
   path: `${__dirname}/src/images`,
-})
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-transformer-cloudinary/
 appendPlugin(config, `gatsby-transformer-cloudinary`, {
@@ -137,13 +137,13 @@ appendPlugin(config, `gatsby-transformer-cloudinary`, {
 
   // This folder will be created if it doesn’t exist.
   uploadFolder: getenv(constants.CLOUDINARY_FOLDER_NAME),
-})
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/
-appendPlugin(config, `gatsby-transformer-sharp`, {})
+appendPlugin(config, `gatsby-transformer-sharp`, {});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/
-appendPlugin(config, `gatsby-plugin-sharp`, {})
+appendPlugin(config, `gatsby-plugin-sharp`, {});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/
 appendPlugin(config, `gatsby-plugin-manifest`, {
@@ -154,23 +154,23 @@ appendPlugin(config, `gatsby-plugin-manifest`, {
   theme_color: getenv(constants.SITE_THEME_COLOR),
   display: getenv(constants.SITE_DISPLAY),
   icon: getenv(constants.SITE_ICON_PATH),
-})
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/
 appendPlugin(config, `gatsby-plugin-styled-components`, {
   // Add any options here
   displayName: isDev,
   pure: true,
-})
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-offline/
-appendPlugin(config, `gatsby-plugin-offline`, {})
+appendPlugin(config, `gatsby-plugin-offline`, {});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/
 appendPlugin(config, `gatsby-plugin-typescript`, {
   isTSX: true, // defaults to false
   allExtensions: true,
-})
+});
 
 /* eslint-enable */
 

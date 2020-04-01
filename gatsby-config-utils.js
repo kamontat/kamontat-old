@@ -20,6 +20,7 @@ const constants = {
   SITE_DISPLAY: _build("SITE_DISPLAY", "minimal-ui"),
   SITE_ICON_PATH: _build("SITE_ICON_PATH", "src/images/logo.png"),
 
+  ENV_EXIST: _build("ENV_EXIST", "false"),
   ENV_PATH: _build("ENV_PATH", ".env"),
   ENCODING: _build("ENCODING", "utf-8"),
 

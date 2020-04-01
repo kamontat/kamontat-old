@@ -15,7 +15,7 @@ const result = require("dotenv").config({
   encoding: getenv(constants.ENCODING),
 });
 
-if (result.error) throw result.error;
+if (result.error && getenv(constants.ENV_EXIST) === "false") throw result.error;
 
 // support prod, product, production
 //         stag, stage, staging

@@ -1,14 +1,26 @@
-const _build = (key, defaults) => {
-  if (defaults === undefined) defaults = "";
+interface BuilderProps {
+  key: string;
+  defaults: string;
+}
 
-  // console.debug(`[debug] build object = {key: ${key}, defaults: ${defaults}}`);
+interface Json {
+  // eslint-disable-next-line
+  [name: string]: any;
+}
+
+interface GatsbyConfig extends Json {
+  // eslint-disable-next-line
+  plugins: Array<any>;
+}
+
+const _build = (key: string, defaults = ""): BuilderProps => {
   return {
     key: key,
     defaults: defaults,
   };
 };
 
-const constants = {
+export const constants = {
   NODE_ENV: _build("NODE_ENV", "development"),
 
   SITE_URL: _build("SITE_URL"),
@@ -47,13 +59,11 @@ const constants = {
   DC_FLOODIGHT_ID: _build("DC_FLOODIGHT_ID"),
 };
 
-const getenv = (name, defaultValue) => {
+export const getenv = (name: BuilderProps | string, defaultValue = ""): string => {
   if (typeof name === "object") return getenv(name.key, name.defaults);
 
-  if (!defaultValue) defaultValue = ""; // default value for default value
-
   const env = process.env[name];
-  if (env === undefined || env === "" || env === null || (env === "undefined") | (env === "null")) {
+  if (env === undefined || env === "" || env === null || env === "undefined" || env === "null") {
     console.debug(`[debug] loading ${name}: default(${defaultValue})`);
     return defaultValue;
   } else {
@@ -62,7 +72,7 @@ const getenv = (name, defaultValue) => {
   }
 };
 
-const appendPlugin = (config, name, options) => {
+export const appendPlugin = (config: GatsbyConfig, name: string, options: Json) => {
   if (!config.plugins) config.plugins = [];
 
   console.debug(`[debug] add ${name} to plugins list`);
@@ -73,15 +83,6 @@ const appendPlugin = (config, name, options) => {
   });
 };
 
-const normalizeArray = (...arr) => {
-  return arr.filter(v => v === "" || v === undefined);
+export const normalizeArray = (...arr: Array<string | undefined>) => {
+  return arr.filter((v) => v === "" || v === undefined);
 };
-
-const functions = {
-  getenv,
-  constants,
-  appendPlugin,
-  normalizeArray,
-};
-
-module.exports = functions;

@@ -14,7 +14,7 @@ jobs:
       - image: cimg/node:<< pipeline.parameters.node-version >>
     steps:
       - checkout
-      - install-packages:
+      - node/install-packages:
           cache-version: v1
           cache-key: yarn.lock
           pkg-manager: yarn
@@ -27,7 +27,7 @@ jobs:
       - image: cimg/node:<< pipeline.parameters.node-version >>
     steps:
       - checkout
-      - install-packages:
+      - node/install-packages:
           cache-version: v1
           cache-key: yarn.lock
           pkg-manager: yarn

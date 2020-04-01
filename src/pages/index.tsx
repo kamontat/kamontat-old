@@ -9,7 +9,6 @@ import SEO from "../components/seo";
 
 import styled from "styled-components";
 import bulma from "../scss/bulma.module.scss";
-import { DefaultProps } from "../typescript/properties";
 
 const Center = styled.div`
   display: flex;
@@ -25,10 +24,10 @@ const Image = styled(Img)`
   width: 400px;
 `;
 
-const IndexPage = (props: DefaultProps): JSX.Element => {
+const IndexPage = (): JSX.Element => {
   const { info } = useStaticQuery(
     graphql`
-      query {
+      query PersonalQuery {
         info: contentfulInformation {
           locale: node_locale
           name

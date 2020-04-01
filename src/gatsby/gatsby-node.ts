@@ -33,7 +33,7 @@ exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
     data.social.accounts.forEach(({ url, name }) => {
       createPage({
         matchPath: `/go/${name.toLowerCase()}`,
-        path: "/go/s",
+        path: `/go/${name.toLowerCase()}`,
         component: path.resolve("./src/templates/external.tsx"),
         context: {
           link: url,

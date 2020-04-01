@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 import pjson from "../../package.json";
-import { getenv, constants, appendPlugin, normalizeArray } from "./utils";
+import { getenv, constants, appendPlugin, normalizeArray, getenvs } from "./utils";
 
 const datetime = +new Date();
 
@@ -28,7 +28,7 @@ const siteData = {
   description: getenv(constants.SITE_DESCRIPTION),
   app: pjson,
   buildTime: datetime,
-  env,
+  environment: getenvs(),
 };
 
 const config = {
@@ -44,11 +44,11 @@ appendPlugin(config, `gatsby-plugin-sentry`, {
   dsn: getenv(constants.SENTRY_DSN),
   // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
   // New settings, https://docs.sentry.io/error-reporting/configuration/?platform=javascript
-  environment: env,
-  release: `v${pjson.version}-${datetime}`,
-  enabled: !isDev,
-  maxBreadcrumbs: 50,
+  enabled: true,
   debug: isDev,
+  environment: "production",
+  release: `${pjson.name}@v${pjson.version}-${datetime}`,
+  maxBreadcrumbs: 50,
 });
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap

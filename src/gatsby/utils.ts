@@ -31,6 +31,8 @@ export const constants = {
   SITE_THEME_COLOR: _build("SITE_THEME_COLOR", "#663399"),
   SITE_DISPLAY: _build("SITE_DISPLAY", "minimal-ui"),
   SITE_ICON_PATH: _build("SITE_ICON_PATH", "src/images/logo.png"),
+  SITE_UNIQUE_ID: _build("BUILD_ID", `${+new Date()}`),
+  SITE_EXPERIMENT_AB: _build("BRANCH", `master`),
 
   ENV_EXIST: _build("ENV_EXIST", "false"),
   ENV_PATH: _build("ENV_PATH", ".env"),
@@ -59,6 +61,8 @@ export const constants = {
   DC_FLOODIGHT_ID: _build("DC_FLOODIGHT_ID"),
 };
 
+type ConstantKeys = keyof typeof constants;
+
 export const getenv = (name: BuilderProps | string, defaultValue = ""): string => {
   if (typeof name === "object") return getenv(name.key, name.defaults);
 
@@ -70,6 +74,15 @@ export const getenv = (name: BuilderProps | string, defaultValue = ""): string =
     console.debug(`[debug] loading ${name}: value(${env})`);
     return env;
   }
+};
+
+export const getenvs = (): Json => {
+  return Object.keys(constants).reduce((p, c) => {
+    const prop = constants[c as ConstantKeys];
+
+    p[prop.key] = getenv(prop);
+    return p;
+  }, {} as Json);
 };
 
 export const appendPlugin = (config: GatsbyConfig, name: string, options: Json) => {

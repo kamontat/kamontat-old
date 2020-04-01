@@ -19,6 +19,7 @@ jobs:
           cache-key: yarn.lock
           pkg-manager: yarn
           with-cache: true
+          include-branch-in-cache-key: false
       - run:
           name: Testing
           command: yarn test:ci
@@ -37,6 +38,7 @@ jobs:
           cache-key: yarn.lock
           pkg-manager: yarn
           with-cache: true
+          include-branch-in-cache-key: false
       - run:
           name: Execute eslint
           command: yarn lint:ci

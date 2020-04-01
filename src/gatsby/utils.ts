@@ -20,6 +20,24 @@ const _build = (key: string, defaults = ""): BuilderProps => {
   };
 };
 
+/**
+ *
+ * @param str
+ * @param enable
+ * @param limitFrontPercent how many percent to show on front
+ * @param limitBackPercent how many percent to show on back
+ */
+const _mask = (str: string, enable: boolean, limitFrontPercent = 30, limitBackPercent = 15) => {
+  if (!enable) return str;
+
+  const limitFront = parseInt((str.length * (limitFrontPercent / 100)).toFixed(0));
+  const limitBack = parseInt((str.length * (limitBackPercent / 100)).toFixed(0));
+
+  const preview = str.substr(0, limitFront);
+  const endPreview = str.substring(str.length - limitBack, str.length);
+  return preview.padEnd(str.length - limitBack, "*").concat(endPreview);
+};
+
 export const constants = {
   NODE_ENV: _build("NODE_ENV", "development"),
 
@@ -63,15 +81,15 @@ export const constants = {
 
 type ConstantKeys = keyof typeof constants;
 
-export const getenv = (name: BuilderProps | string, defaultValue = ""): string => {
+export const getenv = (name: BuilderProps | string, defaultValue = "", mask = true): string => {
   if (typeof name === "object") return getenv(name.key, name.defaults);
 
   const env = process.env[name];
   if (env === undefined || env === "" || env === null || env === "undefined" || env === "null") {
-    console.debug(`[debug] loading ${name}: default(${defaultValue})`);
+    console.debug(`[debug] loading ${name}: default(${_mask(defaultValue, mask)})`);
     return defaultValue;
   } else {
-    console.debug(`[debug] loading ${name}: value(${env})`);
+    console.debug(`[debug] loading ${name}: value(${_mask(env, mask)})`);
     return env;
   }
 };

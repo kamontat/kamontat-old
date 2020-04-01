@@ -21,6 +21,97 @@ interface SeoProps extends DefaultProps {
   meta: MetaType[];
 }
 
+interface PureSeoProps extends SeoProps {
+  site: {
+    siteMetadata: {
+      title: string;
+      description: string;
+      app: {
+        name: string;
+        version: string;
+      };
+      buildTime: string;
+    };
+  };
+  twitter: {
+    username: string;
+  };
+  github: {
+    username: string;
+    url: string;
+  };
+}
+
+export const PureSEO = (result: { data: PureSeoProps }) => (
+  <Helmet
+    htmlAttributes={{
+      lang: result.data.lang,
+    }}
+    title={result.data.title}
+    defaultTitle={result.data.site.siteMetadata.title}
+    titleTemplate={`%s | ${result.data.site.siteMetadata.title}`}
+    meta={[
+      {
+        name: `app:name`,
+        content: result.data.site.siteMetadata.app.name,
+      } as MetaType,
+      {
+        name: `app:description`,
+        content: result.data.description || result.data.site.siteMetadata.description,
+      } as MetaType,
+      {
+        name: `app:version`,
+        content: result.data.site.siteMetadata.app.version,
+      } as MetaType,
+      {
+        name: `app:datetime`,
+        content: result.data.site.siteMetadata.buildTime,
+      } as MetaType,
+      {
+        name: `app:datetime-formatted`,
+        content: new Date(result.data.site.siteMetadata.buildTime).toUTCString(),
+      } as MetaType,
+      {
+        name: `description`,
+        content: result.data.description || result.data.site.siteMetadata.description,
+      } as MetaType,
+      {
+        property: `gh:account`,
+        content: result.data.github.username,
+        link: result.data.github.url,
+      } as MetaType,
+      {
+        property: `og:title`,
+        content: result.data.title,
+      } as MetaType,
+      {
+        property: `og:description`,
+        content: result.data.description || result.data.site.siteMetadata.description,
+      } as MetaType,
+      {
+        property: `og:type`,
+        content: `website`,
+      } as MetaType,
+      {
+        name: `twitter:card`,
+        content: `summary`,
+      } as MetaType,
+      {
+        name: `twitter:creator`,
+        content: `@${result.data.twitter.username}`,
+      } as MetaType,
+      {
+        name: `twitter:title`,
+        content: result.data.title,
+      } as MetaType,
+      {
+        name: `twitter:description`,
+        content: result.data.description || result.data.site.siteMetadata.description,
+      } as MetaType,
+    ].concat(result.data.meta)}
+  />
+);
+
 function SEO(props: SeoProps) {
   const { site, twitter, github } = useStaticQuery(
     graphql`
@@ -47,77 +138,8 @@ function SEO(props: SeoProps) {
     `,
   );
 
-  const metaDescription = props.description || site.siteMetadata.description;
-
-  return (
-    <Helmet
-      htmlAttributes={{
-        lang: props.lang,
-      }}
-      title={props.title}
-      defaultTitle={site.siteMetadata.title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `app:name`,
-          content: site.siteMetadata.app.name,
-        } as MetaType,
-        {
-          name: `app:description`,
-          content: metaDescription,
-        } as MetaType,
-        {
-          name: `app:version`,
-          content: site.siteMetadata.app.version,
-        } as MetaType,
-        {
-          name: `app:datetime`,
-          content: site.siteMetadata.buildTime,
-        } as MetaType,
-        {
-          name: `app:datetime-formatted`,
-          content: new Date(site.siteMetadata.buildTime).toUTCString(),
-        } as MetaType,
-        {
-          name: `description`,
-          content: metaDescription,
-        } as MetaType,
-        {
-          property: `gh:account`,
-          content: github.username,
-          link: github.url,
-        } as MetaType,
-        {
-          property: `og:title`,
-          content: props.title,
-        } as MetaType,
-        {
-          property: `og:description`,
-          content: metaDescription,
-        } as MetaType,
-        {
-          property: `og:type`,
-          content: `website`,
-        } as MetaType,
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        } as MetaType,
-        {
-          name: `twitter:creator`,
-          content: `@${twitter.username}`,
-        } as MetaType,
-        {
-          name: `twitter:title`,
-          content: props.title,
-        } as MetaType,
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        } as MetaType,
-      ].concat(props.meta)}
-    />
-  );
+  const data = { site, twitter, github, ...props };
+  return <PureSEO data={data} />;
 }
 
 SEO.defaultProps = {

@@ -16,5 +16,5 @@
     ":prHourlyLimit2",
     ":prImmediately"
   ],
-  "labels": ["Bot: Renovate", "Status: In Review", "Type: Dependency"]
+  "labels": ["Bot: Renovate", "Status: Review Ready", "Type: Dependency"]
 }

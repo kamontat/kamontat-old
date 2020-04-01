@@ -16,6 +16,8 @@ commit:
       value: Core program of website
     - type: ui
       value: User interface
+    - type: docs
+      value: Documentation
     - type: test
       value: Relevant to unit test
     - type: lint

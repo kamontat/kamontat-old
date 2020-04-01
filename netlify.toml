@@ -19,7 +19,7 @@
 [build.environment]
   NODE_ENV = "development"
   NODE_VERSION = "12"
-  YARN_VERSION = "1.21"
+  YARN_VERSION = "1.21.1"
   YARN_FLAGS = "--ignore-optional"
 
 # A basic redirect rule

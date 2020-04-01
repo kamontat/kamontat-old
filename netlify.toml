@@ -16,19 +16,11 @@
   # Directory with the serverless Lambda functions to deploy to AWS.
   # functions = "project/functions/"
 
-# Production context: all deploys from the Production branch set in your site's
-# deploy contexts will inherit these settings.
-[context.production.environment]
+[build.environment]
+  NODE_ENV = "development"
   NODE_VERSION = "12"
-
-# Deploy Preview context: all deploys generated from a pull/merge request will
-[context.deploy-preview.environment]
-  NODE_VERSION = "12"
-
-# Branch Deploy context: all deploys that are not from a pull/merge request or
-# from the Production branch will inherit these settings.
-[context.branch-deploy.environment]
-  NODE_VERSION = "12"
+  YARN_VERSION = "1.21"
+  YARN_FLAGS = "--ignore-optional"
 
 # A basic redirect rule
 # [[redirects]]

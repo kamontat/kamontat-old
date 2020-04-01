@@ -9,6 +9,7 @@ import SEO from "../components/seo";
 
 import styled from "styled-components";
 import bulma from "../scss/bulma.module.scss";
+import { DefaultProps } from "../typescript/properties";
 
 const Center = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ const Image = styled(Img)`
   width: 400px;
 `;
 
-const IndexPage = (): JSX.Element => {
+const IndexPage = (props: DefaultProps): JSX.Element => {
   const { info } = useStaticQuery(
     graphql`
       query {
@@ -36,8 +37,17 @@ const IndexPage = (): JSX.Element => {
             contentful_id
             title
             description
-            fluid(maxHeight: 600) {
-              ...GatsbyContentfulFluid
+            localFile {
+              cloudinary: childCloudinaryAsset {
+                fluid {
+                  ...CloudinaryAssetFluid
+                }
+              }
+              sharp: childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }
@@ -51,7 +61,7 @@ const IndexPage = (): JSX.Element => {
     <Layout>
       <SEO lang={info.locale} />
       <Center>
-        <Image title={firstImage?.title} alt={firstImage?.description} fluid={firstImage?.fluid} />
+        <Image title={firstImage?.title} alt={firstImage?.description} fluid={firstImage?.localFile.cloudinary.fluid} />
         <h1 className={classNames(bulma.isSize3, bulma.isUppercase, bulma.hasTextWeightBold)}>{info.name}</h1>
         <h3 className={classNames(bulma.isSize5, bulma.isUppercase)}>{info.definition}</h3>
       </Center>

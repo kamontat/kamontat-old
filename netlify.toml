@@ -79,3 +79,6 @@
 
   [headers.values]
     X-Kamontat-Name = "kamontat"
+
+[[plugins]]
+package = "netlify-plugin-gatsby-cache"

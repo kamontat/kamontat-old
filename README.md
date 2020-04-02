@@ -24,14 +24,14 @@
     <img src="https://img.shields.io/circleci/build/github/kamontat/kamontat/master?label=circleci&logo=circleci&style=flat-square" alt="unittest status" />
   </a>
 
-  <a href="">
-    <img src="" alt="" />
+  <a href="https://codecov.io/gh/kamontat/kamontat">
+    <img src="https://img.shields.io/codecov/c/github/kamontat/kamontat?logo=codecov&logoColor=white&style=flat-square" alt="coverage status" />
   </a>
 </p>
 
 <!-- External section -->
 <h3 align="center">
-  <a href="https://google.com">Google</a>
+  <a href="https://kamontat.net">Website</a>
   <span> · </span>
   <a href="https://google.com">Google</a>
   <span> · </span>

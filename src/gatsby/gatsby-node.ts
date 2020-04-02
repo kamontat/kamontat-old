@@ -49,13 +49,4 @@ exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
       link: `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/home`,
     },
   });
-
-  createPage({
-    matchPath: `/go/gallary`,
-    path: `/go/gallary`,
-    component: path.resolve("./src/templates/external.tsx"),
-    context: {
-      link: "https://cloudinary.com/console/media_library/folders",
-    },
-  });
 };

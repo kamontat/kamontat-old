@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 import pjson from "../../package.json";
-import { getenv, constants, appendPlugin, normalizeArray, getenvs } from "./utils";
+import { getenv, constants, appendPlugin, getenvs } from "./utils";
 
 const datetime = +new Date();
 
@@ -69,39 +69,13 @@ appendPlugin(config, `gatsby-source-contentful`, {
   downloadLocal: true,
 });
 
-// https://www.gatsbyjs.org/packages/gatsby-plugin-google-gtag/
-appendPlugin(config, `gatsby-plugin-google-gtag`, {
-  // You can add multiple tracking ids and a pageview event will be fired for all of them.
-  trackingIds: normalizeArray(
-    getenv(constants.GA_TRACKING_ID), // Google Analytics / GA
-    getenv(constants.AW_CONVERSION_ID), // Google Ads / Adwords / AW
-    getenv(constants.DC_FLOODIGHT_ID), // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
-  ),
-  // This object gets passed directly to the gtag config command
-  // This config will be shared across all trackingIds
-  gtagConfig: {
-    optimize_id: getenv(constants.GA_OPTIMIZE_ID),
-    anonymize_ip: true,
-    cookie_expires: 0,
-  },
-  // This object is used for configuration specific to this plugin
-  pluginConfig: {
-    // Puts tracking script in the head instead of the body
-    head: false,
-    // Setting this parameter is also optional
-    respectDNT: true,
-    // Avoids sending pageview hits from custom paths
-    // exclude: ["/preview/**"],
-  },
-});
-
 // https://www.gatsbyjs.org/packages/gatsby-plugin-google-tagmanager/
 appendPlugin(config, `gatsby-plugin-google-tagmanager`, {
   id: getenv(constants.GTM_TRACKING_ID),
 
   // Include GTM in development.
   // Defaults to false meaning GTM will only be loaded in production.
-  includeInDevelopment: false,
+  includeInDevelopment: true,
 
   // datalayer to be set before GTM is loaded
   // should be an object or a function that is executed in the browser
@@ -123,16 +97,6 @@ appendPlugin(config, `gatsby-plugin-react-helmet`, {});
 appendPlugin(config, `gatsby-source-filesystem`, {
   name: `images`,
   path: `src/images`,
-});
-
-// https://www.gatsbyjs.org/packages/gatsby-transformer-cloudinary/
-appendPlugin(config, `gatsby-transformer-cloudinary`, {
-  cloudName: getenv(constants.CLOUDINARY_CLOUD_NAME),
-  apiKey: getenv(constants.CLOUDINARY_API_KEY),
-  apiSecret: getenv(constants.CLOUDINARY_API_SECRET),
-
-  // This folder will be created if it doesn’t exist.
-  uploadFolder: getenv(constants.CLOUDINARY_FOLDER_NAME),
 });
 
 // https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/

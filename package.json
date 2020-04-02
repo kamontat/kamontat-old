@@ -1,9 +1,13 @@
 {
   "name": "kamontat",
   "private": true,
-  "description": "this is my personal website",
+  "description": "personal website for kamontat",
   "version": "0.1.0-alpha.1",
-  "author": "Kamontat Chantrachirathumrong <developer@kamontat.net>",
+  "author": {
+    "name": "Kamontat Chantrachirathumrong",
+    "email": "developer@kamontat.net",
+    "url": "https://github.com/kamontat"
+  },
   "license": "BSD 3-Clause",
   "scripts": {
     "build": "gatsby build",

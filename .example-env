@@ -15,4 +15,7 @@ SITE_DESCRIPTION=
 SITE_BACKGROUND_COLOR=
 SITE_THEME_COLOR=
 
+# access token should be at least 20 characters
 ACCESS_TOKEN=
+# access salt should be at most 4 characters
+ACCESS_SALT=

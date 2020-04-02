@@ -40,7 +40,9 @@ const _mask = (str: string, enable: boolean, limitFrontPercent = 30, limitBackPe
 
 export const constants = {
   NODE_ENV: _build("NODE_ENV", "development"),
-  ACCESS_TOKEN: _build("ACCESS_TOKEN", "mocking"),
+
+  ACCESS_TOKEN: _build("ACCESS_TOKEN", "12345678900987654321"),
+  ACCESS_SALT: _build("ACCESS_SALT", "abcd"),
 
   SITE_URL: _build("SITE_URL"),
   SITE_TITLE: _build("SITE_TITLE"),

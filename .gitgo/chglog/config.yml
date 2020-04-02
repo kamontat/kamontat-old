@@ -2,7 +2,7 @@ style: github
 template: CHANGELOG.tpl.md
 info:
   title: CHANGELOG
-  repository_url: https://github.com/kamontat/port
+  repository_url: https://github.com/kamontat/kamontat
 options:
   commits:
     filters:
@@ -11,14 +11,14 @@ options:
         - impr
         - perf
         - fix
-        - doc
+        - chore
   commit_groups:
     title_maps:
-      feat: Feature
-      impr: Website improvement
-      perf: Performance improvement
-      doc: Documentation
-      fix: Bug destroyer
+      feat: 1. Feature
+      impr: 2. Improvement
+      perf: 3. Performance
+      fix: 4. Fixes Bug
+      chore: 5. Technical
   header:
     pattern: "^(\\w*)(?:\\(([\\w\\$\\.\\-\\*\\s]*)\\))?\\:\\s(.*)$"
     pattern_maps:

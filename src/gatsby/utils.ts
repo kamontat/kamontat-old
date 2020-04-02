@@ -40,6 +40,7 @@ const _mask = (str: string, enable: boolean, limitFrontPercent = 30, limitBackPe
 
 export const constants = {
   NODE_ENV: _build("NODE_ENV", "development"),
+  ACCESS_TOKEN: _build("ACCESS_TOKEN", "mocking"),
 
   SITE_URL: _build("SITE_URL"),
   SITE_TITLE: _build("SITE_TITLE"),
@@ -81,8 +82,6 @@ export const getenv = (name: BuilderProps | string, option?: Option): string => 
     if (option) option.defaults = name.defaults;
     return getenv(name.key, option);
   }
-
-  console.debug(`[debug] loading ${name} with ${JSON.stringify(option)}`);
 
   const defaultValue = "";
   const defaultRequire = false;

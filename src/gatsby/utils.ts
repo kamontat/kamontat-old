@@ -87,7 +87,7 @@ export const getenv = (name: BuilderProps | string, option?: Option): string => 
 
   const defaultValue = "";
   const defaultRequire = false;
-  const defaultMask = true;
+  const defaultMask = false;
 
   if (!option) option = { defaults: defaultValue, mask: defaultMask, require: defaultRequire };
 

@@ -24,7 +24,7 @@
 ## Relate services
 
 1. CMS: [Contentful](https://www.contentful.com/)
-2. Image: [Cloudinary](https://cloudinary.com/)
-3. Host: [Netlify](https://www.netlify.com/)
-4. Error monitor: [Sentry](https://sentry.io/)
-5. Analytics: [Google Analytics](https://analytics.google.com/)
+2. Host: [Netlify](https://www.netlify.com/)
+3. Error monitor: [Sentry](https://sentry.io/)
+4. Analytics: [Google Analytics](https://analytics.google.com/)
+5. Google Tag Manager

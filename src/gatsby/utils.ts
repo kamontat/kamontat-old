@@ -28,7 +28,7 @@ const _build = (key: string, defaults = ""): BuilderProps => {
  * @param limitBackPercent how many percent to show on back
  */
 const _mask = (str: string, enable: boolean, limitFrontPercent = 30, limitBackPercent = 15) => {
-  if (!enable) return str;
+  if (enable === false) return str;
 
   const limitFront = parseInt((str.length * (limitFrontPercent / 100)).toFixed(0));
   const limitBack = parseInt((str.length * (limitBackPercent / 100)).toFixed(0));
@@ -61,35 +61,45 @@ export const constants = {
   CONTENTFUL_SPACE_ID: _build("CONTENTFUL_SPACE_ID"),
   CONTENTFUL_DELIVERY_ACCESS_TOKEN: _build("CONTENTFUL_DELIVERY_ACCESS_TOKEN"),
 
-  CLOUDINARY_CLOUD_NAME: _build("CLOUDINARY_CLOUD_NAME"),
-  CLOUDINARY_API_KEY: _build("CLOUDINARY_API_KEY"),
-  CLOUDINARY_API_SECRET: _build("CLOUDINARY_API_SECRET"),
-  CLOUDINARY_FOLDER_NAME: _build("CLOUDINARY_FOLDER_NAME", "portfolio"),
-
-  GA_TRACKING_ID: _build("GA_TRACKING_ID"),
-  GA_OPTIMIZE_ID: _build("GA_OPTIMIZE_ID"),
-
   GTM_TRACKING_ID: _build("GTM_TRACKING_ID"),
   GTM_AUTH: _build("GTM_AUTH"),
   GTM_PREVIEW: _build("GTM_PREVIEW"),
   GTM_DATA_LAYER: _build("GTM_DATA_LAYER"),
-
-  AW_CONVERSION_ID: _build("AW_CONVERSION_ID"),
-
-  DC_FLOODIGHT_ID: _build("DC_FLOODIGHT_ID"),
 };
 
 type ConstantKeys = keyof typeof constants;
 
-export const getenv = (name: BuilderProps | string, defaultValue = "", mask = true): string => {
-  if (typeof name === "object") return getenv(name.key, name.defaults);
+interface Option {
+  defaults?: string;
+  mask?: boolean;
+  require?: boolean;
+}
+
+export const getenv = (name: BuilderProps | string, option?: Option): string => {
+  if (typeof name === "object") {
+    if (!option) option = {};
+    if (option) option.defaults = name.defaults;
+    return getenv(name.key, option);
+  }
+
+  console.debug(`[debug] loading ${name} with ${JSON.stringify(option)}`);
+
+  const defaultValue = "";
+  const defaultRequire = false;
+  const defaultMask = true;
+
+  if (!option) option = { defaults: defaultValue, mask: defaultMask, require: defaultRequire };
 
   const env = process.env[name];
   if (env === undefined || env === "" || env === null || env === "undefined" || env === "null") {
-    console.debug(`[debug] loading ${name}: default(${_mask(defaultValue, mask)})`);
-    return defaultValue;
+    // if (option.require === true) throw new Error(`${name} is a require data`);
+
+    console.debug(
+      `[debug] loading ${name}: default(${_mask(option.defaults || defaultValue, option.mask || defaultMask)})`,
+    );
+    return option.defaults || defaultValue;
   } else {
-    console.debug(`[debug] loading ${name}: value(${_mask(env, mask)})`);
+    console.debug(`[debug] loading ${name}: value(${_mask(env, option.mask || defaultMask)})`);
     return env;
   }
 };

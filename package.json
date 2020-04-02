@@ -14,8 +14,8 @@
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
     "lint:ci": "eslint . --ignore-path .gitignore --ext .ts,.tsx --format junit --output-file reports/eslint/ts-lint-result.xml",
     "test": "jest",
-    "test:ci": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
-    "clean": "rimraf .cache public",
+    "test:ci": "jest --ci --coverage --runInBand --reporters=default --reporters=jest-junit",
+    "clean": "rimraf .cache public reports coverage junit.xml",
     "clean:all": "rimraf .cache public node_modules yarn.lock"
   },
   "dependencies": {

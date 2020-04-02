@@ -1,4 +1,5 @@
 module.exports = {
+  verbose: true,
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },
@@ -15,5 +16,21 @@ module.exports = {
   },
   testURL: "http://localhost",
   setupFiles: ["<rootDir>/test/loadershim.js"],
-  reporters: ["default", "jest-junit"],
+  collectCoverageFrom: [
+    "!**/node_modules/**",
+    "!src/gatsby/**/*.ts",
+    "src/components/**/*.{ts,tsx}",
+    "src/pages/**/*.{ts,tsx}",
+    "src/templates/**/*.{ts,tsx}",
+    "src/typescript/**/*.{ts,tsx}",
+  ],
+  coverageReporters: ["json", "lcov", "text"],
+  coverageThreshold: {
+    global: {
+      branches: 10,
+      functions: 10,
+      lines: 10,
+      statements: 10,
+    },
+  },
 };

@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@2.0.1
+  codecov: codecov/codecov@1.0.5
 
 parameters:
   node-version:
@@ -25,8 +26,16 @@ jobs:
           command: yarn test:ci
           environment:
             JEST_JUNIT_OUTPUT_DIR: "reports/junit"
+      - codecov/upload:
+          conf: .codecov.yml
+          flags: unittest
       - store_test_results:
+          name: Collect junit reports
           path: reports
+      - store_artifacts:
+          name: Collect coverage reports
+          path: coverage/lcov-report
+          destination: coverage
 
   linting:
     docker:

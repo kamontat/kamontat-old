@@ -44,8 +44,8 @@ appendPlugin(config, `gatsby-plugin-sentry`, {
   dsn: getenv(constants.SENTRY_DSN),
   // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
   // New settings, https://docs.sentry.io/error-reporting/configuration/?platform=javascript
-  enabled: true,
-  debug: isDev,
+  enabled: !isDev,
+  debug: false,
   environment: "production",
   release: `${pjson.name}@v${pjson.version}-${datetime}`,
   maxBreadcrumbs: 50,

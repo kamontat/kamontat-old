@@ -7,7 +7,7 @@ const datetime = +new Date();
 
 const result = require("dotenv").config({
   debug: true,
-  path: getenv(constants.ENV_PATH),
+  path: getenv(constants.ENV_PATH, { mask: true, require: true }),
   encoding: getenv(constants.ENCODING),
 });
 
@@ -16,16 +16,16 @@ if (result.error && getenv(constants.ENV_EXIST) === "false") throw result.error;
 // support prod, product, production
 //         stag, stage, staging
 //         dev, develop, developer, development
-const env = getenv(constants.NODE_ENV);
+const env = getenv(constants.NODE_ENV, { require: true, mask: true });
 
 const isDev = env.includes("dev");
 // const isProd = env.includes("prod");
 // const isStaging = env.includes("stag");
 
 const siteData = {
-  siteUrl: getenv(constants.SITE_URL),
-  title: getenv(constants.SITE_TITLE),
-  description: getenv(constants.SITE_DESCRIPTION),
+  siteUrl: getenv(constants.SITE_URL, { require: true, mask: true }),
+  title: getenv(constants.SITE_TITLE, { require: true, mask: true }),
+  description: getenv(constants.SITE_DESCRIPTION, { require: true, mask: true }),
   app: pjson,
   buildTime: datetime,
   environment: getenvs(),
@@ -41,7 +41,7 @@ appendPlugin(config, `gatsby-plugin-netlify`, {});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-sentry
 appendPlugin(config, `gatsby-plugin-sentry`, {
-  dsn: getenv(constants.SENTRY_DSN),
+  dsn: getenv(constants.SENTRY_DSN, { require: true, mask: true }),
   // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
   // New settings, https://docs.sentry.io/error-reporting/configuration/?platform=javascript
   enabled: !isDev,
@@ -64,14 +64,14 @@ appendPlugin(config, `gatsby-plugin-sass`, {
 // https://www.gatsbyjs.org/packages/gatsby-source-contentful
 appendPlugin(config, `gatsby-source-contentful`, {
   // host: `preview.contentful.com`,
-  spaceId: getenv(constants.CONTENTFUL_SPACE_ID),
-  accessToken: getenv(constants.CONTENTFUL_DELIVERY_ACCESS_TOKEN),
+  spaceId: getenv(constants.CONTENTFUL_SPACE_ID, { require: true, mask: true }),
+  accessToken: getenv(constants.CONTENTFUL_DELIVERY_ACCESS_TOKEN, { require: true, mask: true }),
   downloadLocal: true,
 });
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-google-tagmanager/
 appendPlugin(config, `gatsby-plugin-google-tagmanager`, {
-  id: getenv(constants.GTM_TRACKING_ID),
+  id: getenv(constants.GTM_TRACKING_ID, { require: true, mask: true }),
 
   // Include GTM in development.
   // Defaults to false meaning GTM will only be loaded in production.
@@ -85,8 +85,8 @@ appendPlugin(config, `gatsby-plugin-google-tagmanager`, {
   },
 
   // Specify optional GTM environment details.
-  gtmAuth: getenv(constants.GTM_AUTH),
-  gtmPreview: getenv(constants.GTM_PREVIEW),
+  gtmAuth: getenv(constants.GTM_AUTH, { mask: true }),
+  gtmPreview: getenv(constants.GTM_PREVIEW, { mask: true }),
   dataLayerName: getenv(constants.GTM_DATA_LAYER),
 });
 
@@ -109,11 +109,11 @@ appendPlugin(config, `gatsby-plugin-sharp`, {});
 appendPlugin(config, `gatsby-plugin-manifest`, {
   name: pjson.name,
   short_name: pjson.name,
-  start_url: getenv(constants.SITE_START_URL),
-  background_color: getenv(constants.SITE_BACKGROUND_COLOR),
-  theme_color: getenv(constants.SITE_THEME_COLOR),
-  display: getenv(constants.SITE_DISPLAY),
-  icon: getenv(constants.SITE_ICON_PATH),
+  start_url: getenv(constants.SITE_START_URL, { require: true }),
+  background_color: getenv(constants.SITE_BACKGROUND_COLOR, { require: true }),
+  theme_color: getenv(constants.SITE_THEME_COLOR, { require: true }),
+  display: getenv(constants.SITE_DISPLAY, { require: true }),
+  icon: getenv(constants.SITE_ICON_PATH, { require: true }),
 });
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/

@@ -1,4 +1,42 @@
-# Personal website
+<!-- Title section -->
+<h1 align="center">
+  Personal website (kamontat)
+
+  <img src="https://simpleicons.org/icons/gatsby.svg" width="24px">
+  <img src="https://simpleicons.org/icons/typescript.svg" width="24px">
+  <img src="https://simpleicons.org/icons/bulma.svg" width="24px">
+  <img src="https://simpleicons.org/icons/jest.svg" width="24px">
+</h1>
+
+<!-- Description section -->
+<p align="center">
+  <strong>Personal website include projects show case, blog, and information. Supported by CMS platform and data analytics</strong>
+</p>
+
+<!-- CI/CD section -->
+<p align="center">
+  
+  <a href="https://app.netlify.com/sites/kamontat/deploys">
+    <img src="https://img.shields.io/netlify/1a3194ab-0c6d-4bae-887f-caf7e1be6dea?logo=netlify&style=flat-square" alt="deployment status" />
+  </a>
+
+  <a href="https://app.circleci.com/pipelines/github/kamontat/kamontat">
+    <img src="https://img.shields.io/circleci/build/github/kamontat/kamontat/master?label=circleci&logo=circleci&style=flat-square" alt="unittest status" />
+  </a>
+
+  <a href="">
+    <img src="" alt="" />
+  </a>
+</p>
+
+<!-- External section -->
+<h3 align="center">
+  <a href="https://google.com">Google</a>
+  <span> · </span>
+  <a href="https://google.com">Google</a>
+  <span> · </span>
+  <a href="https://google.com">Google</a>
+</h3>
 
 ## Project stack
 

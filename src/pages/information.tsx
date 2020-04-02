@@ -43,10 +43,6 @@ const InformationPage = (): JSX.Element => {
               ACCESS_SALT
             }
           }
-          port
-          id
-          host
-          pathPrefix
         }
       }
     `,
@@ -71,10 +67,6 @@ const InformationPage = (): JSX.Element => {
     { key: "Application author", value: site.siteMetadata.app.author.name },
     { key: "Application license", value: site.siteMetadata.app.license },
     { key: "Application repository", value: site.siteMetadata.app.repository.url },
-    {
-      key: site.id,
-      value: `${site.host}:${site.port}${site.pathPrefix}`,
-    },
   ];
 
   return (

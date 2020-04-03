@@ -66,3 +66,9 @@
 3. Error monitor: [Sentry](https://sentry.io/)
 4. Analytics: [Google Analytics](https://analytics.google.com/)
 5. Google Tag Manager
+
+## Know issues
+
+### 1. Warning on test about `Please update the following components: SideEffect(NullComponent)`
+
+This is cause by react-helmet which resolve on version 6 that currently is beta

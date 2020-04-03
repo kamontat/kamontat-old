@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
-import { DefaultProps } from "../typescript/src/models/properties";
+import { DefaultProps } from "../typescript/ui/models/properties";
 
 interface RedirectProps extends DefaultProps {
   url: string;

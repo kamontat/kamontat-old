@@ -1,7 +1,7 @@
 import React from "react";
 import ExtRedirect from "../components/redirect";
 
-import { DefaultProps } from "../typescript/src/models/properties";
+import { DefaultProps } from "../typescript/ui/models/properties";
 
 type ExternalLinkProp = DefaultProps<{
   link: string;

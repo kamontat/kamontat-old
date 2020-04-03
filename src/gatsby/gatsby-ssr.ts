@@ -10,6 +10,6 @@ import { ReplaceRendererArgs } from "gatsby";
 // Adds a class name to the body element
 exports.onRenderBody = ({ setBodyAttributes }: ReplaceRendererArgs) => {
   setBodyAttributes({
-    className: "light-dark-mode",
+    key: "contentful",
   });
 };

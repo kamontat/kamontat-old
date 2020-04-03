@@ -12,10 +12,16 @@ commit:
     - type: chore
       value: Other changes that don't modify src or test files.
   scopes:
-    - type: core
-      value: Core program of website
+    - type: components
+      value: React components
+    - type: pages
+      value: full HTML Pages
+    - type: templates
+      value: React templates
     - type: ui
-      value: User interface
+      value: User interface and CSS/SCSS/SASS related
+    - type: core
+      value: Core programming (usually locate on typescript)
     - type: docs
       value: Documentation
     - type: test

@@ -37,7 +37,11 @@ const config = {
 };
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-netlify
-appendPlugin(config, `gatsby-plugin-netlify`, {});
+appendPlugin(config, `gatsby-plugin-netlify`, {
+  headers: {
+    "/*": [`X-Application-Name: ${pjson.name}`],
+  },
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-sentry
 appendPlugin(config, `gatsby-plugin-sentry`, {
@@ -67,27 +71,6 @@ appendPlugin(config, `gatsby-source-contentful`, {
   spaceId: getenv(constants.CONTENTFUL_SPACE_ID, { require: true, mask: true }),
   accessToken: getenv(constants.CONTENTFUL_DELIVERY_ACCESS_TOKEN, { require: true, mask: true }),
   downloadLocal: true,
-});
-
-// https://www.gatsbyjs.org/packages/gatsby-plugin-google-tagmanager/
-appendPlugin(config, `gatsby-plugin-google-tagmanager`, {
-  id: getenv(constants.GTM_TRACKING_ID, { require: true, mask: true }),
-
-  // Include GTM in development.
-  // Defaults to false meaning GTM will only be loaded in production.
-  includeInDevelopment: true,
-
-  // datalayer to be set before GTM is loaded
-  // should be an object or a function that is executed in the browser
-  // Defaults to null
-  defaultDataLayer: {
-    platform: "gatsby",
-  },
-
-  // Specify optional GTM environment details.
-  gtmAuth: getenv(constants.GTM_AUTH, { mask: true }),
-  gtmPreview: getenv(constants.GTM_PREVIEW, { mask: true }),
-  dataLayerName: getenv(constants.GTM_DATA_LAYER),
 });
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-react-helmet/
@@ -130,6 +113,22 @@ appendPlugin(config, `gatsby-plugin-offline`, {});
 appendPlugin(config, `gatsby-plugin-typescript`, {
   isTSX: true, // defaults to false
   allExtensions: true,
+});
+
+// https://www.gatsbyjs.org/packages/gatsby-plugin-gdpr-cookies/
+appendPlugin(config, `gatsby-plugin-gdpr-cookies`, {
+  googleTagManager: {
+    trackingId: getenv(constants.GTM_TRACKING_ID, { require: true, mask: true }),
+    cookieName: "is-analytics-enabled",
+    defaultDataLayer: {
+      platform: getenv(constants.GTM_DATA_LAYER),
+    },
+    dataLayerName: getenv(constants.GTM_DATA_LAYER),
+    gtmAuth: getenv(constants.GTM_AUTH, { mask: true }),
+    gtmPreview: getenv(constants.GTM_PREVIEW, { mask: true }),
+  },
+  // defines the environments where the tracking should be available  - default is ["production"]
+  environments: ["production", "development"],
 });
 
 module.exports = config;

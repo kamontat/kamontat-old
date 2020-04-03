@@ -1,3 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header renders correctly 1`] = `null`;
+exports[`Seo component render correctly: SEO component 1`] = `
+Object {
+  "baseTag": Array [],
+  "bodyAttributes": Object {},
+  "defer": true,
+  "encode": true,
+  "htmlAttributes": Object {
+    "lang": "en",
+  },
+  "linkTags": Array [],
+  "metaTags": Array [
+    Object {
+      "content": "hello",
+      "name": "app:name",
+    },
+    Object {
+      "content": "Description",
+      "name": "app:description",
+    },
+    Object {
+      "content": "v1.0.0",
+      "name": "app:version",
+    },
+    Object {
+      "content": "123456",
+      "name": "app:datetime",
+    },
+    Object {
+      "content": "Mon, 31 Dec 123455 17:00:00 GMT",
+      "name": "app:datetime-formatted",
+    },
+    Object {
+      "content": "Description",
+      "name": "description",
+    },
+    Object {
+      "content": "ghname",
+      "link": "https://gh.com",
+      "property": "gh:account",
+    },
+    Object {
+      "content": "First title",
+      "property": "og:title",
+    },
+    Object {
+      "content": "Description",
+      "property": "og:description",
+    },
+    Object {
+      "content": "website",
+      "property": "og:type",
+    },
+    Object {
+      "content": "summary",
+      "name": "twitter:card",
+    },
+    Object {
+      "content": "@name",
+      "name": "twitter:creator",
+    },
+    Object {
+      "content": "First title",
+      "name": "twitter:title",
+    },
+    Object {
+      "content": "Description",
+      "name": "twitter:description",
+    },
+  ],
+  "noscriptTags": Array [],
+  "onChangeClientState": [Function],
+  "scriptTags": Array [],
+  "styleTags": Array [],
+  "title": "First title | Second title",
+  "titleAttributes": Object {},
+}
+`;

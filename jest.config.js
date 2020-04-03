@@ -15,7 +15,8 @@ module.exports = {
     __PATH_PREFIX__: "",
   },
   testURL: "http://localhost",
-  setupFiles: ["<rootDir>/test/loadershim.js"],
+  setupFiles: ["<rootDir>/test/jest-setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/test/jest-setup-each.js"],
   collectCoverageFrom: [
     "!**/node_modules/**",
     "!src/gatsby/**/*.ts",
@@ -27,10 +28,10 @@ module.exports = {
   coverageReporters: ["json", "lcov", "text"],
   coverageThreshold: {
     global: {
-      branches: 10,
-      functions: 10,
-      lines: 10,
-      statements: 10,
+      branches: 30,
+      functions: 30,
+      lines: 30,
+      statements: 30,
     },
   },
 };

@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-import { DefaultProps } from "../typescript/properties";
+import { DefaultProps } from "../typescript/src/models/properties";
 
 type MetaType = JSX.IntrinsicElements["meta"];
 

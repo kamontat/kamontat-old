@@ -1,13 +1,13 @@
 import React from "react";
-import { createCipheriv } from "crypto";
 import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 import classNames from "classnames";
-
 import bulma from "../scss/bulma.module.scss";
+
+import { encrypter } from "../typescript/src/utils/transformer";
 
 // Step to decrypt data
 // 1. const crypto = require("crypto")
@@ -51,8 +51,7 @@ const InformationPage = (): JSX.Element => {
   const token = site.siteMetadata.environment.ACCESS_TOKEN;
   const salt = site.siteMetadata.environment.ACCESS_SALT;
 
-  const cipher = createCipheriv("aes-256-cbc", token, salt);
-  const experiment = cipher.update(site.siteMetadata.environment.BRANCH, "utf8", "hex") + cipher.final("hex");
+  const experiment = encrypter(site.siteMetadata.environment.BRANCH, token, salt);
 
   const keyvalues = [
     { key: "Application Environment", value: site.siteMetadata.environment.NODE_ENV },

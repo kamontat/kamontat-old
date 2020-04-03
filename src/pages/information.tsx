@@ -5,16 +5,9 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 import classNames from "classnames";
-import bulma from "../scss/bulma.module.scss";
+// import bulma from "../scss/bulma.module.scss";
 
 import { encrypter } from "../typescript/src/utils/transformer";
-
-// Step to decrypt data
-// 1. const crypto = require("crypto")
-// 2. const decipher = crypto.createDecipheriv('aes-256-cbc', ACCESS_TOKEN, ACCESS_SALT);
-// 3. let decrypted = decipher.update(Buffer.from(DATA, 'hex'));
-// 4. decrypted = Buffer.concat([decrypted, decipher.final()]);
-// 5. decrypted.toString();
 
 const InformationPage = (): JSX.Element => {
   const { site } = useStaticQuery(
@@ -71,17 +64,17 @@ const InformationPage = (): JSX.Element => {
   return (
     <Layout>
       <SEO title="Information" lang="en" />
-      <section className={bulma.section}>
-        <div className={bulma.container}>
-          <h1 className={bulma.title}>Information</h1>
+      <section className={"bulma.section"}>
+        <div className={"bulma.container"}>
+          <h1 className={"bulma.title"}>Information</h1>
           {keyvalues.map(({ key, value }) => (
-            <div key={key} className={bulma.columns}>
-              <div className={classNames(bulma.column, bulma.is1)}></div>
-              <div className={classNames(bulma.column, bulma.is2)}>
-                <span className={bulma.hasTextWeightBold}>{key}</span>
+            <div key={key} className={"bulma.columns"}>
+              <div className={classNames("bulma.column", "bulma.is1")}></div>
+              <div className={classNames("bulma.column", "bulma.is2")}>
+                <span className={"bulma.hasTextWeightBold"}>{key}</span>
               </div>
-              <div className={classNames(bulma.column)}>{value}</div>
-              <div className={classNames(bulma.column, bulma.is3)}></div>
+              <div className={classNames("bulma.column")}>{value}</div>
+              <div className={classNames("bulma.column", "bulma.is3")}></div>
             </div>
           ))}
         </div>

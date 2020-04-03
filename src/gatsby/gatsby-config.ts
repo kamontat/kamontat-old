@@ -58,13 +58,6 @@ appendPlugin(config, `gatsby-plugin-sentry`, {
 // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap
 appendPlugin(config, `gatsby-plugin-sitemap`, {});
 
-// https://www.gatsbyjs.org/packages/gatsby-plugin-sass
-appendPlugin(config, `gatsby-plugin-sass`, {
-  cssLoaderOptions: {
-    localIdentName: isDev ? "[path][name]__[local]" : "[sha512:hash:base64:8]",
-  },
-});
-
 // https://www.gatsbyjs.org/packages/gatsby-source-contentful
 appendPlugin(config, `gatsby-source-contentful`, {
   // host: `preview.contentful.com`,

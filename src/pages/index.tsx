@@ -8,7 +8,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 import styled from "styled-components";
-import bulma from "../scss/bulma.module.scss";
+// import bulma from "../scss/bulma.module.scss";
 
 const Center = styled.div`
   display: flex;
@@ -56,8 +56,8 @@ const IndexPage = (): JSX.Element => {
       <SEO lang={info.locale} />
       <Center>
         <Image title={firstImage?.title} alt={firstImage?.description} fluid={firstImage?.localFile.sharp.fluid} />
-        <h1 className={classNames(bulma.isSize3, bulma.isUppercase, bulma.hasTextWeightBold)}>{info.name}</h1>
-        <h3 className={classNames(bulma.isSize5, bulma.isUppercase)}>{info.definition}</h3>
+        <h1 className={classNames("bulma.isSize3", "bulma.isUppercase", "bulma.hasTextWeightBold")}>{info.name}</h1>
+        <h3 className={classNames("bulma.isSize5", "bulma.isUppercase")}>{info.definition}</h3>
       </Center>
     </Layout>
   );

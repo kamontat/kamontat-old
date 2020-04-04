@@ -61,14 +61,16 @@ workflows:
       - testing
       - linting
       - cypress/install:
+          yarn: true
+          cache-key: 'v1-dependencies-{{ checksum "yarn.lock" }}'
           build: yarn build --verbose
       - cypress/run:
           requires:
             - cypress/install
           start: yarn serve
           wait-on: "http://localhost:9000"
-          yarn: true
           record: true
+          yarn: true
           cache-key: 'v1-dependencies-{{ checksum "yarn.lock" }}'
           store_artifacts: true
           browser: chrome

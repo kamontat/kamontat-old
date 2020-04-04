@@ -16,7 +16,8 @@ module.exports = {
   },
   testURL: "http://localhost",
   setupFiles: ["<rootDir>/test/jest-setup.js"],
-  setupFilesAfterEnv: ["<rootDir>/test/jest-setup-each.js"],
+  setupFilesAfterEnv: ["<rootDir>/test/jest-setup-each.js", "jest-extended", "jest-chain"],
+  snapshotSerializers: ["enzyme-to-json/serializer"],
   collectCoverageFrom: [
     "!**/node_modules/**",
     "!src/gatsby/**/*.ts",

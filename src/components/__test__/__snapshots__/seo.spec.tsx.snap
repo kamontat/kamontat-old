@@ -24,11 +24,11 @@ Object {
       "name": "app:version",
     },
     Object {
-      "content": "123456",
+      "content": "1586018684444",
       "name": "app:datetime",
     },
     Object {
-      "content": "Mon, 31 Dec 123455 17:00:00 GMT",
+      "content": "Invalid Date",
       "name": "app:datetime-formatted",
     },
     Object {

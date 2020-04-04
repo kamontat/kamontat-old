@@ -18,7 +18,7 @@ describe("Seo component", () => {
           name: "hello",
           version: "v1.0.0",
         },
-        buildTime: "123456",
+        buildTime: "1586018684444",
       },
     },
     twitter: {

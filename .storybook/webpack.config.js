@@ -16,8 +16,6 @@ module.exports = ({
     // use babel-plugin-remove-graphql-queries to remove static queries from components when rendering in storybook
     require.resolve("babel-plugin-remove-graphql-queries"),
   ]
-  // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
-  config.resolve.mainFields = ["browser", "module", "main"]
 
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
@@ -37,7 +35,11 @@ module.exports = ({
     },
   });
 
+  // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
+  config.resolve.mainFields = ["browser", "module", "main"]
+
   config.resolve.extensions.push('.ts', '.tsx');
+  config.output.publicPath = process.env.CI ? '/storybook/' : "/"
 
   return config
 }

@@ -12,10 +12,16 @@
 
 export filename="$(basename "${BASH_SOURCE[0]}")"
 
+set_option() {
+  echo "$@"
+}
+
 execute_command() {
   export NODE_ENV=production
 
-  yarn build-storybook --static-dir public --output-dir public/storybook "$@"
+  yarn build-storybook \
+    --static-dir public \
+    --output-dir static "$@"
 }
 
 start_command "$@"

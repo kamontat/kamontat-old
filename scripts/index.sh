@@ -57,41 +57,39 @@ failured() {
 
 debug() {
   if (("$level" > 3)); then
-    printf '{"level": "%s", "message": "%s", "source": "%s", "timestamp": "%s"}' "DEBUG" "$*" "$filename" "$(date +"%s")"
+    printf '{"level": "%s", "message": "%s", "source": "%s", "timestamp": "%s"}\n' "DEBUG" "$*" "$filename" "$(date +"%s")"
   fi
 }
 
 info() {
   if (("$level" > 2)); then
-    printf '{"level": "%s", "message": "%s", "source": "%s", "timestamp": "%s"}' "INFO" "$*" "$filename" "$(date +"%s")"
+    printf '{"level": "%s", "message": "%s", "source": "%s", "timestamp": "%s"}\n' "INFO" "$*" "$filename" "$(date +"%s")"
   fi
 }
 
 warn() {
   if (("$level" > 1)); then
-    printf '{"level": "%s", "message": "%s", "source": "%s", "timestamp": "%s"}' "ERROR" "$*" "$filename" "$(date +"%s")" >&2
+    printf '{"level": "%s", "message": "%s", "source": "%s", "timestamp": "%s"}\n' "ERROR" "$*" "$filename" "$(date +"%s")" >&2
   fi
 }
 
 error() {
   if (("$level" > 0)); then
-    printf '{"level": "%s", "message": "%s", "source": "%s", "timestamp": "%s"}' "ERROR" "$*" "$filename" "$(date +"%s")"
+    printf '{"level": "%s", "message": "%s", "source": "%s", "timestamp": "%s"}\n' "ERROR" "$*" "$filename" "$(date +"%s")"
   fi
 }
 
-set_option() {
-  export OPTIONS=("$@")
-}
-
 start_command() {
+  debug "starting command"
+  debug "before transform option: '$*' (size=$#)"
   set_option "$@"
+  debug "after transform option: '${OPTIONS[*]}' (size=${#OPTIONS[@]})"
 
   if execute_command "${OPTIONS[@]}" | to_log_file; then
     completed
   else
     failured
   fi
-
 }
 
 # Custom code
@@ -100,13 +98,21 @@ command="$1"
 subcommand="$2"
 shift 2
 arguments=("$@")
+debug "received command='${command}', subcommand='${subcommand}', arguments='${arguments[*]}'"
 
-test -n "$subcommand" && subcommand="-$subcommand"
-filepath="${PWD}/scripts/commands/${command}${subcommand}"
+filepath="${PWD}/scripts/commands"
 
-if test -f "$filepath"; then
+debug "looking command from $filepath path"
+if test -f "${filepath}/${command}"; then
+  debug "root command execution file is exist at ${filepath}/${command}"
+
   # shellcheck disable=SC1090
-  source "$filepath" "${arguments[@]}"
+  source "${filepath}/${command}" "$subcommand" "${arguments[@]}"
+elif test -f "${filepath}/${command}-${subcommand}"; then
+  debug "subcommand execution file is exist at ${filepath}/${command}-${subcommand}"
+
+  # shellcheck disable=SC1090
+  source "${filepath}/${command}-${subcommand}" "${arguments[@]}"
 else
   error "could not found command '$command', subcommand '$subcommand'"
   exit 2

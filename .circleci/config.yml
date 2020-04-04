@@ -56,11 +56,16 @@ jobs:
           path: reports
 
 workflows:
-  testing-and-checking-code-style:
+  checking-code-style:
+    jobs:
+      - linting
+
+  testing:
     jobs:
       - testing
-      - linting
       - cypress/install:
+          requires:
+            - testing
           yarn: true
           cache-key: 'v1-dependencies-{{ checksum "yarn.lock" }}'
           build: yarn build --verbose

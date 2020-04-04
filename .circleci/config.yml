@@ -68,7 +68,7 @@ workflows:
             - testing
           yarn: true
           cache-key: 'v1-dependencies-{{ checksum "yarn.lock" }}'
-          build: yarn build --verbose
+          build: yarn build:website
       - cypress/run:
           requires:
             - cypress/install

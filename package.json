@@ -10,7 +10,9 @@
   },
   "license": "BSD 3-Clause",
   "scripts": {
-    "build": "gatsby build",
+    "build:website": "gatsby build",
+    "build:storybook": "NODE_ENV=production build-storybook --static-dir public --output-dir public/storybook",
+    "build": "yarn build:website && yarn build:storybook",
     "dev": "gatsby develop",
     "start": "gatsby develop",
     "serve": "gatsby serve",
@@ -19,10 +21,10 @@
     "lint:ci": "eslint . --ignore-path .gitignore --ext .ts,.tsx --format junit --output-file reports/eslint/ts-lint-result.xml",
     "test": "jest",
     "test:ci": "jest --ci --coverage --runInBand --reporters=default --reporters=jest-junit",
+    "test:smoke:ci": "NODE_ENV=production start-storybook --static-dir public --ci --smoke-test",
     "clean": "rimraf .cache public reports coverage junit.xml",
     "clean:all": "rimraf .cache public node_modules yarn.lock",
-    "storybook": "NODE_ENV=production start-storybook -s public -p 8001",
-    "build-storybook": "NODE_ENV=production build-storybook -s public"
+    "storybook": "NODE_ENV=production start-storybook --static-dir public --port 8001"
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.10.7",

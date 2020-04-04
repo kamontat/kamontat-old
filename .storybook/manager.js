@@ -7,7 +7,7 @@ const {
 
 const theme = create({
   base: 'dark',
-  brandTitle: 'Kamontat',
+  brandTitle: 'Kamontat Storybook',
 });
 
 addons.setConfig({

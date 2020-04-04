@@ -4,7 +4,7 @@ const enzyme = require("enzyme");
 const Adapter = require("enzyme-adapter-react-16");
 
 // https://github.com/styled-components/jest-styled-components#global-installation
-import "jest-styled-components";
+require("jest-styled-components");
 
 // https://www.npmjs.com/package/enzyme-to-json
 enzyme.configure({

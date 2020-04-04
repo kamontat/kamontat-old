@@ -38,21 +38,6 @@ jobs:
           path: coverage/lcov-report
           destination: coverage
 
-  smoking-test:
-    docker:
-      - image: cimg/node:<< pipeline.parameters.node-version >>
-    steps:
-      - checkout
-      - node/install-packages:
-          cache-version: v1
-          cache-key: yarn.lock
-          pkg-manager: yarn
-          with-cache: true
-          include-branch-in-cache-key: false
-      - run:
-          name: Testing
-          command: yarn test:smoke:ci
-
   linting:
     docker:
       - image: cimg/node:<< pipeline.parameters.node-version >>
@@ -75,7 +60,6 @@ workflows:
     jobs:
       - testing
       - linting
-      - smoking-test
       - cypress/install:
           build: yarn build --verbose
       - cypress/run:

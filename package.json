@@ -28,16 +28,17 @@
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
     "test": "jest",
-    "test:e2e": "start-test start http://localhost:8000 cy:open",
+    "test:e2e": "start-test serve http://localhost:9000 cy:open",
     "lint:ci": "eslint . --ignore-path .gitignore --ext .ts,.tsx --format junit --output-file reports/eslint/ts-lint-result.xml",
     "test:ci": "jest --ci --coverage --runInBand --reporters=default --reporters=jest-junit",
     "test:smoke:ci": "NODE_ENV=production start-storybook --static-dir public --ci --smoke-test",
-    "test:e2e:ci": "start-test develop http://localhost:8000 cy:run",
+    "test:e2e:ci": "start-test serve http://localhost:9000 cy:run",
     "clean": "rimraf .cache public reports coverage junit.xml",
     "clean:all": "rimraf .cache public node_modules yarn.lock",
     "storybook": "NODE_ENV=production start-storybook --static-dir public --port 8001",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run --record --key $CYPRESS_APIKEY",
+    "import:env": "export $(egrep -v '^#' .env | xargs)"
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.10.7",

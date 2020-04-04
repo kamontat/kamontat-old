@@ -35,7 +35,7 @@ describe("Seo component", () => {
 
     const helmet = Helmet.peek();
 
-    expect(helmet).toMatchSnapshot("SEO component");
+    expect(helmet).toMatchSnapshot();
 
     component.unmount();
   });

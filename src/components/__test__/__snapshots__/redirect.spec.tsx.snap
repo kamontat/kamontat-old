@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Redirect component render correctly 1`] = `
+<ExtRedirect
+  second={0}
+  url="https://google.com"
+>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+    meta={
+      Array [
+        Object {
+          "content": "0; url=https://google.com",
+          "http-equiv": "refresh",
+        },
+      ]
+    }
+  >
+    <SideEffect(NullComponent)
+      defer={true}
+      encodeSpecialCharacters={true}
+      meta={
+        Array [
+          Object {
+            "content": "0; url=https://google.com",
+            "http-equiv": "refresh",
+          },
+        ]
+      }
+    >
+      <NullComponent
+        defer={true}
+        encodeSpecialCharacters={true}
+        meta={
+          Array [
+            Object {
+              "content": "0; url=https://google.com",
+              "http-equiv": "refresh",
+            },
+          ]
+        }
+      />
+    </SideEffect(NullComponent)>
+  </HelmetWrapper>
+</ExtRedirect>
+`;

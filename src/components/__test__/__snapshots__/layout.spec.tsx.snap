@@ -1,3 +1,212 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Layout component should set container children element to data 1`] = `<div />`;
+exports[`Layout component should set container children element to data 1`] = `
+.c0 {
+  margin: 30px;
+}
+
+@media (min-width:768px) {
+  .c0 {
+    margin: 50px;
+  }
+}
+
+<Layout>
+  <CookiesProvider>
+    <ThemeProvider
+      theme={
+        Object {
+          "body": "#E2E2E2",
+          "gradient": "linear-gradient(#39598A, #79D7ED)",
+          "text": "#363537",
+          "toggleBorder": "#FFF",
+        }
+      }
+    >
+      <Memo(GlobalStyleComponent) />
+      <HelmetWrapper
+        defer={true}
+        encodeSpecialCharacters={true}
+      >
+        <SideEffect(NullComponent)
+          defer={true}
+          encodeSpecialCharacters={true}
+          link={
+            Array [
+              Object {
+                "href": "https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap",
+                "rel": "stylesheet",
+              },
+            ]
+          }
+        >
+          <NullComponent
+            defer={true}
+            encodeSpecialCharacters={true}
+            link={
+              Array [
+                Object {
+                  "href": "https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap",
+                  "rel": "stylesheet",
+                },
+              ]
+            }
+          />
+        </SideEffect(NullComponent)>
+      </HelmetWrapper>
+      <styled.div>
+        <div
+          className="c0"
+        >
+          data
+        </div>
+      </styled.div>
+      <CookieConsent
+        ButtonComponent={[Function]}
+        acceptOnScroll={false}
+        acceptOnScrollPercentage={25}
+        buttonClasses=""
+        buttonId=""
+        buttonText="I understand"
+        containerClasses=""
+        contentClasses=""
+        cookieName="is-analytics-enabled"
+        cookieValue={true}
+        debug={false}
+        declineButtonClasses=""
+        declineButtonId=""
+        declineButtonText="I decline"
+        declineCookieValue={false}
+        disableButtonStyles={false}
+        disableStyles={false}
+        enableDeclineButton={true}
+        expires={365}
+        extraCookieOptions={Object {}}
+        flipButtons={false}
+        hideOnAccept={true}
+        hideOnDecline={true}
+        location="bottom"
+        onAccept={[Function]}
+        onDecline={[Function]}
+        setDeclineCookie={true}
+        style={
+          Object {
+            "background": "#000000",
+          }
+        }
+      >
+        <div
+          className="cookieConsent "
+          style={
+            Object {
+              "alignItems": "baseline",
+              "background": "#000000",
+              "bottom": "0",
+              "color": "white",
+              "display": "flex",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+              "left": "0",
+              "position": "fixed",
+              "width": "100%",
+              "zIndex": "999",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "flex": "1 0 300px",
+                "margin": "15px",
+              }
+            }
+          >
+            This website uses cookies to enhance the user experience.
+          </div>
+          <ButtonComponent
+            className=""
+            id=""
+            key="declineButton"
+            onClick={[Function]}
+            style={
+              Object {
+                "background": "#c12a2a",
+                "border": "0",
+                "borderRadius": "0px",
+                "boxShadow": "none",
+                "color": "#e5e5e5",
+                "cursor": "pointer",
+                "flex": "0 0 auto",
+                "margin": "15px",
+                "padding": "5px 10px",
+              }
+            }
+          >
+            <button
+              className=""
+              id=""
+              onClick={[Function]}
+              style={
+                Object {
+                  "background": "#c12a2a",
+                  "border": "0",
+                  "borderRadius": "0px",
+                  "boxShadow": "none",
+                  "color": "#e5e5e5",
+                  "cursor": "pointer",
+                  "flex": "0 0 auto",
+                  "margin": "15px",
+                  "padding": "5px 10px",
+                }
+              }
+            >
+              I decline
+            </button>
+          </ButtonComponent>
+          <ButtonComponent
+            className=""
+            id=""
+            key="acceptButton"
+            onClick={[Function]}
+            style={
+              Object {
+                "background": "#ffd42d",
+                "border": "0",
+                "borderRadius": "0px",
+                "boxShadow": "none",
+                "color": "black",
+                "cursor": "pointer",
+                "flex": "0 0 auto",
+                "margin": "15px",
+                "padding": "5px 10px",
+              }
+            }
+          >
+            <button
+              className=""
+              id=""
+              onClick={[Function]}
+              style={
+                Object {
+                  "background": "#ffd42d",
+                  "border": "0",
+                  "borderRadius": "0px",
+                  "boxShadow": "none",
+                  "color": "black",
+                  "cursor": "pointer",
+                  "flex": "0 0 auto",
+                  "margin": "15px",
+                  "padding": "5px 10px",
+                }
+              }
+            >
+              I understand
+            </button>
+          </ButtonComponent>
+        </div>
+      </CookieConsent>
+    </ThemeProvider>
+  </CookiesProvider>
+</Layout>
+`;

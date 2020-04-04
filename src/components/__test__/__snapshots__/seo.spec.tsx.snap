@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Seo component render correctly: SEO component 1`] = `
+exports[`Seo component render correctly 1`] = `
 Object {
   "baseTag": Array [],
   "bodyAttributes": Object {},

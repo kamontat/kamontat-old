@@ -39,6 +39,7 @@ const _mask = (str: string, enable: boolean, limitFrontPercent = 30, limitBackPe
 };
 
 export const constants = {
+  CI: _build("CI", "false"),
   NODE_ENV: _build("NODE_ENV", "development"),
 
   ACCESS_TOKEN: _build("ACCESS_TOKEN", "12345678900987654321"),

@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   node: circleci/node@2.0.1
-  codecov: codecov/codecov@1.0.5
   cypress: cypress-io/cypress@1.19.1
   sonarcloud: sonarsource/sonarcloud@1.0.1
 
@@ -31,9 +30,6 @@ jobs:
           command: yarn test:ci
       - sonarcloud/scan:
           cache_version: 1
-      - codecov/upload:
-          conf: .codecov.yml
-          flags: unittest
       - store_test_results:
           name: Collect junit reports
           path: reports

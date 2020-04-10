@@ -35,22 +35,22 @@
 
 ## CI Status
 
-| Title         | Badge                                                              |
-| :------------ | :----------------------------------------------------------------- |
-| Deployment    | [![Netlify build status][netlify-status-img]][netlify-status-link] |
-| Test          | [![CircleCI status][circleci-status-img]][circleci-status-link]    |
-| Code Coverage | [![Codecov status][codecov-status-img]][codecov-status-link]       |
-| Quality Gate  | [![SonarCloud status][sonarcloud-status-img]][sonarcloud-link]     |
-| Uptime        | [![Uptime status][uptime-status-img]][uptime-status-link]          |
+| Title         | Badge                                                           |
+| :------------ | :-------------------------------------------------------------- |
+| Deployment    | [![Deployment status][netlify-status-img]][netlify-status-link] |
+| Test          | [![Test status][circleci-status-img]][circleci-status-link]     |
+| Code Coverage | [![Code coverage][coverage-status-img]][coverage-status-link]   |
+| Quality Gate  | [![Quality status][sonarcloud-status-img]][sonarcloud-link]     |
+| Uptime        | [![Uptime status][uptime-status-img]][uptime-status-link]       |
 
 ## Code Quality
 
 | Title           | Badge                                                                 |
 | :-------------- | :-------------------------------------------------------------------- |
-| Line of code    | [![line of code][sonarcloud-loc-img]][sonarcloud-link]                |
 | Maintainability | [![maintainability][sonarcloud-maintainability-img]][sonarcloud-link] |
 | Reliablilty     | [![reliablilty][sonarcloud-reliablilty-img]][sonarcloud-link]         |
 | Security        | [![security][sonarcloud-security-img]][sonarcloud-link]               |
+| Line of code    | [![line of code][sonarcloud-loc-img]][sonarcloud-link]                |
 | Vulnerabilities | [![vulnerabilities][sonarcloud-vulnerabilities-img]][sonarcloud-link] |
 | Issues          | [![issues][sonarcloud-issues-img]][sonarcloud-link]                   |
 | Code Smell      | [![code smell][sonarcloud-code-smell-img]][sonarcloud-link]           |
@@ -96,9 +96,9 @@ This is cause by react-helmet which resolve on version 6 that currently is beta
 [circleci-status-link]: https://app.circleci.com/pipelines/github/kamontat/kamontat
 [circleci-status-img]: https://img.shields.io/circleci/build/github/kamontat/kamontat/master?label=circleci&logo=circleci&style=flat-square
 
-<!-- codecov links -->
-[codecov-status-link]: https://codecov.io/gh/kamontat/kamontat
-[codecov-status-img]: https://img.shields.io/codecov/c/github/kamontat/kamontat?logo=codecov&logoColor=white&style=flat-square
+<!-- code coverage links -->
+[coverage-status-link]: https://sonarcloud.io/component_measures?id=kamontat_kamontat&metric=Coverage
+[coverage-status-img]: https://img.shields.io/sonar/coverage/kamontat_kamontat?logo=sonarcloud&logoColor=white&server=https%3A%2F%2Fsonarcloud.io&style=flat-square
 
 <!-- uptimerobot -->
 [uptime-status-link]: https://status.kamontat.net

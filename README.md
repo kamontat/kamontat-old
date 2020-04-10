@@ -34,6 +34,17 @@
 </h3>
 
 <details>
+  <summary>Application Status</summary>
+
+| Title      | Badge                                                     |
+| :--------- | :-------------------------------------------------------- |
+| Uptime     | [![Uptime status][uptime-status-img]][uptime-status-link] |
+| Uptime 7d  | [![Uptime status][uptime-7d-img]][uptime-status-link]     |
+| Uptime 30d | [![Uptime status][uptime-30d-img]][uptime-status-link]    |
+
+</details>
+
+<details>
   <summary>CI Status</summary>
 
 | Title         | Badge                                                           |
@@ -42,7 +53,6 @@
 | Test          | [![Test status][circleci-status-img]][circleci-status-link]     |
 | Code Coverage | [![Code coverage][coverage-status-img]][coverage-status-link]   |
 | Quality Gate  | [![Quality status][sonarcloud-status-img]][sonarcloud-link]     |
-| Uptime        | [![Uptime status][uptime-status-img]][uptime-status-link]       |
 
 </details>
 
@@ -63,7 +73,8 @@
 
 </details>
 
-## Project stack
+<details>
+  <summary>Project technology</summary>
 
 1. Gatsby
 2. React
@@ -75,26 +86,36 @@
 8. Gitgo
 9. Git-chglog
 
-## Deployment services
+</details>
+
+<details>
+  <summary>Development services</summary>
 
 1. Git repository: [Github](https://github.com/kamontat/kamontat)
 2. Continuous Integration: [CircleCI](https://app.circleci.com/pipelines/github/kamontat/kamontat)
 3. Continuous Deployment: [Netlify](https://app.netlify.com/sites/kamontat/overview)
 4. Dependencies monitoring: [Dependabot](https://app.dependabot.com/)
+5. Error monitoring: [Sentry][sentry]
 
-## Relate services
+</details>
+
+<details>
+  <summary>Related services</summary>
 
 1. CMS: [Contentful][contentful]
-2. Host: [Netlify][netlify]
-3. Error monitor: [Sentry][sentry]
-4. Google Tag Manager
-5. Analytics: [Google Analytics](https://analytics.google.com/)
+2. Google Tag Manager
+3. Analytics: [Google Analytics](https://analytics.google.com/)
 
-## Know issues
+</details>
+
+<details>
+  <summary>Known issues</summary>
 
 ### 1. Warning on test about `Please update the following components: SideEffect(NullComponent)`
 
 This is cause by react-helmet which resolve on version 6 that currently is beta
+
+</details>
 
 <!-- netlify links -->
 [netlify-status-link]: https://app.netlify.com/sites/kamontat/deploys
@@ -110,7 +131,9 @@ This is cause by react-helmet which resolve on version 6 that currently is beta
 
 <!-- uptimerobot -->
 [uptime-status-link]: https://status.kamontat.net
-[uptime-status-img]: https://img.shields.io/uptimerobot/ratio/m782498097-1ad17a9a18c1ce4f09a4a295?label=uptime%2030d&style=flat-square
+[uptime-status-img]: https://img.shields.io/uptimerobot/status/m782498097-1ad17a9a18c1ce4f09a4a295?style=flat-square
+[uptime-7d-img]: https://img.shields.io/uptimerobot/ratio/7/m782498097-1ad17a9a18c1ce4f09a4a295?label=uptime%2030d&style=flat-square
+[uptime-30d-img]: https://img.shields.io/uptimerobot/ratio/m782498097-1ad17a9a18c1ce4f09a4a295?label=uptime%2030d&style=flat-square
 
 <!-- sonarcloud links -->
 [sonarcloud-link]: https://sonarcloud.io/dashboard?id=kamontat_kamontat

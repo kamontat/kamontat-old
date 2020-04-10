@@ -33,7 +33,7 @@ const Layout = (props: DefaultProps) => {
             <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
           </Helmet>
 
-          <Container>{props.children}</Container>
+          <Container id="main-container">{props.children}</Container>
 
           <CookieConsent
             location="bottom"

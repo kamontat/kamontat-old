@@ -54,7 +54,7 @@ const IndexPage = (): JSX.Element => {
   return (
     <Layout>
       <SEO lang={info.locale} />
-      <Center role="main" aria-labelledby="center-panel">
+      <Center role="main" aria-labelledby="main-container">
         <Image title={firstImage?.title} alt={firstImage?.description} fluid={firstImage?.localFile?.sharp?.fluid} />
         <h1 className={classNames("bulma.isSize3", "bulma.isUppercase", "bulma.hasTextWeightBold")}>{info.name}</h1>
         <h2 className={classNames("bulma.isSize5", "bulma.isUppercase")}>{info.definition}</h2>

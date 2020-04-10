@@ -31,8 +31,6 @@
   <a href="https://kamontat.net">Website</a>
   <span> · </span>
   <a href="https://storybook.kamontat.net">Storybook</a>
-  <span> · </span>
-  <a href="https://analytics.google.com/analytics/web">Google Analytics</a>
 </h3>
 
 ## CI Status
@@ -43,6 +41,7 @@
 | Test          | [![CircleCI status][circleci-status-img]][circleci-status-link]    |
 | Code Coverage | [![Codecov status][codecov-status-img]][codecov-status-link]       |
 | Quality Gate  | [![SonarCloud status][sonarcloud-status-img]][sonarcloud-link]     |
+| Uptime        | [![Uptime status][uptime-status-img]][uptime-status-link]          |
 
 ## Code Quality
 
@@ -100,6 +99,10 @@ This is cause by react-helmet which resolve on version 6 that currently is beta
 <!-- codecov links -->
 [codecov-status-link]: https://codecov.io/gh/kamontat/kamontat
 [codecov-status-img]: https://img.shields.io/codecov/c/github/kamontat/kamontat?logo=codecov&logoColor=white&style=flat-square
+
+<!-- uptimerobot -->
+[uptime-status-link]: https://status.kamontat.net
+[uptime-status-img]: https://img.shields.io/uptimerobot/ratio/m782498097-1ad17a9a18c1ce4f09a4a295?label=uptime%2030d&style=flat-square
 
 <!-- sonarcloud links -->
 [sonarcloud-link]: https://sonarcloud.io/dashboard?id=kamontat_kamontat

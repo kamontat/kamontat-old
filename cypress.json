@@ -1,6 +1,7 @@
 {
   "baseUrl": "http://localhost:9000/",
   "integrationFolder": "cypress/e2e",
+  "chromeWebSecurity": false,
   "reporter": "junit",
   "reporterOptions": {
     "mochaFile": "reports/e2e/cypress-junit.xml"

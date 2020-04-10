@@ -49,15 +49,16 @@ const IndexPage = (): JSX.Element => {
     `,
   );
 
+  console.log(info);
   const firstImage = info.images[0];
 
   return (
     <Layout>
       <SEO lang={info.locale} />
-      <Center>
+      <Center role="main" aria-labelledby="center-panel">
         <Image title={firstImage?.title} alt={firstImage?.description} fluid={firstImage?.localFile?.sharp?.fluid} />
         <h1 className={classNames("bulma.isSize3", "bulma.isUppercase", "bulma.hasTextWeightBold")}>{info.name}</h1>
-        <h3 className={classNames("bulma.isSize5", "bulma.isUppercase")}>{info.definition}</h3>
+        <h2 className={classNames("bulma.isSize5", "bulma.isUppercase")}>{info.definition}</h2>
       </Center>
     </Layout>
   );

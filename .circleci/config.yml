@@ -24,10 +24,13 @@ jobs:
           with-cache: true
           include-branch-in-cache-key: false
       - run:
-          name: Testing
+          name: Execute eslint
+          command: yarn lint:ci
+      - run:
+          name: Execute Jest testing
           command: yarn test:ci
-          environment:
-            JEST_JUNIT_OUTPUT_DIR: "reports/junit"
+      - sonarcloud/scan:
+          cache_version: 1
       - codecov/upload:
           conf: .codecov.yml
           flags: unittest
@@ -39,40 +42,8 @@ jobs:
           path: coverage/lcov-report
           destination: coverage
 
-  linting:
-    docker:
-      - image: cimg/node:<< pipeline.parameters.node-version >>
-    steps:
-      - checkout
-      - node/install-packages:
-          cache-version: v1
-          cache-key: yarn.lock
-          pkg-manager: yarn
-          with-cache: true
-          include-branch-in-cache-key: false
-      - run:
-          name: Execute eslint
-          command: yarn lint:ci
-      - store_test_results:
-          path: reports
-
-  sonarqube:
-    docker:
-      - image: "node:latest"
-    steps:
-      - checkout
-      - sonarcloud/scan:
-          cache_version: 1
-
 workflows:
-  coding:
-    jobs:
-      - linting
-      - sonarqube:
-          requires:
-            - linting
-
-  testing:
+  main:
     jobs:
       - testing
       - cypress/install:
@@ -86,10 +57,11 @@ workflows:
             - cypress/install
           start: yarn serve
           wait-on: "http://localhost:9000"
-          record: true
-          yarn: true
           cache-key: 'v1-dependencies-{{ checksum "yarn.lock" }}'
           store_artifacts: true
+          attach-workspace: true
+          record: true
+          yarn: true
           browser: electron
           post-steps:
             - store_test_results:

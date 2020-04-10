@@ -50,9 +50,11 @@
 | Maintainability | [![maintainability][sonarcloud-maintainability-img]][sonarcloud-link] |
 | Reliablilty     | [![reliablilty][sonarcloud-reliablilty-img]][sonarcloud-link]         |
 | Security        | [![security][sonarcloud-security-img]][sonarcloud-link]               |
-| Line of code    | [![line of code][sonarcloud-loc-img]][sonarcloud-link]                |
 | Vulnerabilities | [![vulnerabilities][sonarcloud-vulnerabilities-img]][sonarcloud-link] |
+| Technical Debt  | [![technical debt][sonarcloud-techdebt-img]][sonarcloud-link]         |
 | Issues          | [![issues][sonarcloud-issues-img]][sonarcloud-link]                   |
+| Line of code    | [![line of code][sonarcloud-loc-img]][sonarcloud-link]                |
+| Duplicated code | [![duplicated code][sonarcloud-dupcode-img]][sonarcloud-link]         |
 | Code Smell      | [![code smell][sonarcloud-code-smell-img]][sonarcloud-link]           |
 
 ## Project stack
@@ -114,6 +116,8 @@ This is cause by react-helmet which resolve on version 6 that currently is beta
 [sonarcloud-vulnerabilities-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=vulnerabilities
 [sonarcloud-issues-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=bugs
 [sonarcloud-code-smell-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=code_smells
+[sonarcloud-techdebt-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=sqale_index
+[sonarcloud-dupcode-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=duplicated_lines_density
 
 <!-- External links -->
 [contentful]: https://www.contentful.com/

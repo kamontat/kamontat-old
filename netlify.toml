@@ -19,6 +19,14 @@
   # Directory with the serverless Lambda functions to deploy to AWS.
   # functions = "project/functions/"
 
+[context."release/website"]
+  command = "yarn build:website"
+  publish = "public"
+
+[context."release/storybook"]
+  command = "yarn build:storybook"
+  publish = "storybook"
+
 [build.environment]
   NODE_ENV = "development"
   NODE_VERSION = "12"

@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build:website": "gatsby build",
-    "build:storybook": "build-storybook --output-dir public/storybook",
+    "build:storybook": "build-storybook --output-dir storybook",
     "build": "yarn build:website && yarn build:storybook",
     "dev": "gatsby develop",
     "start": "gatsby develop",

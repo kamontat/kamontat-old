@@ -18,6 +18,16 @@ module.exports = {
   setupFiles: ["<rootDir>/test/jest-setup.js"],
   setupFilesAfterEnv: ["<rootDir>/test/jest-setup-each.js", "jest-extended", "jest-chain"],
   snapshotSerializers: ["enzyme-to-json/serializer"],
+  reporters: [
+    "default",
+    [
+      "jest-junit",
+      {
+        outputDirectory: "reports/junit",
+        outputName: "unittest.xml",
+      },
+    ],
+  ],
   collectCoverageFrom: [
     "!**/node_modules/**",
     "!src/gatsby/**/*.ts",

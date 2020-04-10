@@ -72,3 +72,6 @@ reports
 junit.xml
 
 storybook
+
+cypress/screenshots/
+cypress/videos/

@@ -1,5 +1,8 @@
 {
   "baseUrl": "http://localhost:9000/",
   "integrationFolder": "cypress/e2e",
-  "reporter": "reports/e2e/cypress-junit.xml"
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "reports/e2e/cypress-junit.xml"
+  }
 }

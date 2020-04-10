@@ -36,7 +36,7 @@
     "clean:all": "rimraf .cache public node_modules yarn.lock",
     "storybook": "NODE_ENV=production start-storybook --port 8001",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --record --key $CYPRESS_APIKEY",
+    "cy:run": "cypress run --record --key $CYPRESS_RECORD_KEY",
     "import:env": "export $(egrep -v '^#' .env | xargs)"
   },
   "dependencies": {

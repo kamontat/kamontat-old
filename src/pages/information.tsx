@@ -29,8 +29,8 @@ const InformationPage = (): JSX.Element => {
               }
             }
             environment {
-              BRANCH
-              BUILD_ID
+              SITE_EXPERIMENT_AB
+              SITE_UNIQUE_ID
               NODE_ENV
               ACCESS_TOKEN
               ACCESS_SALT
@@ -44,7 +44,7 @@ const InformationPage = (): JSX.Element => {
   const token = site.siteMetadata.environment.ACCESS_TOKEN;
   const salt = site.siteMetadata.environment.ACCESS_SALT;
 
-  const experiment = encrypter(site.siteMetadata.environment.BRANCH, token, salt);
+  const experiment = encrypter(site.siteMetadata.environment.SITE_EXPERIMENT_AB, token, salt);
 
   const keyvalues = [
     { key: "Application Environment", value: site.siteMetadata.environment.NODE_ENV },
@@ -53,7 +53,7 @@ const InformationPage = (): JSX.Element => {
     { key: "Application build date", value: new Date(site.siteMetadata.buildTime).toString() },
     {
       key: "Application version",
-      value: `${site.siteMetadata.app.version} (${site.siteMetadata.environment.BUILD_ID})`,
+      value: `${site.siteMetadata.app.version} (${site.siteMetadata.environment.SITE_UNIQUE_ID})`,
     },
     { key: "Application experiment", value: experiment },
     { key: "Application author", value: site.siteMetadata.app.author.name },

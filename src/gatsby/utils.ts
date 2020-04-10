@@ -1,22 +1,22 @@
 interface BuilderProps {
   key: string;
-  defaults: string;
+  options: Option;
 }
 
-interface Json {
-  // eslint-disable-next-line
-  [name: string]: any;
-}
+// eslint-disable-next-line
+type Json<K extends string = string, V = any> = {
+  [name in K]: V;
+};
 
-interface GatsbyConfig extends Json {
+interface GatsbyConfig extends Json<string> {
   // eslint-disable-next-line
   plugins: Array<any>;
 }
 
-const _build = (key: string, defaults = ""): BuilderProps => {
+const _build = (key: string, defaults = "", options: OptionB = {}): BuilderProps => {
   return {
     key: key,
-    defaults: defaults,
+    options: { ...options, defaults: defaults },
   };
 };
 
@@ -39,36 +39,36 @@ const _mask = (str: string, enable: boolean, limitFrontPercent = 30, limitBackPe
 };
 
 export const constants = {
-  CI: _build("CI", "false"),
-  NODE_ENV: _build("NODE_ENV", "development"),
+  CI: _build("CI", "false", { require: false, mask: false }),
+  NODE_ENV: _build("NODE_ENV", "development", { require: false, mask: false }),
 
-  ACCESS_TOKEN: _build("ACCESS_TOKEN", "12345678900987654321"),
-  ACCESS_SALT: _build("ACCESS_SALT", "abcd"),
+  ACCESS_TOKEN: _build("ACCESS_TOKEN", "12345678900987654321", { require: true, mask: true }),
+  ACCESS_SALT: _build("ACCESS_SALT", "abcd", { require: true, mask: true }),
 
-  SITE_URL: _build("SITE_URL"),
-  SITE_TITLE: _build("SITE_TITLE"),
-  SITE_DESCRIPTION: _build("SITE_DESCRIPTION"),
-  SITE_START_URL: _build("SITE_START_URL", "/"),
-  SITE_BACKGROUND_COLOR: _build("SITE_BACKGROUND_COLOR", "#663399"),
-  SITE_THEME_COLOR: _build("SITE_THEME_COLOR", "#663399"),
-  SITE_DISPLAY: _build("SITE_DISPLAY", "minimal-ui"),
-  SITE_ICON_PATH: _build("SITE_ICON_PATH", "src/images/logo.png"),
-  SITE_UNIQUE_ID: _build("BUILD_ID", `${+new Date()}`),
-  SITE_EXPERIMENT_AB: _build("BRANCH", `master`),
+  SITE_URL: _build("SITE_URL", "", { require: true, mask: false }),
+  SITE_TITLE: _build("SITE_TITLE", "", { require: true, mask: false }),
+  SITE_DESCRIPTION: _build("SITE_DESCRIPTION", "", { require: true, mask: false }),
+  SITE_START_URL: _build("SITE_START_URL", "/", { require: false, mask: false }),
+  SITE_BACKGROUND_COLOR: _build("SITE_BACKGROUND_COLOR", "#663399", { require: false, mask: false }),
+  SITE_THEME_COLOR: _build("SITE_THEME_COLOR", "#663399", { require: false, mask: false }),
+  SITE_DISPLAY: _build("SITE_DISPLAY", "minimal-ui", { require: false, mask: false }),
+  SITE_ICON_PATH: _build("SITE_ICON_PATH", "src/images/logo.png", { require: false, mask: false }),
+  SITE_UNIQUE_ID: _build("BUILD_ID", `${+new Date()}`, { require: false, mask: true }),
+  SITE_EXPERIMENT_AB: _build("BRANCH", `master`, { require: false, mask: true }),
 
-  ENV_EXIST: _build("ENV_EXIST", "false"),
-  ENV_PATH: _build("ENV_PATH", ".env"),
-  ENCODING: _build("ENCODING", "utf-8"),
+  ENV_EXIST: _build("ENV_EXIST", "false", { require: false, mask: false }),
+  ENV_PATH: _build("ENV_PATH", ".env", { require: false, mask: false }),
+  ENCODING: _build("ENCODING", "utf-8", { require: false, mask: false }),
 
-  SENTRY_DSN: _build("SENTRY_DSN"),
+  SENTRY_DSN: _build("SENTRY_DSN", "", { require: true, mask: true }),
 
-  CONTENTFUL_SPACE_ID: _build("CONTENTFUL_SPACE_ID"),
-  CONTENTFUL_DELIVERY_ACCESS_TOKEN: _build("CONTENTFUL_DELIVERY_ACCESS_TOKEN"),
+  CONTENTFUL_SPACE_ID: _build("CONTENTFUL_SPACE_ID", "", { require: true, mask: true }),
+  CONTENTFUL_DELIVERY_ACCESS_TOKEN: _build("CONTENTFUL_DELIVERY_ACCESS_TOKEN", "", { require: true, mask: true }),
 
-  GTM_TRACKING_ID: _build("GTM_TRACKING_ID"),
-  GTM_AUTH: _build("GTM_AUTH"),
-  GTM_PREVIEW: _build("GTM_PREVIEW"),
-  GTM_DATA_LAYER: _build("GTM_DATA_LAYER"),
+  GTM_TRACKING_ID: _build("GTM_TRACKING_ID", "", { require: false, mask: true }),
+  GTM_AUTH: _build("GTM_AUTH", "", { require: false, mask: true }),
+  GTM_PREVIEW: _build("GTM_PREVIEW", "", { require: false, mask: true }),
+  GTM_DATA_LAYER: _build("GTM_DATA_LAYER", "", { require: true, mask: false }),
 };
 
 type ConstantKeys = keyof typeof constants;
@@ -79,11 +79,15 @@ interface Option {
   require?: boolean;
 }
 
+interface OptionB {
+  mask?: boolean;
+  require?: boolean;
+}
+
 export const getenv = (name: BuilderProps | string, option?: Option): string => {
   if (typeof name === "object") {
     if (!option) option = {};
-    if (option) option.defaults = name.defaults;
-    return getenv(name.key, option);
+    return getenv(name.key, { ...name.options, ...option });
   }
 
   const defaultValue = "";
@@ -106,16 +110,16 @@ export const getenv = (name: BuilderProps | string, option?: Option): string => 
   }
 };
 
-export const getenvs = (): Json => {
+export const getenvs = (): Json<ConstantKeys, string> => {
   return Object.keys(constants).reduce((p, c) => {
     const prop = constants[c as ConstantKeys];
 
-    p[prop.key] = getenv(prop);
+    p[c as ConstantKeys] = getenv(prop);
     return p;
-  }, {} as Json);
+  }, {} as Json<ConstantKeys, string>);
 };
 
-export const appendPlugin = (config: GatsbyConfig, name: string, options: Json) => {
+export const appendPlugin = (config: GatsbyConfig, name: string, options: Json<string>) => {
   if (!config.plugins) config.plugins = [];
 
   console.debug(`[debug] add ${name} to plugins list`);

@@ -103,7 +103,7 @@
     "gatsby-plugin-typescript": "2.3.1",
     "identity-obj-proxy": "3.0.0",
     "jaeger-client": "3.17.2",
-    "jest": "25.2.7",
+    "jest": "25.3.0",
     "jest-chain": "1.1.5",
     "jest-extended": "0.11.5",
     "jest-junit": "10.0.0",

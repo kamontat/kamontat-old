@@ -37,23 +37,21 @@
 
 ## CI Status
 
-| Deployment    | Test          | Code Coverage | Quality Gate  |
-|:-------------:|:-------------:|:-------------:|:-------------:|
-| [![Netlify build status][netlify-status-img]][netlify-status-link] | [![CircleCI status][circleci-status-img]][circleci-status-link] | [![Codecov status][codecov-status-img]][codecov-status-link] | [![SonarCloud status][sonarcloud-status-img]][sonarcloud-status-link]
+|                             Deployment                             |                              Test                               |                        Code Coverage                         |                             Quality Gate                              |
+| :----------------------------------------------------------------: | :-------------------------------------------------------------: | :----------------------------------------------------------: | :-------------------------------------------------------------------: |
+| [![Netlify build status][netlify-status-img]][netlify-status-link] | [![CircleCI status][circleci-status-img]][circleci-status-link] | [![Codecov status][codecov-status-img]][codecov-status-link] | [![SonarCloud status][sonarcloud-status-img]][sonarcloud-status-link] |
 
 ## Project stack
 
 1. Gatsby
 2. React
 3. Typescript
-4. Bulma
-5. SCSS / SASS
-6. Styled Components
-7. Eslint
-8. Prettier
-9. Jest
-10. Gitgo
-11. Git-chglog
+4. Styled Components
+5. Eslint
+6. Prettier
+7. Jest
+8. Gitgo
+9. Git-chglog
 
 ## Deployment services
 

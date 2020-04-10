@@ -8,7 +8,6 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 import styled from "styled-components";
-// import bulma from "../scss/bulma.module.scss";
 
 const Center = styled.div`
   display: flex;

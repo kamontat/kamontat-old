@@ -6,13 +6,3 @@
 
 // And to shim assets, use (one file extension per `declare`):
 // declare module "*.png"
-
-declare module "*.scss" {
-  export const content: { [className: string]: string };
-  export default content;
-}
-
-declare module "*.sass" {
-  export const content: { [className: string]: string };
-  export default content;
-}

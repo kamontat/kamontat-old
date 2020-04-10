@@ -5,7 +5,6 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 import classNames from "classnames";
-// import bulma from "../scss/bulma.module.scss";
 
 import { encrypter } from "../typescript/src/utils/transformer";
 

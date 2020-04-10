@@ -33,7 +33,8 @@
   <a href="https://storybook.kamontat.net">Storybook</a>
 </h3>
 
-## CI Status
+<details>
+  <summary>CI Status</summary>
 
 | Title         | Badge                                                           |
 | :------------ | :-------------------------------------------------------------- |
@@ -43,7 +44,10 @@
 | Quality Gate  | [![Quality status][sonarcloud-status-img]][sonarcloud-link]     |
 | Uptime        | [![Uptime status][uptime-status-img]][uptime-status-link]       |
 
-## Code Quality
+</details>
+
+<details>
+  <summary>Code Quality</summary>
 
 | Title           | Badge                                                                 |
 | :-------------- | :-------------------------------------------------------------------- |
@@ -56,6 +60,8 @@
 | Line of code    | [![line of code][sonarcloud-loc-img]][sonarcloud-link]                |
 | Duplicated code | [![duplicated code][sonarcloud-dupcode-img]][sonarcloud-link]         |
 | Code Smell      | [![code smell][sonarcloud-code-smell-img]][sonarcloud-link]           |
+
+</details>
 
 ## Project stack
 

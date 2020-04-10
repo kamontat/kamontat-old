@@ -37,24 +37,24 @@
 
 ## CI Status
 
-|     Title     |                               Badge                                |
-| :-----------: | :----------------------------------------------------------------: |
-|  Deployment   | [![Netlify build status][netlify-status-img]][netlify-status-link] |
-|     Test      |  [![CircleCI status][circleci-status-img]][circleci-status-link]   |
-| Code Coverage |    [![Codecov status][codecov-status-img]][codecov-status-link]    |
-| Quality Gate  |   [![SonarCloud status][sonarcloud-status-img]][sonarcloud-link]   |
+| Title         | Badge                                                              |
+| :------------ | :----------------------------------------------------------------- |
+| Deployment    | [![Netlify build status][netlify-status-img]][netlify-status-link] |
+| Test          | [![CircleCI status][circleci-status-img]][circleci-status-link]    |
+| Code Coverage | [![Codecov status][codecov-status-img]][codecov-status-link]       |
+| Quality Gate  | [![SonarCloud status][sonarcloud-status-img]][sonarcloud-link]     |
 
 ## Code Quality
 
-|      Title      |                                 Badge                                 |
-| :-------------: | :-------------------------------------------------------------------: |
-|  Line of code   |        [![line of code][sonarcloud-loc-img]][sonarcloud-link]         |
+| Title           | Badge                                                                 |
+| :-------------- | :-------------------------------------------------------------------- |
+| Line of code    | [![line of code][sonarcloud-loc-img]][sonarcloud-link]                |
 | Maintainability | [![maintainability][sonarcloud-maintainability-img]][sonarcloud-link] |
-|   Reliablilty   |     [![reliablilty][sonarcloud-reliablilty-img]][sonarcloud-link]     |
-|    Security     |        [![security][sonarcloud-security-img]][sonarcloud-link]        |
+| Reliablilty     | [![reliablilty][sonarcloud-reliablilty-img]][sonarcloud-link]         |
+| Security        | [![security][sonarcloud-security-img]][sonarcloud-link]               |
 | Vulnerabilities | [![vulnerabilities][sonarcloud-vulnerabilities-img]][sonarcloud-link] |
-|     Issues      |          [![issues][sonarcloud-issues-img]][sonarcloud-link]          |
-|   Code Smell    |      [![code smell][sonarcloud-code-smell-img]][sonarcloud-link]      |
+| Issues          | [![issues][sonarcloud-issues-img]][sonarcloud-link]                   |
+| Code Smell      | [![code smell][sonarcloud-code-smell-img]][sonarcloud-link]           |
 
 ## Project stack
 
@@ -73,7 +73,7 @@
 1. Git repository: [Github](https://github.com/kamontat/kamontat)
 2. Continuous Integration: [CircleCI](https://app.circleci.com/pipelines/github/kamontat/kamontat)
 3. Continuous Deployment: [Netlify](https://app.netlify.com/sites/kamontat/overview)
-4. Dependencies monitoring: [WhiteSource Renovate](https://renovate.whitesourcesoftware.com/)
+4. Dependencies monitoring: [Dependabot](https://app.dependabot.com/)
 
 ## Relate services
 

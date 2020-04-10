@@ -14,14 +14,10 @@
   publish = "public"
 
   # Default build command.
-  command = "yarn build"
+  command = "yarn build:website"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   # functions = "project/functions/"
-
-[context."release/website"]
-  command = "yarn build:website"
-  publish = "public"
 
 [context."release/storybook"]
   command = "yarn build:storybook"

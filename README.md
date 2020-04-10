@@ -37,9 +37,24 @@
 
 ## CI Status
 
-|                             Deployment                             |                              Test                               |                        Code Coverage                         |                             Quality Gate                              |
-| :----------------------------------------------------------------: | :-------------------------------------------------------------: | :----------------------------------------------------------: | :-------------------------------------------------------------------: |
-| [![Netlify build status][netlify-status-img]][netlify-status-link] | [![CircleCI status][circleci-status-img]][circleci-status-link] | [![Codecov status][codecov-status-img]][codecov-status-link] | [![SonarCloud status][sonarcloud-status-img]][sonarcloud-status-link] |
+|     Title     |                               Badge                                |
+| :-----------: | :----------------------------------------------------------------: |
+|  Deployment   | [![Netlify build status][netlify-status-img]][netlify-status-link] |
+|     Test      |  [![CircleCI status][circleci-status-img]][circleci-status-link]   |
+| Code Coverage |    [![Codecov status][codecov-status-img]][codecov-status-link]    |
+| Quality Gate  |   [![SonarCloud status][sonarcloud-status-img]][sonarcloud-link]   |
+
+## Code Quality
+
+|      Title      |                                 Badge                                 |
+| :-------------: | :-------------------------------------------------------------------: |
+|  Line of code   |        [![line of code][sonarcloud-loc-img]][sonarcloud-link]         |
+| Maintainability | [![maintainability][sonarcloud-maintainability-img]][sonarcloud-link] |
+|   Reliablilty   |     [![reliablilty][sonarcloud-reliablilty-img]][sonarcloud-link]     |
+|    Security     |        [![security][sonarcloud-security-img]][sonarcloud-link]        |
+| Vulnerabilities | [![vulnerabilities][sonarcloud-vulnerabilities-img]][sonarcloud-link] |
+|     Issues      |          [![issues][sonarcloud-issues-img]][sonarcloud-link]          |
+|   Code Smell    |      [![code smell][sonarcloud-code-smell-img]][sonarcloud-link]      |
 
 ## Project stack
 
@@ -62,11 +77,11 @@
 
 ## Relate services
 
-1. CMS: [Contentful](https://www.contentful.com/)
-2. Host: [Netlify](https://www.netlify.com/)
-3. Error monitor: [Sentry](https://sentry.io/)
-4. Analytics: [Google Analytics](https://analytics.google.com/)
-5. Google Tag Manager
+1. CMS: [Contentful][contentful]
+2. Host: [Netlify][netlify]
+3. Error monitor: [Sentry][sentry]
+4. Google Tag Manager
+5. Analytics: [Google Analytics](https://analytics.google.com/)
 
 ## Know issues
 
@@ -87,5 +102,17 @@ This is cause by react-helmet which resolve on version 6 that currently is beta
 [codecov-status-img]: https://img.shields.io/codecov/c/github/kamontat/kamontat?logo=codecov&logoColor=white&style=flat-square
 
 <!-- sonarcloud links -->
-[sonarcloud-status-link]: https://sonarcloud.io/dashboard?id=kamontat_kamontat
+[sonarcloud-link]: https://sonarcloud.io/dashboard?id=kamontat_kamontat
 [sonarcloud-status-img]: https://img.shields.io/sonar/quality_gate/kamontat_kamontat?server=https%3A%2F%2Fsonarcloud.io&label=quality&logo=sonarcloud&logoColor=white&style=flat-square
+[sonarcloud-loc-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=ncloc
+[sonarcloud-maintainability-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=sqale_rating
+[sonarcloud-reliablilty-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=reliability_rating
+[sonarcloud-security-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=security_rating
+[sonarcloud-vulnerabilities-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=vulnerabilities
+[sonarcloud-issues-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=bugs
+[sonarcloud-code-smell-img]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_kamontat&metric=code_smells
+
+<!-- External links -->
+[contentful]: https://www.contentful.com/
+[netlify]: https://www.netlify.com/
+[sentry]: https://sentry.io/

@@ -54,9 +54,12 @@ exports[`Layout component should set container children element to data 1`] = `
           />
         </SideEffect(NullComponent)>
       </HelmetWrapper>
-      <styled.div>
+      <styled.div
+        id="main-container"
+      >
         <div
           className="c0"
+          id="main-container"
         >
           data
         </div>

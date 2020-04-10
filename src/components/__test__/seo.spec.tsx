@@ -2,7 +2,7 @@ import React from "react";
 import { mount } from "enzyme";
 
 import { PureSEO } from "../seo";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 
 describe("Seo component", () => {
   const data = {

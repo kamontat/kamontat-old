@@ -6,5 +6,5 @@ Website is deploying by netlify with some internal features enabled such as AB-t
 <!-- uptimerobot -->
 [uptime-status-link]: https://status.kamontat.net
 [uptime-status-img]: https://img.shields.io/uptimerobot/status/m782498097-1ad17a9a18c1ce4f09a4a295?style=flat-square
-[uptime-7d-img]: https://img.shields.io/uptimerobot/ratio/7/m782498097-1ad17a9a18c1ce4f09a4a295?style=flat-square
-[uptime-30d-img]: https://img.shields.io/uptimerobot/ratio/m782498097-1ad17a9a18c1ce4f09a4a295?style=flat-square
+[uptime-7d-img]: https://img.shields.io/uptimerobot/ratio/7/m782498097-1ad17a9a18c1ce4f09a4a295?label=uptime-7d&style=flat-square
+[uptime-30d-img]: https://img.shields.io/uptimerobot/ratio/m782498097-1ad17a9a18c1ce4f09a4a295?label=uptime-30d&style=flat-square

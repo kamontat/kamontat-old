@@ -30,6 +30,8 @@ commit:
       value: Relevant to code style and linter
     - type: data
       value: Relevant to graphql/data
+    - type: storybook
+      value: Storybook url related
     - type: script
       value: Helper script for development
     - type: config

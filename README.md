@@ -43,4 +43,6 @@
   <a href="docs/technology.md">Technology</a>
   <span> · </span>
   <a href="docs/known_issues.md">Known Issues</a>
+  <span> · </span>
+  <a href="docs/abtesting.md">AB Testing</a>
 </h3>

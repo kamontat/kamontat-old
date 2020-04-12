@@ -1,19 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
+
 import { CookiesProvider } from "react-cookie";
 import CookieConsent from "react-cookie-consent";
 
 import { DefaultProps } from "../typescript/ui/models/properties";
 
-import { gstyles } from "../styles/global";
+// Styled import
 
+import tw from "twin.macro";
+
+import styled from "@emotion/styled";
 import { Container } from "../styles/layout/Container";
+
+import { Global } from "@emotion/core";
+import { gstyles } from "../styles/global";
+import { ThemeProvider } from "emotion-theming";
 import { DarkTheme, LightTheme } from "../styles/themes";
 
-import { ThemeProvider } from "emotion-theming";
-import { Global } from "@emotion/core";
 import { useThemeMode } from "../typescript/ui/hooks/toggleThemeMode";
+
+const Button = styled.button`
+  ${tw`text-lg px-8 py-2 rounded`}
+`;
 
 const Layout = (props: DefaultProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -35,7 +44,7 @@ const Layout = (props: DefaultProps) => {
         <ThemeProvider theme={theme}>
           <Global styles={gstyles(theme)} />
 
-          <button onClick={togglingTheme as () => void}>Hello</button>
+          <Button onClick={togglingTheme as () => void}>Hello</Button>
 
           <Container id="main-container">{props.children}</Container>
 

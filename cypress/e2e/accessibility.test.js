@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 // https://www.gatsbyjs.org/docs/end-to-end-testing/
-describe("Accessibility tests", () => {
+describe("Accessibility in index page", () => {
   beforeEach(() => {
     cy.visit("/");
 

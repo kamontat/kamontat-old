@@ -17,7 +17,7 @@ import { useThemeMode } from "../typescript/ui/hooks/toggleThemeMode";
 
 const Layout = (props: DefaultProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [theme, _, componentMounted] = useThemeMode();
+  const [theme, toggle, componentMounted] = useThemeMode();
 
   if (!componentMounted) {
     return <div />;
@@ -33,7 +33,10 @@ const Layout = (props: DefaultProps) => {
             <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
           </Helmet>
 
-          <Container id="main-container">{props.children}</Container>
+          <Container id="main-container">
+            <button onClick={toggle}>hello</button>
+            {props.children}
+          </Container>
 
           <CookieConsent
             location="bottom"

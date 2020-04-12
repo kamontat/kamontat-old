@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
-export const useThemeMode = () => {
+type ThemeResultArray = [string, () => void, boolean];
+
+export const useThemeMode = (): ThemeResultArray => {
   const [theme, setTheme] = useState("light");
   const [componentMounted, setComponentMounted] = useState(false);
 

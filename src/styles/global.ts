@@ -1,13 +1,14 @@
-import * as styled from "styled-components";
-import { ThemedProps } from "./themes/interface";
+import { css } from "@emotion/core";
+import { Properties } from "./themes";
 
-export const GlobalStyles = (styled as styled.ThemedStyledComponentsModule<ThemedProps>).createGlobalStyle`
+export const gstyles = (theme: Properties) => css`
   *,
   *::before,
   *::after {
     box-sizing: inherit;
   }
 
+  /* Reset margin and padding */
   html,
   body,
   p,
@@ -35,6 +36,25 @@ export const GlobalStyles = (styled as styled.ThemedStyledComponentsModule<Theme
     padding: 0;
   }
 
+  html {
+    box-sizing: border-box;
+  }
+
+  body {
+    align-items: center;
+    background: ${theme.body};
+    color: ${theme.text};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    transition: all 0.25s linear;
+  }
+
+  /* Reset font size and weight */
   h1,
   h2,
   h3,
@@ -45,10 +65,12 @@ export const GlobalStyles = (styled as styled.ThemedStyledComponentsModule<Theme
     font-weight: normal;
   }
 
+  /* Reset unorder list style */
   ul {
     list-style: none;
   }
 
+  /* Reset all input margin */
   button,
   input,
   select,
@@ -56,10 +78,7 @@ export const GlobalStyles = (styled as styled.ThemedStyledComponentsModule<Theme
     margin: 0;
   }
 
-  html {
-    box-sizing: border-box;
-  }
-
+  /* Reset media width and height */
   img,
   video {
     height: auto;
@@ -70,6 +89,7 @@ export const GlobalStyles = (styled as styled.ThemedStyledComponentsModule<Theme
     border: 0;
   }
 
+  /* Reset table and table components */
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -84,18 +104,5 @@ export const GlobalStyles = (styled as styled.ThemedStyledComponentsModule<Theme
   th:not([align]) {
     text-align: left;
   }
-
-  body {
-    align-items: center;
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    transition: all 0.25s linear;
-  }
 `;
+// `;

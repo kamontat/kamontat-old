@@ -7,7 +7,7 @@ import classNames from "classnames";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 const Center = styled.div`
   display: flex;

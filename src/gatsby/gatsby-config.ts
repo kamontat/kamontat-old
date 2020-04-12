@@ -92,11 +92,13 @@ appendPlugin(config, `gatsby-plugin-manifest`, {
   icon: getenv(constants.SITE_ICON_PATH),
 });
 
-// https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/
-appendPlugin(config, `gatsby-plugin-styled-components`, {
-  // Add any options here
-  displayName: isDev,
-  pure: true,
+// https://www.gatsbyjs.org/packages/gatsby-plugin-emotion/
+appendPlugin(config, `gatsby-plugin-emotion`, {
+  // Add any options here: https://github.com/emotion-js/emotion/tree/master/packages/babel-plugin-emotion
+  sourceMap: isDev,
+  cssPropOptimization: true,
+  autoLabel: isDev,
+  labelFormat: isDev ? "[filename]-[local]" : "",
 });
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-offline/

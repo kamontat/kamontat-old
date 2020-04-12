@@ -6,18 +6,24 @@ import CookieConsent from "react-cookie-consent";
 
 import { DefaultProps } from "../typescript/ui/models/properties";
 
-import { GlobalStyles } from "../styles/global";
+import { gstyles } from "../styles/global";
 
 import { Container } from "../styles/layout/Container";
-import darkTheme from "../styles/themes/dark";
-import lightTheme from "../styles/themes/light";
+import { DarkTheme, LightTheme } from "../styles/themes";
 
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "emotion-theming";
+import { Global } from "@emotion/core";
 import { useThemeMode } from "../typescript/ui/hooks/toggleThemeMode";
 
 const Layout = (props: DefaultProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [theme, _, componentMounted] = useThemeMode();
+  const [themeIndex, themeName, theme, togglingTheme, componentMounted] = useThemeMode(
+    {
+      name: "light",
+      props: LightTheme,
+    },
+    { name: "dark", props: DarkTheme },
+  );
 
   if (!componentMounted) {
     return <div />;
@@ -26,12 +32,14 @@ const Layout = (props: DefaultProps) => {
   return (
     <React.Fragment>
       <CookiesProvider>
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-          <GlobalStyles />
+        <ThemeProvider key={`${themeIndex}-${themeName}`} theme={theme}>
+          <Global styles={gstyles(theme)} />
 
           <Helmet>
             <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
           </Helmet>
+
+          <button onClick={togglingTheme as () => void}>Hello</button>
 
           <Container id="main-container">{props.children}</Container>
 

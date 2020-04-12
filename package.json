@@ -40,9 +40,12 @@
     "import:env": "export $(egrep -v '^#' .env | xargs)"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "1.10.7",
+    "@emotion/core": "10.0.28",
+    "@emotion/styled": "10.0.27",
+    "emotion-theming": "10.0.27",
     "gatsby": "2.20.15",
     "gatsby-image": "2.3.2",
+    "gatsby-plugin-emotion": "4.2.1",
     "gatsby-plugin-gdpr-cookies": "1.0.7",
     "gatsby-plugin-google-tagmanager": "2.2.1",
     "gatsby-plugin-manifest": "2.3.3",
@@ -52,7 +55,6 @@
     "gatsby-plugin-sentry": "1.0.1",
     "gatsby-plugin-sharp": "2.5.4",
     "gatsby-plugin-sitemap": "2.3.1",
-    "gatsby-plugin-styled-components": "3.2.1",
     "gatsby-source-contentful": "2.2.7",
     "gatsby-source-filesystem": "2.2.2",
     "gatsby-transformer-sharp": "2.4.4",
@@ -61,8 +63,7 @@
     "react-cookie": "4.0.3",
     "react-cookie-consent": "3.0.0",
     "react-dom": "16.13.1",
-    "react-helmet": "6.0.0",
-    "styled-components": "5.0.1"
+    "react-helmet": "6.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
@@ -79,7 +80,6 @@
     "@types/react-dom": "16.9.6",
     "@types/react-helmet": "5.0.15",
     "@types/react-test-renderer": "16.9.2",
-    "@types/styled-components": "5.0.1",
     "@typescript-eslint/eslint-plugin": "2.26.0",
     "@typescript-eslint/parser": "2.26.0",
     "axe-core": "3.5.3",
@@ -105,9 +105,9 @@
     "jaeger-client": "3.17.2",
     "jest": "25.3.0",
     "jest-chain": "1.1.5",
+    "jest-emotion": "10.0.32",
     "jest-extended": "0.11.5",
     "jest-junit": "10.0.0",
-    "jest-styled-components": "7.0.0",
     "prettier": "2.0.2",
     "react-test-renderer": "16.13.1",
     "start-server-and-test": "1.10.11",

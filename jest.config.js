@@ -17,7 +17,7 @@ module.exports = {
   testURL: "http://localhost",
   setupFiles: ["<rootDir>/test/jest-setup.js"],
   setupFilesAfterEnv: ["<rootDir>/test/jest-setup-each.js", "jest-extended", "jest-chain"],
-  snapshotSerializers: ["enzyme-to-json/serializer"],
+  snapshotSerializers: ["enzyme-to-json/serializer", "jest-emotion"],
   reporters: [
     "default",
     [

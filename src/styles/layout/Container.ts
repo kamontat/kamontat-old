@@ -1,16 +1,7 @@
-import * as styled from "styled-components";
-import { ThemedProps } from "../themes/interface";
+import styled from "../styled";
 
-import { screen } from "../utils/screen";
-
-const s = (styled as styled.ThemedStyledComponentsModule<ThemedProps>).default;
-
-export const Container = s.div`
-  margin: 30px;
-
-  ${screen.sm`
-    margin: 50px;
-  `}
+export const Container = styled.div`
+  color: ${(props) => props.theme.text};
 `;
 
-export const ContainerFluid = s(Container)``;
+export const ContainerFluid = styled(Container)``;

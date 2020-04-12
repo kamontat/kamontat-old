@@ -48,7 +48,6 @@ const IndexPage = (): JSX.Element => {
     `,
   );
 
-  console.log(info);
   const firstImage = info.images[0];
 
   return (

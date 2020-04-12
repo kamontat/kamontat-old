@@ -17,7 +17,7 @@ import { useThemeMode } from "../typescript/ui/hooks/toggleThemeMode";
 
 const Layout = (props: DefaultProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [themeIndex, themeName, theme, togglingTheme, componentMounted] = useThemeMode(
+  const [_i, _n, theme, togglingTheme, componentMounted] = useThemeMode(
     {
       name: "light",
       props: LightTheme,
@@ -32,12 +32,8 @@ const Layout = (props: DefaultProps) => {
   return (
     <React.Fragment>
       <CookiesProvider>
-        <ThemeProvider key={`${themeIndex}-${themeName}`} theme={theme}>
+        <ThemeProvider theme={theme}>
           <Global styles={gstyles(theme)} />
-
-          <Helmet>
-            <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
-          </Helmet>
 
           <button onClick={togglingTheme as () => void}>Hello</button>
 

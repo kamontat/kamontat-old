@@ -56,16 +56,16 @@ const Page = (): JSX.Element => {
     <Layout>
       <SEO title="Information" />
       <ul>
-        <li>appname: {name}</li>
-        <li>description: {description}</li>
-        <li>license: {license}</li>
+        <li>Appname: {name}</li>
+        <li>Description: {description}</li>
+        <li>License: {license}</li>
 
-        <li>environment: {environment}</li>
+        <li>Environment: {environment}</li>
 
-        <li>build time: {buildtime}</li>
-        <li>version: {version}</li>
-        <li>unique id: {uniqueID}</li>
-        <li>experiment: {experiment}</li>
+        <li>Build time: {buildtime}</li>
+        <li>Version: {version}</li>
+        <li>Unique id: {uniqueID}</li>
+        <li>Experiment: {experiment}</li>
       </ul>
     </Layout>
   );

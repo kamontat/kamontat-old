@@ -54,7 +54,7 @@ const Page = (): JSX.Element => {
 
   return (
     <Layout>
-      <SEO title="Guidelines" />
+      <SEO title="Information" />
       <ul>
         <li>appname: {name}</li>
         <li>description: {description}</li>

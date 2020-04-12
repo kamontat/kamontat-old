@@ -187,7 +187,7 @@ const DebugPage = (): JSX.Element => {
 
   return (
     <Layout search={true} onSearch={setSearch}>
-      <SEO title="Information" lang="en" />
+      <SEO title="Debugging" lang="en" />
       <Section>
         <Cards>
           {data.map(({ key, value }) => (

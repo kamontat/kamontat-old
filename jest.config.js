@@ -1,7 +1,7 @@
 module.exports = {
   verbose: true,
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.[jt]sx?$": "<rootDir>/test/jest-preprocess.js",
   },
   testRegex: "(/__tests__/.*|(\\.|/)(spec))\\.(tsx?)$",
   moduleNameMapper: {
@@ -17,7 +17,7 @@ module.exports = {
   testURL: "http://localhost",
   setupFiles: ["<rootDir>/test/jest-setup.js"],
   setupFilesAfterEnv: ["<rootDir>/test/jest-setup-each.js", "jest-extended", "jest-chain"],
-  snapshotSerializers: ["enzyme-to-json/serializer", "jest-emotion"],
+  snapshotSerializers: ["jest-emotion", "enzyme-to-json/serializer"],
   reporters: [
     "default",
     [

@@ -227,22 +227,17 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        "system-ui",
+        "Roboto", // default font
         "-apple-system",
-        "BlinkMacSystemFont",
-        '"Segoe UI"',
-        "Roboto",
-        '"Helvetica Neue"',
-        "Arial",
-        '"Noto Sans"',
+        "system-ui",
         "sans-serif",
         '"Apple Color Emoji"',
         '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
-      serif: ["Georgia", "Cambria", '"Times New Roman"', "Times", "serif"],
-      mono: ["Menlo", "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace"],
+      serif: ["Georgia", '"Times New Roman"', "Times", "serif"],
+      mono: ["Menlo", '"Courier New"', "monospace"],
     },
     fontSize: {
       xs: "0.75rem",
@@ -703,6 +698,8 @@ module.exports = {
     transitionDuration: ["responsive"],
     transitionDelay: ["responsive"],
   },
-  corePlugins: {},
+  corePlugins: {
+    container: false,
+  },
   plugins: [],
 };

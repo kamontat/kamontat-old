@@ -32,8 +32,8 @@
     "lint:ci": "eslint . --ignore-path .gitignore --ext .ts,.tsx --format junit --output-file reports/eslint/ts-lint-result.xml",
     "test:ci": "jest --ci --coverage --runInBand",
     "test:e2e:ci": "start-test serve http://localhost:9000 cy:run",
-    "clean": "rimraf .cache public reports coverage junit.xml logs",
-    "clean:all": "rimraf .cache public reports coverage junit.xml logs node_modules yarn.lock storybook",
+    "clean": "rimraf node_modules/.cache .cache public reports coverage junit.xml logs",
+    "clean:all": "rimraf node_modules/.cache .cache public reports coverage junit.xml logs node_modules yarn.lock storybook",
     "storybook": "NODE_ENV=production start-storybook --port 8001",
     "cy:open": "cypress open",
     "cy:run": "cypress run --record --key $CYPRESS_RECORD_KEY",
@@ -67,6 +67,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
+    "@babel/preset-typescript": "7.9.0",
     "@storybook/addon-actions": "5.3.18",
     "@storybook/addon-links": "5.3.18",
     "@storybook/addons": "5.3.18",
@@ -112,7 +113,6 @@
     "react-test-renderer": "16.13.1",
     "start-server-and-test": "1.10.11",
     "tailwindcss": "1.2.0",
-    "ts-jest": "25.3.1",
     "twin.macro": "1.0.0-alpha.8",
     "typescript": "3.8.3"
   }

@@ -122,7 +122,7 @@ export const getenvs = (): Json<ConstantKeys, string> => {
 export const appendPlugin = (config: GatsbyConfig, name: string, options: Json<string>) => {
   if (!config.plugins) config.plugins = [];
 
-  console.debug(`[debug] add ${name} to plugins list`);
+  console.info(`[info] add '${name}' to plugins list`);
 
   config.plugins.push({
     resolve: name,

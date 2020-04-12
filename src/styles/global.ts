@@ -13,4 +13,3 @@ export const gstyles = (theme: Properties) => css`
     transition: all 0.25s linear;
   }
 `;
-// `;

@@ -21,20 +21,35 @@ import { DarkTheme, LightTheme } from "../styles/themes";
 
 import { useThemeMode } from "../typescript/ui/hooks/toggleThemeMode";
 
-const Button = styled.button`
-  ${tw`text-lg px-8 py-2 rounded`}
-`;
+// Styled components
 
 const Container = styled.div`
   ${tw`flex flex-col float-left w-screen mx-auto px-4 md:px-10 py-6 md:py-6`}
 `;
 
-const Header = styled.div``;
-const Main = styled.div``;
+const Header = styled.header`
+  ${tw`flex justify-end`}
+`;
 
-const Layout = (props: DefaultProps) => {
+const Button = styled.button`
+  ${tw`bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded text-lg capitalize`}
+`;
+
+const Search = styled.input`
+  background-color: ${(props) => props.theme.body};
+  ${tw`appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 mx-4 leading-tight focus:outline-none focus:border-purple-500`};
+`;
+
+const Main = styled.main``;
+
+interface LayoutProps extends DefaultProps {
+  search: boolean;
+  onSearch: (value: string) => void;
+}
+
+const Layout = (props: LayoutProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_i, _n, theme, togglingTheme, componentMounted] = useThemeMode(
+  const [_i, themeName, theme, togglingTheme, componentMounted] = useThemeMode(
     {
       name: "light",
       props: LightTheme,
@@ -54,7 +69,16 @@ const Layout = (props: DefaultProps) => {
 
           <Container id="main-container">
             <Header>
-              <Button onClick={togglingTheme as () => void}>Hello</Button>
+              {props.search ? (
+                <Search
+                  onChange={(event) => props.onSearch(event.target.value)}
+                  type="text"
+                  placeholder="Searching..."
+                />
+              ) : (
+                <div />
+              )}
+              <Button onClick={togglingTheme as () => void}>{themeName}</Button>
             </Header>
             <Main>{props.children}</Main>
           </Container>
@@ -74,7 +98,14 @@ const Layout = (props: DefaultProps) => {
   );
 };
 
+Layout.defaultProps = {
+  search: false,
+  onSearch: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
+} as LayoutProps;
+
 Layout.propTypes = {
+  search: PropTypes.bool,
+  onSearch: PropTypes.func,
   children: PropTypes.node.isRequired,
 };
 

@@ -1,15 +1,13 @@
 /// <reference types="Cypress" />
 
 // https://www.gatsbyjs.org/docs/end-to-end-testing/
-describe("Accessibility in index page", () => {
+describe("Information page", () => {
   beforeEach(() => {
-    cy.visit("/");
-
-    cy.injectAxe();
+    cy.visit("/information").get("main").injectAxe();
   });
 
-  it("Should load the correct URL", function () {
-    cy.url().should("eq", "http://localhost:9000/");
+  it("Should load the correct URL path", function () {
+    cy.url().should("contain", "/information");
   });
 
   it("Has no detectable accessibility violations on load", () => {

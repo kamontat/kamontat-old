@@ -2,20 +2,14 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
-import classNames from "classnames";
-
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+import tw from "twin.macro";
 import styled from "@emotion/styled";
 
 const Center = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+  ${tw`flex flex-col text-center items-center justify-center py-5`}
 `;
 
 const Image = styled(Img)`
@@ -53,10 +47,10 @@ const IndexPage = (): JSX.Element => {
   return (
     <Layout>
       <SEO lang={info.locale} />
-      <Center role="main" aria-labelledby="main-container">
+      <Center>
         <Image title={firstImage?.title} alt={firstImage?.description} fluid={firstImage?.localFile?.sharp?.fluid} />
-        <h1 className={classNames("bulma.isSize3", "bulma.isUppercase", "bulma.hasTextWeightBold")}>{info.name}</h1>
-        <h2 className={classNames("bulma.isSize5", "bulma.isUppercase")}>{info.definition}</h2>
+        <h1 id="page-title">{info.name}</h1>
+        <h2>{info.definition}</h2>
       </Center>
     </Layout>
   );

@@ -36,6 +36,7 @@
     "clean:all": "rimraf node_modules/.cache .cache public reports coverage junit.xml logs node_modules yarn.lock storybook",
     "storybook": "NODE_ENV=production start-storybook --port 8001",
     "cy:open": "cypress open",
+    "cy:open:dev": "cypress open --config baseUrl=http://localhost:8000/",
     "cy:run": "cypress run --record --key $CYPRESS_RECORD_KEY",
     "import:env": "export $(egrep -v '^#' .env | xargs)"
   },

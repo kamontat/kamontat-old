@@ -23,12 +23,17 @@ import { useThemeMode } from "../typescript/ui/hooks/toggleThemeMode";
 
 // Styled components
 
-const Container = styled.div`
+const Container = styled.main`
   ${tw`flex flex-col float-left w-screen mx-auto px-4 md:px-10 py-6 md:py-6`}
 `;
 
 const Header = styled.header`
   ${tw`flex justify-end`}
+`;
+
+const HiddenTitle = styled.h1`
+  visibility: hidden;
+  display: none;
 `;
 
 const Button = styled.button`
@@ -40,7 +45,9 @@ const Search = styled.input`
   ${tw`appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 mx-4 leading-tight focus:outline-none focus:border-purple-500`};
 `;
 
-const Main = styled.main``;
+const Section = styled.div``;
+
+const Footer = styled.div``;
 
 interface LayoutProps extends DefaultProps {
   search: boolean;
@@ -67,7 +74,8 @@ const Layout = (props: LayoutProps) => {
         <ThemeProvider theme={theme}>
           <Global styles={gstyles(theme)} />
 
-          <Container id="main-container">
+          <Container id="main" aria-labelledby="layout-title">
+            <HiddenTitle id="layout-title">Main layout</HiddenTitle>
             <Header>
               {props.search ? (
                 <Search
@@ -80,7 +88,10 @@ const Layout = (props: LayoutProps) => {
               )}
               <Button onClick={togglingTheme as () => void}>{themeName}</Button>
             </Header>
-            <Main>{props.children}</Main>
+            <Section aria-labelledby="page-title">{props.children}</Section>
+            <Footer>
+              <p></p>
+            </Footer>
           </Container>
 
           <CookieConsent

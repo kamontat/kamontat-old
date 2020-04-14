@@ -55,6 +55,8 @@ const Page = (): JSX.Element => {
   return (
     <Layout>
       <SEO title="Information" />
+      <h1 id="page-title">Information</h1>
+
       <ul>
         <li>Appname: {name}</li>
         <li>Description: {description}</li>

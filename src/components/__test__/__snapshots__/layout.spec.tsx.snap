@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Layout component should set container children element to data 1`] = `
-.emotion-3 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -20,7 +20,7 @@ exports[`Layout component should set container children element to data 1`] = `
 }
 
 @media (min-width:768px) {
-  .emotion-3 {
+  .emotion-5 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     padding-top: 1.5rem;
@@ -28,7 +28,12 @@ exports[`Layout component should set container children element to data 1`] = `
   }
 }
 
-.emotion-1 {
+.emotion-0 {
+  visibility: hidden;
+  display: none;
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -39,7 +44,7 @@ exports[`Layout component should set container children element to data 1`] = `
   justify-content: flex-end;
 }
 
-.emotion-0 {
+.emotion-1 {
   background-color: transparent;
   color: #2b6cb0;
   font-weight: 600;
@@ -54,7 +59,7 @@ exports[`Layout component should set container children element to data 1`] = `
   text-transform: capitalize;
 }
 
-.emotion-0:hover {
+.emotion-1:hover {
   background-color: #4299e1;
   color: #fff;
   border-color: transparent;
@@ -92,6 +97,7 @@ exports[`Layout component should set container children element to data 1`] = `
               "insert": [Function],
               "inserted": Object {
                 "0": true,
+                "1e8tqno": true,
                 "1v68lv0": true,
                 "k48yuu": true,
                 "tivsge": true,
@@ -118,34 +124,40 @@ exports[`Layout component should set container children element to data 1`] = `
                     data-emotion="css"
                   >
                     
-                    .emotion-3{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;float:left;width:100vw;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem;padding-top:1.5rem;padding-bottom:1.5rem;}
+                    .emotion-5{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;float:left;width:100vw;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem;padding-top:1.5rem;padding-bottom:1.5rem;}
                   </style>
                   <style
                     data-emotion="css"
                   >
                     
-                    @media (min-width:768px){.emotion-3{padding-left:2.5rem;padding-right:2.5rem;padding-top:1.5rem;padding-bottom:1.5rem;}}
+                    @media (min-width:768px){.emotion-5{padding-left:2.5rem;padding-right:2.5rem;padding-top:1.5rem;padding-bottom:1.5rem;}}
                   </style>
                   <style
                     data-emotion="css"
                   >
                     
-                    .emotion-1{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;}
+                    .emotion-0{visibility:hidden;display:none;}
                   </style>
                   <style
                     data-emotion="css"
                   >
                     
-                    .emotion-0{background-color:transparent;color:#2b6cb0;font-weight:600;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:1rem;padding-right:1rem;border-width:1px;border-color:#4299e1;border-radius:0.25rem;font-size:1.125rem;text-transform:capitalize;}
+                    .emotion-2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;}
                   </style>
                   <style
                     data-emotion="css"
                   >
                     
-                    .emotion-0:hover{background-color:#4299e1;color:#fff;border-color:transparent;}
+                    .emotion-1{background-color:transparent;color:#2b6cb0;font-weight:600;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:1rem;padding-right:1rem;border-width:1px;border-color:#4299e1;border-radius:0.25rem;font-size:1.125rem;text-transform:capitalize;}
+                  </style>
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-1:hover{background-color:#4299e1;color:#fff;border-color:transparent;}
                   </style>
                 </head>,
-                "ctr": 5,
+                "ctr": 6,
                 "isSpeedy": false,
                 "key": "css",
                 "nonce": undefined,
@@ -154,31 +166,37 @@ exports[`Layout component should set container children element to data 1`] = `
                     data-emotion="css"
                   >
                     
-                    .emotion-3{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;float:left;width:100vw;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem;padding-top:1.5rem;padding-bottom:1.5rem;}
+                    .emotion-5{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;float:left;width:100vw;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem;padding-top:1.5rem;padding-bottom:1.5rem;}
                   </style>,
                   <style
                     data-emotion="css"
                   >
                     
-                    @media (min-width:768px){.emotion-3{padding-left:2.5rem;padding-right:2.5rem;padding-top:1.5rem;padding-bottom:1.5rem;}}
+                    @media (min-width:768px){.emotion-5{padding-left:2.5rem;padding-right:2.5rem;padding-top:1.5rem;padding-bottom:1.5rem;}}
                   </style>,
                   <style
                     data-emotion="css"
                   >
                     
-                    .emotion-1{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;}
+                    .emotion-0{visibility:hidden;display:none;}
                   </style>,
                   <style
                     data-emotion="css"
                   >
                     
-                    .emotion-0{background-color:transparent;color:#2b6cb0;font-weight:600;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:1rem;padding-right:1rem;border-width:1px;border-color:#4299e1;border-radius:0.25rem;font-size:1.125rem;text-transform:capitalize;}
+                    .emotion-2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;}
                   </style>,
                   <style
                     data-emotion="css"
                   >
                     
-                    .emotion-0:hover{background-color:#4299e1;color:#fff;border-color:transparent;}
+                    .emotion-1{background-color:transparent;color:#2b6cb0;font-weight:600;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:1rem;padding-right:1rem;border-width:1px;border-color:#4299e1;border-radius:0.25rem;font-size:1.125rem;text-transform:capitalize;}
+                  </style>,
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-1:hover{background-color:#4299e1;color:#fff;border-color:transparent;}
                   </style>,
                 ],
               },
@@ -195,23 +213,35 @@ exports[`Layout component should set container children element to data 1`] = `
           }
         />
       </ForwardRef(render)>
-      <Styled(div)
-        id="main-container"
+      <Styled(main)
+        aria-labelledby="layout-title"
+        id="main"
       >
-        <div
-          className="emotion-3"
-          id="main-container"
+        <main
+          aria-labelledby="layout-title"
+          className="emotion-5"
+          id="main"
         >
+          <Styled(h1)
+            id="layout-title"
+          >
+            <h1
+              className="emotion-0"
+              id="layout-title"
+            >
+              Main layout
+            </h1>
+          </Styled(h1)>
           <Styled(header)>
             <header
-              className="emotion-1"
+              className="emotion-2"
             >
               <div />
               <Styled(button)
                 onClick={[Function]}
               >
                 <button
-                  className="emotion-0"
+                  className="emotion-1"
                   onClick={[Function]}
                 >
                   light
@@ -219,15 +249,25 @@ exports[`Layout component should set container children element to data 1`] = `
               </Styled(button)>
             </header>
           </Styled(header)>
-          <Styled(main)>
-            <main
-              className="emotion-2"
+          <Styled(div)
+            aria-labelledby="page-title"
+          >
+            <div
+              aria-labelledby="page-title"
+              className="emotion-3"
             >
               data
-            </main>
-          </Styled(main)>
-        </div>
-      </Styled(div)>
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-3"
+            >
+              <p />
+            </div>
+          </Styled(div)>
+        </main>
+      </Styled(main)>
       <CookieConsent
         ButtonComponent={[Function]}
         acceptOnScroll={false}

@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 import { DefaultProps } from "../typescript/ui/models/properties";
+import SeoMetaData from "../typescript/ui/models/metadata";
 
 type MetaType = JSX.IntrinsicElements["meta"];
 
@@ -42,75 +43,50 @@ interface PureSeoProps extends SeoProps {
   };
 }
 
-export const PureSEO = (result: { data: PureSeoProps }) => (
-  <Helmet
-    htmlAttributes={{
-      lang: result.data.lang,
-    }}
-    title={result.data.title}
-    defaultTitle={result.data.site.siteMetadata.title}
-    titleTemplate={`%s | ${result.data.site.siteMetadata.title}`}
-    meta={[
-      {
-        name: `app:name`,
-        content: result.data.site.siteMetadata.app.name,
-      } as MetaType,
-      {
-        name: `app:description`,
-        content: result.data.description || result.data.site.siteMetadata.description,
-      } as MetaType,
-      {
-        name: `app:version`,
-        content: result.data.site.siteMetadata.app.version,
-      } as MetaType,
-      {
-        name: `app:datetime`,
-        content: result.data.site.siteMetadata.buildTime,
-      } as MetaType,
-      {
-        name: `app:datetime-formatted`,
-        content: new Date(result.data.site.siteMetadata.buildTime).toUTCString(),
-      } as MetaType,
-      {
-        name: `description`,
-        content: result.data.description || result.data.site.siteMetadata.description,
-      } as MetaType,
-      {
-        property: `gh:account`,
-        content: result.data.github.username,
-        link: result.data.github.url,
-      } as MetaType,
-      {
-        property: `og:title`,
-        content: result.data.title,
-      } as MetaType,
-      {
-        property: `og:description`,
-        content: result.data.description || result.data.site.siteMetadata.description,
-      } as MetaType,
-      {
-        property: `og:type`,
-        content: `website`,
-      } as MetaType,
-      {
-        name: `twitter:card`,
-        content: `summary`,
-      } as MetaType,
-      {
-        name: `twitter:creator`,
-        content: `@${result.data.twitter.username}`,
-      } as MetaType,
-      {
-        name: `twitter:title`,
-        content: result.data.title,
-      } as MetaType,
-      {
-        name: `twitter:description`,
-        content: result.data.description || result.data.site.siteMetadata.description,
-      } as MetaType,
-    ].concat(result.data.meta)}
-  />
-);
+export const PureSEO = (result: { data: PureSeoProps }) => {
+  const siteMeta = result?.data?.site?.siteMetadata;
+  const metaList = new SeoMetaData();
+
+  metaList.addNameContent("app:name", [siteMeta?.app?.name]);
+
+  metaList.addNameContent("app:description", [result?.data?.description, siteMeta?.description]);
+
+  metaList.addNameContent("app:version", [siteMeta?.app?.version]);
+
+  metaList.addNameContent("app:buildtime", [siteMeta?.buildTime]);
+
+  metaList.addNameContent("app:buildtime:formatted", [new Date(siteMeta?.buildTime).toUTCString()]);
+
+  metaList.addNameContent("description", [result?.data?.description, siteMeta?.description]);
+
+  metaList.addNameContent("twitter:card", ["summary"]);
+
+  metaList.addNameContent("twitter:creator", [`@${result?.data?.twitter?.username}`]);
+
+  metaList.addNameContent("twitter:title", [result?.data?.title]);
+
+  metaList.addNameContent("twitter:description", [result?.data?.description, siteMeta?.description]);
+
+  metaList.addPropertyContent("gh:account", [result?.data?.github?.username], { link: result?.data?.github?.url });
+
+  metaList.addPropertyContent("og:title", [result?.data?.title]);
+
+  metaList.addPropertyContent("og:description", [result?.data?.description, siteMeta?.description]);
+
+  metaList.addPropertyContent("og:type", ["website"]);
+
+  return (
+    <Helmet
+      htmlAttributes={{
+        lang: result.data.lang,
+      }}
+      title={result.data.title}
+      defaultTitle={result.data.site.siteMetadata.title}
+      titleTemplate={`%s | ${result.data.site.siteMetadata.title}`}
+      meta={metaList.show().concat(result.data.meta)}
+    />
+  );
+};
 
 function SEO(props: SeoProps) {
   const { site, twitter, github } = useStaticQuery(

@@ -35,8 +35,6 @@ jobs:
       - run:
           name: Execute Jest testing
           command: yarn test:ci
-      - sonarcloud/scan:
-          cache_version: 1
       - store_test_results:
           name: Collect junit reports
           path: reports
@@ -49,6 +47,19 @@ jobs:
           paths:
             - reports
             - coverage
+
+  scaning:
+    docker:
+      - image: cimg/node:<< pipeline.parameters.node-version >>
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: "list all data and code"
+          command: ls -la && ls -la reports && ls -la coverage && ls -la cypress-coverage
+      - sonarcloud/scan:
+          cache_version: 1
 
 workflows:
   main:
@@ -77,6 +88,12 @@ workflows:
           yarn: true
           browser: electron
           post-steps:
+            - persist_to_workspace:
+                root: ~/
+                paths:
+                  - reports
+                  - coverage
+                  - cypress-coverage
             - store_artifacts:
                 name: Collect coverage reports
                 path: cypress-coverage/lcov-report
@@ -84,3 +101,6 @@ workflows:
             - store_test_results:
                 name: Collect test reports
                 path: reports
+      - scaning:
+          requires:
+            - cypress/run

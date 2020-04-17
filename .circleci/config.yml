@@ -14,6 +14,8 @@ jobs:
   testing:
     docker:
       - image: cimg/node:<< pipeline.parameters.node-version >>
+        environment:
+          CODE_COVERAGE: "true"
     steps:
       - checkout
       - node/install-packages:
@@ -37,6 +39,11 @@ jobs:
           name: Collect coverage reports
           path: coverage/lcov-report
           destination: coverage
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - reports
+            - coverage
 
 workflows:
   main:
@@ -45,6 +52,9 @@ workflows:
       - cypress/install:
           requires:
             - testing
+          post-checkout:
+            - attach_workspace:
+                at: ~/
           yarn: true
           cache-key: 'v1-dependencies-{{ checksum "yarn.lock" }}'
           build: yarn build:website
@@ -60,5 +70,10 @@ workflows:
           yarn: true
           browser: electron
           post-steps:
+            - store_artifacts:
+                name: Collect coverage reports
+                path: cypress-coverage/lcov-report
+                destination: coverage
             - store_test_results:
+                name: Collect test reports
                 path: reports

@@ -43,7 +43,7 @@ jobs:
           path: coverage/lcov-report
           destination: coverage
       - persist_to_workspace:
-          root: ~/
+          root: ~/project
           paths:
             - reports
             - coverage
@@ -54,7 +54,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/
+          at: ~/project
       - run:
           name: "list all data and code"
           command: ls -la && ls -la reports && ls -la coverage && ls -la cypress-coverage
@@ -71,7 +71,7 @@ workflows:
             - testing
           post-checkout:
             - attach_workspace:
-                at: ~/
+                at: ~/project
           yarn: true
           cache-key: 'v1-dependencies-{{ checksum "yarn.lock" }}'
           build: yarn build:website
@@ -89,7 +89,7 @@ workflows:
           browser: electron
           post-steps:
             - persist_to_workspace:
-                root: ~/
+                root: ~/project
                 paths:
                   - reports
                   - coverage

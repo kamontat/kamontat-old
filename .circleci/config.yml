@@ -21,8 +21,6 @@ jobs:
   testing:
     docker:
       - image: cimg/node:<< pipeline.parameters.node-version >>
-        environment:
-          WITH_COVERAGE: "true"
     steps:
       - checkout
       - node/install-packages:

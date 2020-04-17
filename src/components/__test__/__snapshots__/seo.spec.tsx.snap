@@ -25,15 +25,31 @@ Object {
     },
     Object {
       "content": "1586018684444",
-      "name": "app:datetime",
+      "name": "app:buildtime",
     },
     Object {
       "content": "Invalid Date",
-      "name": "app:datetime-formatted",
+      "name": "app:buildtime:formatted",
     },
     Object {
       "content": "Description",
       "name": "description",
+    },
+    Object {
+      "content": "summary",
+      "name": "twitter:card",
+    },
+    Object {
+      "content": "@name",
+      "name": "twitter:creator",
+    },
+    Object {
+      "content": "First title",
+      "name": "twitter:title",
+    },
+    Object {
+      "content": "Description",
+      "name": "twitter:description",
     },
     Object {
       "content": "ghname",
@@ -51,22 +67,6 @@ Object {
     Object {
       "content": "website",
       "property": "og:type",
-    },
-    Object {
-      "content": "summary",
-      "name": "twitter:card",
-    },
-    Object {
-      "content": "@name",
-      "name": "twitter:creator",
-    },
-    Object {
-      "content": "First title",
-      "name": "twitter:title",
-    },
-    Object {
-      "content": "Description",
-      "name": "twitter:description",
     },
   ],
   "noscriptTags": Array [],

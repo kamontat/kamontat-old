@@ -5,7 +5,7 @@ module.exports = function (api) {
   const presets = []
 
   plugins.push("transform-class-properties")
-  plugins.push("istanbul")
+  if (process.env.WITH_COVERAGE === "true") plugins.push("istanbul")
 
   presets.push("babel-preset-gatsby")
 

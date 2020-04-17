@@ -85,7 +85,6 @@ const DebugPage = (): JSX.Element => {
                 _storybook_addon_links
                 _storybook_react
                 _testing_library_cypress
-                _types_classnames
                 _types_enzyme
                 _types_jest
                 _types_node
@@ -101,7 +100,6 @@ const DebugPage = (): JSX.Element => {
                 babel_plugin_remove_graphql_queries
                 babel_preset_gatsby
                 babel_preset_react_app
-                classnames
                 cypress
                 cypress_axe
                 enzyme
@@ -115,7 +113,6 @@ const DebugPage = (): JSX.Element => {
                 gatsby_plugin_ts_config
                 gatsby_plugin_typescript
                 identity_obj_proxy
-                jaeger_client
                 jest
                 jest_chain
                 jest_emotion

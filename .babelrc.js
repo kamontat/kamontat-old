@@ -4,13 +4,13 @@ module.exports = function (api) {
   const plugins = []
   const presets = []
 
-  plugins.push("transform-class-properties")
-  if (process.env.WITH_COVERAGE === "true") plugins.push("istanbul")
-
   presets.push("babel-preset-gatsby")
 
+  // plugins.push("transform-class-properties")
+  if (process.env.WITH_COVERAGE === "true") plugins.push("istanbul")
+
   return {
-    "plugins": plugins,
-    "presets": presets
+    "presets": presets,
+    "plugins": plugins
   }
 }

@@ -7,7 +7,8 @@ module.exports = function (api) {
   presets.push("babel-preset-gatsby")
 
   // plugins.push("transform-class-properties")
-  if (process.env.WITH_COVERAGE === "true") plugins.push("istanbul")
+  // plugins.push("macros")
+  // if (process.env.WITH_COVERAGE === "true") plugins.push("istanbul")
 
   return {
     "presets": presets,

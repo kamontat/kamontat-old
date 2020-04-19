@@ -79,6 +79,7 @@ const Layout = (props: LayoutProps) => {
             <Header>
               {props.search ? (
                 <Search
+                  aria-label="search"
                   onChange={(event) => props.onSearch(event.target.value)}
                   type="text"
                   placeholder="Searching..."

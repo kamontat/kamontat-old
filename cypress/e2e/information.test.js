@@ -11,6 +11,6 @@ describe("Information page", () => {
   });
 
   it("Has no detectable accessibility violations on load", () => {
-    cy.checkA11y(`div[id="___gatsby"]`);
+    cy.checkA11y();
   });
 });

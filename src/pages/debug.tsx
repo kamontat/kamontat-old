@@ -9,6 +9,11 @@ import { encrypter } from "../typescript/src/utils/transformer";
 import tw from "twin.macro";
 import styled from "../styles/styled";
 
+const HiddenTitle = styled.h1`
+  visibility: hidden;
+  display: none;
+`;
+
 const Section = styled.section`
   ${tw`flex flex-col self-center p-6`}
 `;
@@ -185,6 +190,7 @@ const DebugPage = (): JSX.Element => {
   return (
     <Layout search={true} onSearch={setSearch}>
       <SEO title="Debugging" lang="en" />
+      <HiddenTitle id="page-title">Debugging</HiddenTitle>
       <Section>
         <Cards>
           {data.map(({ key, value }) => (

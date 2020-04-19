@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 const ts = require("gatsby-plugin-ts-config");
 
 module.exports = ts.generateConfig({

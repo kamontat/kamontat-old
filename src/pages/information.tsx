@@ -3,29 +3,24 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-
-import classNames from "classnames";
-
 import { encrypter } from "../typescript/src/utils/transformer";
 
-const InformationPage = (): JSX.Element => {
+// [optional] for custom styled
+// import tw from "twin.macro";
+// import styled from "../styles/styled";
+
+const Page = (): JSX.Element => {
   const { site } = useStaticQuery(
     graphql`
-      query InformationQuery {
+      query PageQuery {
         site {
           siteMetadata {
-            description
             buildTime
             app {
               name
+              description
               version
               license
-              repository {
-                url
-              }
-              author {
-                name
-              }
             }
             environment {
               SITE_EXPERIMENT_AB
@@ -40,46 +35,42 @@ const InformationPage = (): JSX.Element => {
     `,
   );
 
-  const token = site.siteMetadata.environment.ACCESS_TOKEN;
-  const salt = site.siteMetadata.environment.ACCESS_SALT;
+  const data = site.siteMetadata;
+
+  const environment = data.environment.NODE_ENV;
+
+  const name = data.app.name;
+  const description = data.app.description;
+  const version = data.app.version;
+  const license = data.app.license;
+  const buildtime = new Date(data.buildTime).toString();
+
+  const uniqueID = data.environment.SITE_UNIQUE_ID;
+
+  const token = data.environment.ACCESS_TOKEN;
+  const salt = data.environment.ACCESS_SALT;
 
   const experiment = encrypter(site.siteMetadata.environment.SITE_EXPERIMENT_AB, token, salt);
 
-  const keyvalues = [
-    { key: "Application Environment", value: site.siteMetadata.environment.NODE_ENV },
-    { key: "Application name", value: site.siteMetadata.app.name },
-    { key: "Application description", value: site.siteMetadata.description },
-    { key: "Application build date", value: new Date(site.siteMetadata.buildTime).toString() },
-    {
-      key: "Application version",
-      value: `${site.siteMetadata.app.version} (${site.siteMetadata.environment.SITE_UNIQUE_ID})`,
-    },
-    { key: "Application experiment", value: experiment },
-    { key: "Application author", value: site.siteMetadata.app.author.name },
-    { key: "Application license", value: site.siteMetadata.app.license },
-    { key: "Application repository", value: site.siteMetadata.app.repository.url },
-  ];
-
   return (
     <Layout>
-      <SEO title="Information" lang="en" />
-      <section className={"bulma.section"}>
-        <div className={"bulma.container"}>
-          <h1 className={"bulma.title"}>Information</h1>
-          {keyvalues.map(({ key, value }) => (
-            <div key={key} className={"bulma.columns"}>
-              <div className={classNames("bulma.column", "bulma.is1")}></div>
-              <div className={classNames("bulma.column", "bulma.is2")}>
-                <span className={"bulma.hasTextWeightBold"}>{key}</span>
-              </div>
-              <div className={classNames("bulma.column")}>{value}</div>
-              <div className={classNames("bulma.column", "bulma.is3")}></div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <SEO title="Information" />
+      <h1 id="page-title">Information</h1>
+
+      <ul>
+        <li>Appname: {name}</li>
+        <li>Description: {description}</li>
+        <li>License: {license}</li>
+
+        <li>Environment: {environment}</li>
+
+        <li>Build time: {buildtime}</li>
+        <li>Version: {version}</li>
+        <li>Unique id: {uniqueID}</li>
+        <li>Experiment: {experiment}</li>
+      </ul>
     </Layout>
   );
 };
 
-export default InformationPage;
+export default Page;

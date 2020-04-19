@@ -5,6 +5,14 @@ orbs:
   cypress: cypress-io/cypress@1.19.1
   sonarcloud: sonarsource/sonarcloud@1.0.1
 
+executors:
+  base12:
+    docker:
+      - image: "cypress/base:12.14.0"
+    environment:
+      WITH_COVERAGE: "true"
+      NODE_ENV: "test"
+
 parameters:
   node-version:
     type: string
@@ -28,8 +36,6 @@ jobs:
       - run:
           name: Execute Jest testing
           command: yarn test:ci
-      - sonarcloud/scan:
-          cache_version: 1
       - store_test_results:
           name: Collect junit reports
           path: reports
@@ -37,18 +43,41 @@ jobs:
           name: Collect coverage reports
           path: coverage/lcov-report
           destination: coverage
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - reports
+            - coverage
+
+  scaning:
+    docker:
+      - image: cimg/node:<< pipeline.parameters.node-version >>
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: "list all data and code"
+          command: ls -la && ls -la reports && ls -la coverage && ls -la cypress-coverage
+      - sonarcloud/scan:
+          cache_version: 1
 
 workflows:
   main:
     jobs:
       - testing
       - cypress/install:
+          executor: base12
           requires:
             - testing
+          post-checkout:
+            - attach_workspace:
+                at: ~/project
           yarn: true
           cache-key: 'v1-dependencies-{{ checksum "yarn.lock" }}'
           build: yarn build:website
       - cypress/run:
+          executor: base12
           requires:
             - cypress/install
           start: yarn serve
@@ -60,5 +89,19 @@ workflows:
           yarn: true
           browser: electron
           post-steps:
+            - persist_to_workspace:
+                root: ~/project
+                paths:
+                  - reports
+                  - coverage
+                  - cypress-coverage
+            - store_artifacts:
+                name: Collect coverage reports
+                path: cypress-coverage/lcov-report
+                destination: coverage
             - store_test_results:
+                name: Collect test reports
                 path: reports
+      - scaning:
+          requires:
+            - cypress/run

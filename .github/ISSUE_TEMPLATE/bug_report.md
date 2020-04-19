@@ -23,9 +23,11 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Website version and build-number (please complete the following information):**
+**Website information (please complete the following information):**
+ - environment [get from `/information`]: 
  - version [get from `/information`]: 
- - build-number [get from `/information`]: 
+ - unique id [get from `/information`]: 
+ - experiment [get from `/information`]: 
 
 **Desktop (please complete the following information):**
  - OS [e.g. MacOS]: 

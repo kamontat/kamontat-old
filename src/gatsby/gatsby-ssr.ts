@@ -7,9 +7,12 @@
 // You can delete this file if you're not using it
 import { ReplaceRendererArgs } from "gatsby";
 
-// Adds a class name to the body element
-exports.onRenderBody = ({ setBodyAttributes }: ReplaceRendererArgs) => {
+export function onRenderBody({ setBodyAttributes, setHtmlAttributes }: ReplaceRendererArgs) {
   setBodyAttributes({
-    key: "contentful",
+    key: "kamontat",
   });
-};
+
+  setHtmlAttributes({
+    role: "html",
+  });
+}

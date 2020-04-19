@@ -1,9 +1,12 @@
 /// <reference types="Cypress" />
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const constants = require("./constants");
+
 // https://www.gatsbyjs.org/docs/end-to-end-testing/
 describe("Index page", () => {
   beforeEach(() => {
-    cy.visit("/").get("main").injectAxe();
+    cy.visit("/").get(constants.id).injectAxe();
   });
 
   it("Should load the correct URL", function () {
@@ -12,6 +15,6 @@ describe("Index page", () => {
   });
 
   it("Has no detectable accessibility violations on load", () => {
-    cy.checkA11y();
+    cy.checkA11y(constants.id);
   });
 });

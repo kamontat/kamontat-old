@@ -32,7 +32,7 @@
     "test": "jest",
     "test:e2e": "start-test serve http://localhost:9000 cy:open",
     "test:e2e:headless": "start-test serve http://localhost:9000 cy:run",
-    "lint:ci": "eslint . --ignore-path .gitignore --ext .ts,.tsx --format json --output-file reports/eslint/ts-lint-result.json",
+    "lint:ci": "yarn lint --format json --output-file reports/eslint/ts-lint-result.json && yarn lint --format junit --output-file reports/eslint/ts-lint-result.xml",
     "test:ci": "jest --ci --coverage --runInBand",
     "test:e2e:ci": "start-test serve http://localhost:9000 cy:run:record",
     "aggregate:reports": "nyc",

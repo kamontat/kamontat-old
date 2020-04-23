@@ -9340,28 +9340,7 @@ gatsby-source-contentful@2.2.9:
     lodash "^4.17.15"
     qs "^6.9.1"
 
-gatsby-source-filesystem@2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.2.2.tgz#9ecbc9e64fedd1c30b4d21f7e148016353b2dc17"
-  integrity sha512-uHHCiTp8/q9JF0Yr14Q5aJZ07jUJSV6HJSnrSVnEIF4PfRQkVJG5FHQULmxJUXWQhIoy17EGuzqVjxMsFY69QA==
-  dependencies:
-    "@babel/runtime" "^7.8.7"
-    better-queue "^3.8.10"
-    bluebird "^3.7.2"
-    chokidar "3.3.1"
-    file-type "^12.4.2"
-    fs-extra "^8.1.0"
-    gatsby-core-utils "^1.1.1"
-    got "^9.6.0"
-    md5-file "^3.2.3"
-    mime "^2.4.4"
-    pretty-bytes "^5.3.0"
-    progress "^2.0.3"
-    read-chunk "^3.2.0"
-    valid-url "^1.0.9"
-    xstate "^4.8.0"
-
-gatsby-source-filesystem@^2.2.4:
+gatsby-source-filesystem@2.2.4, gatsby-source-filesystem@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.2.4.tgz#5526e90efa3fd1dd56df587bdbcd87cb6280aa29"
   integrity sha512-Tf5HKAYcVmVFj7DhWi7+opDH312em8vkuoH/fTVLReBrN0yfi8maDha9EaZj4lL1fTtLk6WG0TwOM6GkyYiqgw==

@@ -39,7 +39,7 @@ module.exports = ({
   config.resolve.mainFields = ["browser", "module", "main"]
 
   config.resolve.extensions.push('.ts', '.tsx');
-  config.output.publicPath = process.env.CI ? '/storybook/' : "/"
+  config.output.publicPath = "/"
 
   return config
 }

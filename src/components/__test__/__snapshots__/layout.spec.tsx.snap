@@ -1,69 +1,273 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Layout component should set container children element to data 1`] = `
-.c0 {
-  margin: 30px;
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  float: left;
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 @media (min-width:768px) {
-  .c0 {
-    margin: 50px;
+  .emotion-5 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 }
 
-<Layout>
+.emotion-0 {
+  visibility: hidden;
+  display: none;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.emotion-1 {
+  background-color: transparent;
+  color: #2b6cb0;
+  font-weight: 600;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-width: 1px;
+  border-color: #4299e1;
+  border-radius: 0.25rem;
+  font-size: 1.125rem;
+  text-transform: capitalize;
+}
+
+.emotion-1:hover {
+  background-color: #4299e1;
+  color: #fff;
+  border-color: transparent;
+}
+
+<Layout
+  onSearch={[Function]}
+  search={false}
+>
   <CookiesProvider>
     <ThemeProvider
       theme={
         Object {
-          "body": "#E2E2E2",
+          "body": "#F2F2F2",
           "gradient": "linear-gradient(#39598A, #79D7ED)",
           "text": "#363537",
           "toggleBorder": "#FFF",
         }
       }
     >
-      <Memo(GlobalStyleComponent) />
-      <HelmetWrapper
-        defer={true}
-        encodeSpecialCharacters={true}
-      >
-        <SideEffect(NullComponent)
-          defer={true}
-          encodeSpecialCharacters={true}
-          link={
-            Array [
-              Object {
-                "href": "https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap",
-                "rel": "stylesheet",
-              },
-            ]
+      <ForwardRef(render)
+        styles={
+          Object {
+            "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdsb2JhbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHaUQiLCJmaWxlIjoiZ2xvYmFsLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IFByb3BlcnRpZXMgfSBmcm9tIFwiLi90aGVtZXNcIjtcblxuZXhwb3J0IGNvbnN0IGdzdHlsZXMgPSAodGhlbWU6IFByb3BlcnRpZXMpID0+IGNzc2BcbiAgQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvOjQwMCw1MDAsNzAwJmRpc3BsYXk9c3dhcFwiKTtcblxuICBib2R5IHtcbiAgICBiYWNrZ3JvdW5kOiAke3RoZW1lLmJvZHl9O1xuICAgIGNvbG9yOiAke3RoZW1lLnRleHR9O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgdHJhbnNpdGlvbjogYWxsIDAuMjVzIGxpbmVhcjtcbiAgfVxuYDtcbiJdfQ== */",
+            "name": "jdhvd6",
+            "next": undefined,
+            "styles": "@import url(\\"https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap\\");body{background:#F2F2F2;color:#363537;display:flex;margin:0;padding:0;transition:all 0.25s linear;}",
+            "toString": [Function],
           }
-        >
-          <NullComponent
-            defer={true}
-            encodeSpecialCharacters={true}
-            link={
-              Array [
-                Object {
-                  "href": "https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap",
-                  "rel": "stylesheet",
-                },
-              ]
-            }
-          />
-        </SideEffect(NullComponent)>
-      </HelmetWrapper>
-      <styled.div
-        id="main-container"
+        }
       >
-        <div
-          className="c0"
-          id="main-container"
+        <InnerGlobal
+          cache={
+            Object {
+              "insert": [Function],
+              "inserted": Object {
+                "0": true,
+                "1e8tqno": true,
+                "1v68lv0": true,
+                "k48yuu": true,
+                "tivsge": true,
+              },
+              "key": "css",
+              "nonce": undefined,
+              "registered": Object {},
+              "sheet": StyleSheet {
+                "before": null,
+                "container": <head>
+                  <style
+                    data-emotion="css-global"
+                  >
+                    
+                    @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdsb2JhbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHaUQiLCJmaWxlIjoiZ2xvYmFsLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IFByb3BlcnRpZXMgfSBmcm9tIFwiLi90aGVtZXNcIjtcblxuZXhwb3J0IGNvbnN0IGdzdHlsZXMgPSAodGhlbWU6IFByb3BlcnRpZXMpID0+IGNzc2BcbiAgQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvOjQwMCw1MDAsNzAwJmRpc3BsYXk9c3dhcFwiKTtcblxuICBib2R5IHtcbiAgICBiYWNrZ3JvdW5kOiAke3RoZW1lLmJvZHl9O1xuICAgIGNvbG9yOiAke3RoZW1lLnRleHR9O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgdHJhbnNpdGlvbjogYWxsIDAuMjVzIGxpbmVhcjtcbiAgfVxuYDtcbiJdfQ== */
+                  </style>
+                  <style
+                    data-emotion="css-global"
+                  >
+                    
+                    body{background:#F2F2F2;color:#363537;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin:0;padding:0;-webkit-transition:all 0.25s linear;transition:all 0.25s linear;}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdsb2JhbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHaUQiLCJmaWxlIjoiZ2xvYmFsLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IFByb3BlcnRpZXMgfSBmcm9tIFwiLi90aGVtZXNcIjtcblxuZXhwb3J0IGNvbnN0IGdzdHlsZXMgPSAodGhlbWU6IFByb3BlcnRpZXMpID0+IGNzc2BcbiAgQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvOjQwMCw1MDAsNzAwJmRpc3BsYXk9c3dhcFwiKTtcblxuICBib2R5IHtcbiAgICBiYWNrZ3JvdW5kOiAke3RoZW1lLmJvZHl9O1xuICAgIGNvbG9yOiAke3RoZW1lLnRleHR9O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgdHJhbnNpdGlvbjogYWxsIDAuMjVzIGxpbmVhcjtcbiAgfVxuYDtcbiJdfQ== */
+                  </style>
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-5{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;float:left;width:100vw;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem;padding-top:1.5rem;padding-bottom:1.5rem;}
+                  </style>
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    @media (min-width:768px){.emotion-5{padding-left:2.5rem;padding-right:2.5rem;padding-top:1.5rem;padding-bottom:1.5rem;}}
+                  </style>
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-0{visibility:hidden;display:none;}
+                  </style>
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;}
+                  </style>
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-1{background-color:transparent;color:#2b6cb0;font-weight:600;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:1rem;padding-right:1rem;border-width:1px;border-color:#4299e1;border-radius:0.25rem;font-size:1.125rem;text-transform:capitalize;}
+                  </style>
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-1:hover{background-color:#4299e1;color:#fff;border-color:transparent;}
+                  </style>
+                </head>,
+                "ctr": 6,
+                "isSpeedy": false,
+                "key": "css",
+                "nonce": undefined,
+                "tags": Array [
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-5{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;float:left;width:100vw;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem;padding-top:1.5rem;padding-bottom:1.5rem;}
+                  </style>,
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    @media (min-width:768px){.emotion-5{padding-left:2.5rem;padding-right:2.5rem;padding-top:1.5rem;padding-bottom:1.5rem;}}
+                  </style>,
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-0{visibility:hidden;display:none;}
+                  </style>,
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;}
+                  </style>,
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-1{background-color:transparent;color:#2b6cb0;font-weight:600;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:1rem;padding-right:1rem;border-width:1px;border-color:#4299e1;border-radius:0.25rem;font-size:1.125rem;text-transform:capitalize;}
+                  </style>,
+                  <style
+                    data-emotion="css"
+                  >
+                    
+                    .emotion-1:hover{background-color:#4299e1;color:#fff;border-color:transparent;}
+                  </style>,
+                ],
+              },
+            }
+          }
+          serialized={
+            Object {
+              "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdsb2JhbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHaUQiLCJmaWxlIjoiZ2xvYmFsLnRzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IFByb3BlcnRpZXMgfSBmcm9tIFwiLi90aGVtZXNcIjtcblxuZXhwb3J0IGNvbnN0IGdzdHlsZXMgPSAodGhlbWU6IFByb3BlcnRpZXMpID0+IGNzc2BcbiAgQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvOjQwMCw1MDAsNzAwJmRpc3BsYXk9c3dhcFwiKTtcblxuICBib2R5IHtcbiAgICBiYWNrZ3JvdW5kOiAke3RoZW1lLmJvZHl9O1xuICAgIGNvbG9yOiAke3RoZW1lLnRleHR9O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgdHJhbnNpdGlvbjogYWxsIDAuMjVzIGxpbmVhcjtcbiAgfVxuYDtcbiJdfQ== */",
+              "name": "jdhvd6",
+              "next": undefined,
+              "styles": "@import url(\\"https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap\\");body{background:#F2F2F2;color:#363537;display:flex;margin:0;padding:0;transition:all 0.25s linear;}",
+              "toString": [Function],
+            }
+          }
+        />
+      </ForwardRef(render)>
+      <Styled(main)
+        aria-labelledby="layout-title"
+        id="main"
+      >
+        <main
+          aria-labelledby="layout-title"
+          className="emotion-5"
+          id="main"
         >
-          data
-        </div>
-      </styled.div>
+          <Styled(h1)
+            id="layout-title"
+          >
+            <h1
+              className="emotion-0"
+              id="layout-title"
+            >
+              Main layout
+            </h1>
+          </Styled(h1)>
+          <Styled(header)>
+            <header
+              className="emotion-2"
+            >
+              <div />
+              <Styled(button)
+                onClick={[Function]}
+              >
+                <button
+                  className="emotion-1"
+                  onClick={[Function]}
+                >
+                  light
+                </button>
+              </Styled(button)>
+            </header>
+          </Styled(header)>
+          <Styled(div)
+            aria-labelledby="page-title"
+          >
+            <div
+              aria-labelledby="page-title"
+              className="emotion-3"
+            >
+              data
+            </div>
+          </Styled(div)>
+          <Styled(div)>
+            <div
+              className="emotion-3"
+            >
+              <p />
+            </div>
+          </Styled(div)>
+        </main>
+      </Styled(main)>
       <CookieConsent
         ButtonComponent={[Function]}
         acceptOnScroll={false}
@@ -94,7 +298,8 @@ exports[`Layout component should set container children element to data 1`] = `
         setDeclineCookie={true}
         style={
           Object {
-            "background": "#000000",
+            "background": "#363537",
+            "color": "#F2F2F2",
           }
         }
       >
@@ -103,9 +308,9 @@ exports[`Layout component should set container children element to data 1`] = `
           style={
             Object {
               "alignItems": "baseline",
-              "background": "#000000",
+              "background": "#363537",
               "bottom": "0",
-              "color": "white",
+              "color": "#F2F2F2",
               "display": "flex",
               "flexWrap": "wrap",
               "justifyContent": "space-between",

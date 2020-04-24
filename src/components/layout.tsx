@@ -1,23 +1,68 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
+
 import { CookiesProvider } from "react-cookie";
 import CookieConsent from "react-cookie-consent";
 
 import { DefaultProps } from "../typescript/ui/models/properties";
 
-import { GlobalStyles } from "../styles/global";
+// Styled import
 
-import { Container } from "../styles/layout/Container";
-import darkTheme from "../styles/themes/dark";
-import lightTheme from "../styles/themes/light";
+import tw from "twin.macro";
+import styled from "../styles/styled";
 
-import { ThemeProvider } from "styled-components";
+import { Global } from "@emotion/core";
+import { gstyles } from "../styles/global";
+
+// Theming import
+
+import { ThemeProvider } from "emotion-theming";
+import { DarkTheme, LightTheme } from "../styles/themes";
+
 import { useThemeMode } from "../typescript/ui/hooks/toggleThemeMode";
 
-const Layout = (props: DefaultProps) => {
+// Styled components
+
+const Container = styled.main`
+  ${tw`flex flex-col float-left w-screen mx-auto px-4 md:px-10 py-6 md:py-6`}
+`;
+
+const Header = styled.header`
+  ${tw`flex justify-end`}
+`;
+
+const HiddenTitle = styled.h1`
+  visibility: hidden;
+  display: none;
+`;
+
+const Button = styled.button`
+  ${tw`bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded text-lg capitalize`}
+`;
+
+const Search = styled.input`
+  background-color: ${(props) => props.theme.body};
+  ${tw`appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 mx-4 leading-tight focus:outline-none focus:border-purple-500`};
+`;
+
+const Section = styled.div``;
+
+const Footer = styled.div``;
+
+interface LayoutProps extends DefaultProps {
+  search: boolean;
+  onSearch: (value: string) => void;
+}
+
+const Layout = (props: LayoutProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [theme, _, componentMounted] = useThemeMode();
+  const [_i, themeName, theme, togglingTheme, componentMounted] = useThemeMode(
+    {
+      name: "light",
+      props: LightTheme,
+    },
+    { name: "dark", props: DarkTheme },
+  );
 
   if (!componentMounted) {
     return <div />;
@@ -26,19 +71,34 @@ const Layout = (props: DefaultProps) => {
   return (
     <React.Fragment>
       <CookiesProvider>
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-          <GlobalStyles />
+        <ThemeProvider theme={theme}>
+          <Global styles={gstyles(theme)} />
 
-          <Helmet>
-            <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
-          </Helmet>
-
-          <Container id="main-container">{props.children}</Container>
+          <Container id="main" aria-labelledby="layout-title">
+            <HiddenTitle id="layout-title">Main layout</HiddenTitle>
+            <Header>
+              {props.search ? (
+                <Search
+                  aria-label="search"
+                  onChange={(event) => props.onSearch(event.target.value)}
+                  type="text"
+                  placeholder="Searching..."
+                />
+              ) : (
+                <div />
+              )}
+              <Button onClick={togglingTheme as () => void}>{themeName}</Button>
+            </Header>
+            <Section aria-labelledby="page-title">{props.children}</Section>
+            <Footer>
+              <p></p>
+            </Footer>
+          </Container>
 
           <CookieConsent
             location="bottom"
             buttonText="I understand"
-            style={{ background: "#000000" }}
+            style={{ background: theme.text, color: theme.body }}
             cookieName="is-analytics-enabled"
             enableDeclineButton
           >
@@ -50,7 +110,14 @@ const Layout = (props: DefaultProps) => {
   );
 };
 
+Layout.defaultProps = {
+  search: false,
+  onSearch: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
+} as LayoutProps;
+
 Layout.propTypes = {
+  search: PropTypes.bool,
+  onSearch: PropTypes.func,
   children: PropTypes.node.isRequired,
 };
 

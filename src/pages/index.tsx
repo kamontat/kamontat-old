@@ -2,25 +2,30 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
-import classNames from "classnames";
-
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-import styled from "styled-components";
+import tw from "twin.macro";
+import styled from "@emotion/styled";
 
-const Center = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+const Container = styled.div`
+  ${tw`flex py-5`}
+`;
+
+const Information = styled.div`
+  ${tw`flex flex-col justify-center pl-3`}
 `;
 
 const Image = styled(Img)`
-  height: 600px;
-  width: 400px;
+  ${tw`rounded-full h-auto w-5/12 sm:w-3/12 lg:w-2/12`}
+`;
+
+const MyName = styled.h1`
+  ${tw`font-sans text-lg md:text-xl font-bold`}
+`;
+
+const MyJob = styled.h2`
+  ${tw`font-sans text-base md:text-lg`}
 `;
 
 const IndexPage = (): JSX.Element => {
@@ -38,7 +43,7 @@ const IndexPage = (): JSX.Element => {
             localFile {
               sharp: childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }
             }
@@ -48,17 +53,18 @@ const IndexPage = (): JSX.Element => {
     `,
   );
 
-  console.log(info);
   const firstImage = info.images[0];
 
   return (
     <Layout>
       <SEO lang={info.locale} />
-      <Center role="main" aria-labelledby="main-container">
+      <Container>
         <Image title={firstImage?.title} alt={firstImage?.description} fluid={firstImage?.localFile?.sharp?.fluid} />
-        <h1 className={classNames("bulma.isSize3", "bulma.isUppercase", "bulma.hasTextWeightBold")}>{info.name}</h1>
-        <h2 className={classNames("bulma.isSize5", "bulma.isUppercase")}>{info.definition}</h2>
-      </Center>
+        <Information>
+          <MyName id="page-title">{info.name}</MyName>
+          <MyJob>{info.definition}</MyJob>
+        </Information>
+      </Container>
     </Layout>
   );
 };

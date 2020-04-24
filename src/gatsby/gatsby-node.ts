@@ -4,7 +4,10 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 import path from "path";
-import { CreatePagesArgs } from "gatsby";
+import { GatsbyNode } from "gatsby";
+
+type createPages = GatsbyNode["createPages"];
+type onCreateBabelConfig = GatsbyNode["onCreateBabelConfig"];
 
 interface DataProps {
   social: {
@@ -15,7 +18,7 @@ interface DataProps {
   };
 }
 
-exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
+export const createPages: createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const { data } = await graphql<DataProps>(`
@@ -49,4 +52,15 @@ exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
       link: `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/home`,
     },
   });
+};
+
+export const onCreateBabelConfig: onCreateBabelConfig = ({ actions }) => {
+  if (process.env.WITH_COVERAGE === "true") {
+    console.log("[debug] add istanbul babel plugins");
+
+    actions.setBabelPlugin({
+      name: "babel-plugin-istanbul",
+      options: {},
+    });
+  }
 };

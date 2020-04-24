@@ -60,7 +60,9 @@ builder.addPlugin(`gatsby-plugin-sentry`, {
 });
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap
-builder.addPlugin("gatsby-plugin-sitemap", {});
+builder.addPlugin("gatsby-plugin-sitemap", {
+  exclude: [`/go/*`, "/debug"],
+});
 
 // https://www.gatsbyjs.org/packages/gatsby-source-contentful
 builder.addPlugin(`gatsby-source-contentful`, {

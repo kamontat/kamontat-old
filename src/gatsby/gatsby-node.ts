@@ -52,6 +52,15 @@ export const createPages: createPages = async ({ graphql, actions }) => {
       link: `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/home`,
     },
   });
+
+  createPage({
+    matchPath: `/go/qhassio`,
+    path: "/go/qhassio",
+    component: path.resolve("./src/templates/external.tsx"),
+    context: {
+      link: `https://qcondo.duckdns.org:33720`,
+    },
+  });
 };
 
 export const onCreateBabelConfig: onCreateBabelConfig = ({ actions }) => {

@@ -54,8 +54,8 @@ export const createPages: createPages = async ({ graphql, actions }) => {
   });
 
   createPage({
-    matchPath: `/go/qhassio`,
-    path: "/go/qhassio",
+    matchPath: `/go/qha`,
+    path: "/go/qha",
     component: path.resolve("./src/templates/external.tsx"),
     context: {
       link: `https://qcondo.duckdns.org:33720`,

@@ -8,7 +8,7 @@ type ExternalLinkProp = DefaultProps<{
 }>;
 
 const ExternalRedirectPage = (prop: ExternalLinkProp) => {
-  return <ExtRedirect url={prop.pageContext?.link} />;
+  return <ExtRedirect url={prop.pageContext?.link} second={prop.pageContext?.second} />;
 };
 
 export default ExternalRedirectPage;

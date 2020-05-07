@@ -115,7 +115,7 @@
     "jest-emotion": "10.0.32",
     "jest-extended": "0.11.5",
     "jest-junit": "10.0.0",
-    "prettier": "2.0.2",
+    "prettier": "2.0.5",
     "react-test-renderer": "16.13.1",
     "start-server-and-test": "1.10.11",
     "tailwindcss": "1.2.0",

@@ -18,6 +18,17 @@ interface DataProps {
   };
 }
 
+const goPath = (linkpath: string, url: string) => {
+  return {
+    matchPath: `/go/${linkpath.toLowerCase()}`,
+    path: `/go/${linkpath.toLowerCase()}`,
+    component: path.resolve("./src/templates/external.tsx"),
+    context: {
+      link: url,
+    },
+  };
+};
+
 export const createPages: createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -34,33 +45,13 @@ export const createPages: createPages = async ({ graphql, actions }) => {
 
   if (data)
     data.social.accounts.forEach(({ url, name }) => {
-      createPage({
-        matchPath: `/go/${name.toLowerCase()}`,
-        path: `/go/${name.toLowerCase()}`,
-        component: path.resolve("./src/templates/external.tsx"),
-        context: {
-          link: url,
-        },
-      });
+      createPage(goPath(name, url));
     });
 
-  createPage({
-    matchPath: `/go/cms`,
-    path: "/go/cms",
-    component: path.resolve("./src/templates/external.tsx"),
-    context: {
-      link: `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/home`,
-    },
-  });
+  createPage(goPath("cms", `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/home`));
 
-  createPage({
-    matchPath: `/go/qha`,
-    path: "/go/qha",
-    component: path.resolve("./src/templates/external.tsx"),
-    context: {
-      link: `https://qcondo.duckdns.org:33720`,
-    },
-  });
+  createPage(goPath("resume", `https://drive.google.com/open?id=1I_3irkDKGGcIwHCtySu350C8f6ghFETl`));
+  createPage(goPath("cv", `https://drive.google.com/open?id=1UY9U7ujY38lq1VOOLinuxCsVCa362Lfi`));
 };
 
 export const onCreateBabelConfig: onCreateBabelConfig = ({ actions }) => {

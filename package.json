@@ -119,7 +119,7 @@
     "react-test-renderer": "16.13.1",
     "start-server-and-test": "1.10.11",
     "tailwindcss": "1.2.0",
-    "twin.macro": "1.0.0-alpha.8",
+    "twin.macro": "2.3.0",
     "typescript": "3.8.3"
   },
   "nyc": {
